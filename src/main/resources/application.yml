@@ -1,7 +1,9 @@
 
 spring:
+  thymeleaf:
+    cache: false
   onto:
     path: src/main/resources/TinHoc.owl
     base-uri: http://www.tinhoc.edu.vn
     max-nested-count: 5
-    prefix: tckt
+    prefix: tinhoc
