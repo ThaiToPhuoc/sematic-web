@@ -1,0 +1,639 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#"
+     xml:base="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:untitled-ontology-11="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#">
+    <owl:Ontology rdf:about="http://www.tinhoc.edu.vn"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DaLam -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DaLam">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#HocSinh"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#KiemTra"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DuocSoanBoi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DuocSoanBoi">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#BaiGiang"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#KiemTra"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#GiaoVien"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ThuocBaiGiang -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ThuocBaiGiang">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#BaiGiang"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ThuocCauHoi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ThuocCauHoi">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ThuocChuong -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ThuocChuong">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#KiemTra"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ThuocTiet -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ThuocTiet">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ChuongTrinh -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ChuongTrinh">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TaiLieu"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Diemso -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Diemso">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#HocSinh"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Dung -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Dung">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Diemso"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#HocSinh"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Ho -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Ho">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#HoTen"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ConNguoi"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#HoTen -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#HoTen">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ConNguoi"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#HocKy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#HocKy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TaiLieu"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#KetQua -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#KetQua">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Link -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Link">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Lop -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Lop">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ConNguoi"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#MatKhau -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#MatKhau">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TaiKhoan"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ConNguoi"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#NamHoc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#NamHoc">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TaiLieu"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#NamSinh -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#NamSinh">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ConNguoi"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#NoiChungChuong -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#NoiChungChuong">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TenChuong"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#NoiDungCauHoi -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#NoiDungCauHoi">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#NoiDungDapAn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#NoiDungDapAn">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#NoiDungTiet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#NoiDungTiet">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TenTietHoc"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#STTCauHoi -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#STTCauHoi">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#STTChuong -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#STTChuong">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TenChuong"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#STTTiet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#STTTiet">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TenTietHoc"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Sai -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Sai">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Diemso"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#HocSinh"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TaiKhoan -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TaiKhoan">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ConNguoi"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Ten -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Ten">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#HoTen"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ConNguoi"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TenChuong -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TenChuong">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TenTaiKhoan -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TenTaiKhoan">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TaiKhoan"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ConNguoi"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TenTietHoc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TenTietHoc">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#BaiGiang -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#BaiGiang">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TaiLieu"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#KiemTra"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#BaiGiang"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ConNguoi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ConNguoi"/>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#GiaoVien -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#GiaoVien">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ConNguoi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#HocSinh -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#HocSinh">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ConNguoi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#KiemTra -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#KiemTra">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TaiLieu"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TaiLieu -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#TaiLieu"/>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CTLop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CTLop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#BaiGiang"/>
+        <DuocSoanBoi rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#PTTThuy"/>
+        <ChuongTrinh rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</ChuongTrinh>
+        <HocKy rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</HocKy>
+        <NamHoc rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</NamHoc>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Cau1_KTC1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Cau1_KTC1_Lop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi"/>
+        <ThuocTiet rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet1_C1_Lop6_1"/>
+        <NoiDungCauHoi>Khi ta cần chọn mở một file hoặc một thư mục, ta cần bấm vào:</NoiDungCauHoi>
+        <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTCauHoi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Cau2_KTC1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Cau2_KTC1_Lop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CauHoi"/>
+        <ThuocTiet rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet2_C1_Lop6_1"/>
+        <NoiDungCauHoi>Chức năng phím DELETE là gì?
+A. Xóa kí tự trước con trỏ.
+B. Xóa kí tự ngẫu nhiên.
+C. Xóa kí tự sau con trỏ.
+D. Chèn thêm nội dung vào văn bản.</NoiDungCauHoi>
+        <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</STTCauHoi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong1_Lop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong"/>
+        <ThuocBaiGiang rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#CTLop6_1"/>
+        <NoiChungChuong>Chuột và máy tính</NoiChungChuong>
+        <STTChuong rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTChuong>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn1_Cau1_KTC1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn1_Cau1_KTC1_Lop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn"/>
+        <ThuocCauHoi rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Cau1_KTC1_Lop6_1"/>
+        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</KetQua>
+        <NoiDungDapAn>Nhấn đúp chuột trái</NoiDungDapAn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn1_Cau2_KTC1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn1_Cau2_KTC1_Lop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn"/>
+        <ThuocCauHoi rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Cau2_KTC1_Lop6_1"/>
+        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
+        <NoiDungDapAn>Xóa ký tự trước con trỏ</NoiDungDapAn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn2_Cau1_KTC1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn2_Cau1_KTC1_Lop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn"/>
+        <ThuocCauHoi rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Cau1_KTC1_Lop6_1"/>
+        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
+        <NoiDungDapAn>Nhấn đúp chuột phải</NoiDungDapAn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn2_Cau2_KTC1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn2_Cau2_KTC1_Lop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn"/>
+        <ThuocCauHoi rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Cau2_KTC1_Lop6_1"/>
+        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
+        <NoiDungDapAn>Xóa ký tự ngẫu nhiên</NoiDungDapAn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn3_Cau1_KTC1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn3_Cau1_KTC1_Lop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn"/>
+        <ThuocCauHoi rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Cau1_KTC1_Lop6_1"/>
+        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
+        <NoiDungDapAn>Nhấn đúp thanh cuộn</NoiDungDapAn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn3_Cau2_KTC1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn3_Cau2_KTC1_Lop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn"/>
+        <ThuocCauHoi rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Cau2_KTC1_Lop6_1"/>
+        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</KetQua>
+        <NoiDungDapAn>Xóa ký tự sau con trỏ</NoiDungDapAn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn4_Cau1_KTC1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn4_Cau1_KTC1_Lop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn"/>
+        <ThuocCauHoi rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Cau1_KTC1_Lop6_1"/>
+        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
+        <NoiDungDapAn>Không thể dùng chuột</NoiDungDapAn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn4_Cau2_KTC1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#DapAn4_Cau2_KTC1_Lop6_1">
+        <ThuocCauHoi rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Cau2_KTC1_Lop6_1"/>
+        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
+        <NoiDungDapAn>Thêm ký tự vào văn bản</NoiDungDapAn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#KTC1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#KTC1_Lop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#KiemTra"/>
+        <ThuocChuong rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong1_Lop6_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#PTTThuy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#PTTThuy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#GiaoVien"/>
+        <Ho>Phạm Thị Thu</Ho>
+        <MatKhau>Thuy</MatKhau>
+        <Ten>Thúy</Ten>
+        <TenTaiKhoan>PTTThuy</TenTaiKhoan>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet1_C1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet1_C1_Lop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet"/>
+        <ThuocChuong rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong1_Lop6_1"/>
+        <Link>bai 5 luyen tap chuot.mp4</Link>
+        <NoiDungTiet>Chuột máy tính là gì? Tập sử dụng chuột</NoiDungTiet>
+        <STTTiet rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTTiet>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet2_C1_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet2_C1_Lop6_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Tiet"/>
+        <ThuocChuong rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#Chuong1_Lop6_1"/>
+        <Link>Bai 7 Su dung phan mem Mario de luyen go phim_2.mp4</Link>
+        <NoiDungTiet>Sử dụng bàn phím</NoiDungTiet>
+        <STTTiet rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</STTTiet>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ToPhuocThai -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#ToPhuocThai">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2021/7/untitled-ontology-11#HocSinh"/>
+        <Dung rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</Dung>
+        <Ho>Tô Phước</Ho>
+        <Lop rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</Lop>
+        <MatKhau>Thai</MatKhau>
+        <NamSinh>04/11/1991</NamSinh>
+        <Sai rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</Sai>
+        <Ten>Thái</Ten>
+        <TenTaiKhoan>PhuocThai</TenTaiKhoan>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
