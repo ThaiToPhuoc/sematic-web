@@ -15,7 +15,9 @@ public class GiaoVien {
 	private String MatKhau;
 	
 	private String TenTaiKhoan;
-
+	
+	
+	
 	public String getId() {
 		return id;
 	}

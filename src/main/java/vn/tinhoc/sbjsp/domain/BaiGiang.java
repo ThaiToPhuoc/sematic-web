@@ -13,6 +13,16 @@ public class BaiGiang {
 	private Integer HocKy ;
 	
 	private Integer NamHoc ;
+	
+	private GiaoVien DuocSoanBoi;
+
+	public GiaoVien getDuocSoanBoi() {
+		return DuocSoanBoi;
+	}
+
+	public void setDuocSoanBoi(GiaoVien duocSoanBoi) {
+		DuocSoanBoi = duocSoanBoi;
+	}
 
 	public String getId() {
 		return id;
