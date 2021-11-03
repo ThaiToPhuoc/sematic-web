@@ -464,7 +464,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1">
         <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet2_C1_Lop6_1"/>
+        <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C1_Lop6_1"/>
         <NoiDungCauHoi>Chức năng phím DELETE là gì?
 A. Xóa kí tự trước con trỏ.
 B. Xóa kí tự ngẫu nhiên.
