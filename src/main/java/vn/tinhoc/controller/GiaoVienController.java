@@ -1,4 +1,4 @@
-package vn.tinhoc.sbjsp.controller;
+package vn.tinhoc.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import vn.tinhoc.sbjsp.domain.GiaoVien;
-import vn.tinhoc.sbjsp.repository.GiaoVienRepository;
-import vn.tinhoc.sbjsp.utils.DataUtils;
+import vn.tinhoc.domain.GiaoVien;
+import vn.tinhoc.repository.GiaoVienRepository;
+import vn.tinhoc.utils.DataUtils;
 
 @Controller
 @RequestMapping("/giaovien")

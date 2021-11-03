@@ -1,6 +1,5 @@
-package vn.tinhoc.sbjsp.config;
+package vn.tinhoc.config;
 
-import org.apache.jena.util.FileManager;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +27,7 @@ public class MySystemConfig {
 		ontologyVariables.setBaseUri(baseUri.endsWith("#") ? baseUri : baseUri + "#");
 		ontologyVariables.setPath(path);
 		ontologyVariables.setMaxNestedCount(maxNestedCount);
-		ontologyVariables.setModel(FileManager.getInternal().loadModelInternal(path));
+//		ontologyVariables.setModel(FileManager.getInternal().loadModelInternal(path));
 		ontologyVariables.setPreffix(preffix + ":");
 		
 		ontologyVariables.getModel().setNsPrefix(preffix, ontologyVariables.getBaseUri());

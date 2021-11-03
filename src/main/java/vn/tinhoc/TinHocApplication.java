@@ -1,13 +1,13 @@
-package vn.tinhoc.sbjsp;
+package vn.tinhoc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootJSp1Application {
+public class TinHocApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootJSp1Application.class, args);
+		SpringApplication.run(TinHocApplication.class, args);
 	}
 
 }

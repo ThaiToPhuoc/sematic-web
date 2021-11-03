@@ -1,4 +1,4 @@
-package vn.tinhoc.sbjsp.domain;
+package vn.tinhoc.domain;
 
 import vn.lanhoang.ontology.annotation.Name;
 import vn.lanhoang.ontology.annotation.OntologyObject;

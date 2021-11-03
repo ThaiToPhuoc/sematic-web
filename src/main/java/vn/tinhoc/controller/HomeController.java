@@ -1,4 +1,4 @@
-package vn.tinhoc.sbjsp.controller;
+package vn.tinhoc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
