@@ -1,7 +1,13 @@
+server:
+  port: 8080
 
 spring:
   onto:
     path: src/main/resources/TinHoc.owl
     base-uri: http://www.tinhoc.edu.vn
     max-nested-count: 5
-    prefix: tckt
+    prefix: thoc
+    
+  devtools:
+    restart:
+      enabled: true
