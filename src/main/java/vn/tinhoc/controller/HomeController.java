@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 	
-	@GetMapping("/api")
+	@GetMapping("/")
 	public ResponseEntity<?> home() {
 		return ResponseEntity.ok(Instant.now().toString());
 	}
