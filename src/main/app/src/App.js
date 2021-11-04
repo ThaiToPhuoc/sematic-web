@@ -3,7 +3,7 @@ import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import React, { Component } from 'react';
-import Index from './pages/public/Index';
+import Index from './pages/Index';
 import Notify from './components/notify/Notify';
 
 export default class App extends Component {
