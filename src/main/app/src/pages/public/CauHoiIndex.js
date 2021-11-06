@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Form } from 'react-final-form';
 import Notify from '../../components/notify/Notify';
 import PublicService from '../../services/PublicService';
 
@@ -22,6 +23,13 @@ export default class CauHoiIndex extends Component {
     render() {
         return (
             <div>
+                <Form 
+                    onSubmit={() => {}}
+                    render={({ values, handleSubmit }) => (
+                    <form onSubmit={handleSubmit}>
+                        
+                    </form>
+                )}/>
             </div>
         )
     }

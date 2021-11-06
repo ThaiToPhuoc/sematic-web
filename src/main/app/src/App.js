@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import React, { Component } from 'react';
 import Index from './pages/public/Index';
 import Notify from './components/notify/Notify';
+import { BrowserRouter } from 'react-router-dom';
 
 export default class App extends Component {
   componentDidMount() {
@@ -14,7 +15,9 @@ export default class App extends Component {
   render() {
     return (
       <div className="position-relative app-body">
-        <Index />
+        <BrowserRouter>
+          <Index />
+        </BrowserRouter>
 
         <ToastContainer autoClose={3500} theme='colored' />
       </div>

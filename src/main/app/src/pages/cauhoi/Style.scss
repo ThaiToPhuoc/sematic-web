@@ -1,0 +1,40 @@
+form {
+    max-width: 600px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+
+    & > div:not(.flex-column) {
+        display: flex;
+        flex-flow: row nowrap;
+        line-height: 2em;
+        margin: 5px;        
+
+        & > label {
+            color: #333;
+            width: 150px;
+            font-size: 1em;
+            line-height: 32px;
+        }
+
+        & > input,
+        & > select,
+        & > textarea {
+          flex: 1;
+          padding: 3px 5px;
+          font-size: 1em;
+          margin-left: 15px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+        }
+    }
+    
+    pre {
+        border: 1px solid #ccc;
+        background: rgba(0, 0, 0, 0.1);
+        box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+      }
+}
