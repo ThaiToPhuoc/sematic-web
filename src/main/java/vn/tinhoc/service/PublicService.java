@@ -1,7 +1,8 @@
-package vn.tinhoc;
+package vn.tinhoc.service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,22 @@ public class PublicService {
 		return null;
 	}
 	
-	public CauHoi create(CauHoi cauHoi) {
+	public CauHoiDTO create(CauHoiDTO cauHoiDTO) {
+		CauHoi cauHoi = cauHoiDTO.getCauHoi();
+		List<DapAn> dapAns = cauHoiDTO.getDapAns();
 		
-		return null;
+		cauHoi.setId("Cau2_KTC2_Lop6_1");
+		cauHoiRepository.save(cauHoi);
+		
+		for (int i = 1; i <= dapAns.size(); i++) {
+			DapAn dapAn = dapAns.get(i - 1);
+			dapAn.setId("DapAn" + i + "_Cau2_KTC2_Lop6_1");
+			dapAn.setThuocCauHoi(cauHoi);
+		}
+		
+		dapAns.forEach(dapAn -> dapAnRepository.save(dapAn));
+		
+		return cauHoiDTO;
 	}
 	
 	public List<CauHoiDTO> listCauHoi() {

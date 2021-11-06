@@ -5,8 +5,15 @@ import { FieldArray } from "react-final-form-arrays";
 
 import arrayMutators from "final-form-arrays";
 import PropTypes from 'prop-types';
+import Select from 'react-select'
 
 import '../cauhoi/Style.scss'
+import PublicService from '../../services/PublicService';
+import Notify from '../../components/notify/Notify';
+
+const SelectAdapter = ({ input, ...rest }) => (
+    <Select {...input} {...rest} isSearchable={true} />
+)
 
 export default class CauHoiUpdate extends Component {
     constructor(props) {
@@ -23,6 +30,15 @@ export default class CauHoiUpdate extends Component {
     }
 
     submit = (values) => {
+        PublicService.saveCauHoi(values)
+        .then(response => {
+            if (response?.status === 200) {
+                this.setState({
+                    form: response.data
+                })
+                Notify.success('Cập nhật câu hỏi thành công!');
+            }
+        }) 
     }
 
     render() {
@@ -39,7 +55,7 @@ export default class CauHoiUpdate extends Component {
                         <h3>Cập nhật câu hỏi</h3>
                         <hr />
                         <div>
-                            <label htmlFor='cauHoi.NoiDungCauHoi'>Nội dung câu hỏi</label>
+                            <label htmlFor='cauHoi.noiDungCauHoi'>Nội dung câu hỏi</label>
                             <Field 
                                 className='m-auto'
                                 name='cauHoi.NoiDungCauHoi'
@@ -49,7 +65,7 @@ export default class CauHoiUpdate extends Component {
                             />
                         </div>
                         <div>
-                            <label htmlFor='cauHoi.STTCauHoi'>Số thứ tự</label>
+                            <label htmlFor='cauHoi.sttcauHoi'>Số thứ tự</label>
                             <Field 
                                 className='m-auto'
                                 name='cauHoi.STTCauHoi'
@@ -69,14 +85,14 @@ export default class CauHoiUpdate extends Component {
                                         <div className='input-group-text'>
                                             <Field
                                                 component="input"
-                                                name={`${dapAn}.KetQua`}
+                                                name={`${dapAn}.ketQua`}
                                                 type="checkbox"
                                             />
                                         </div>
                                         <span class="input-group-text">{Alphabetical(index + 1)}</span>
                                         <Field
                                             className='form-control'
-                                            name={`${dapAn}.NoiDungDapAn`}
+                                            name={`${dapAn}.noiDungDapAn`}
                                             component="input"
                                         />
                                         <div class="input-group-append">
@@ -104,6 +120,7 @@ export default class CauHoiUpdate extends Component {
                             </button>
                         </div>
                         <hr />
+                        <button type='submit'>Lưu</button>
                         <pre>{JSON.stringify(values, 0, 2)}</pre>
                     </form>
                 )}/>

@@ -16,8 +16,7 @@ public class CauHoiDTO {
 		this.cauHoi = cauHoi;
 		this.dapAns = dapAns;
 	}
-
-	@JsonProperty("CauHoi")
+	
 	public CauHoi getCauHoi() {
 		return cauHoi;
 	}
@@ -26,7 +25,6 @@ public class CauHoiDTO {
 		this.cauHoi = cauHoi;
 	}
 
-	@JsonProperty("DanhSachDapAn")
 	public List<DapAn> getDapAns() {
 		return dapAns;
 	}

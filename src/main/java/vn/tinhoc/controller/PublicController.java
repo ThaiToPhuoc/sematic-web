@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import vn.tinhoc.PublicService;
 import vn.tinhoc.domain.CauHoi;
+import vn.tinhoc.domain.dto.CauHoiDTO;
 import vn.tinhoc.repository.CauHoiRepository;
+import vn.tinhoc.service.PublicService;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -31,11 +32,8 @@ public class PublicController {
 	}
 	
 	@PostMapping("/cau-hoi")
-	public ResponseEntity<?> save(@RequestBody CauHoi cauHoi) {
-		if(publicService.create(cauHoi) == null) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
+	public ResponseEntity<?> save(@RequestBody CauHoiDTO cauHoiDTO) {
 		
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(publicService.create(cauHoiDTO), HttpStatus.OK);
 	}
 }

@@ -23,7 +23,6 @@ public class CauHoi {
 		this.id = id;
 	}
 
-	@JsonProperty("NoiDungCauHoi")
 	public String getNoiDungCauHoi() {
 		return NoiDungCauHoi;
 	}
@@ -32,7 +31,6 @@ public class CauHoi {
 		NoiDungCauHoi = noiDungCauHoi;
 	}
 
-	@JsonProperty("STTCauHoi")
 	public Integer getSTTCauHoi() {
 		return STTCauHoi;
 	}
