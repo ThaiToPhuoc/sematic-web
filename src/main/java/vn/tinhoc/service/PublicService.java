@@ -38,12 +38,6 @@ public class PublicService {
 		
 		cauHoi.setId(vars.getBaseUri() + "Cau2_KTC2_Lop6_1aaaa");
 		cauHoiRepository.save(cauHoi);
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		
 		for (int i = 1; i <= dapAns.size(); i++) {
 			DapAn dapAn = dapAns.get(i - 1);
