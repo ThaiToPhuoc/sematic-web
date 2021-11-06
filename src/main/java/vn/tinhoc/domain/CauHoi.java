@@ -13,7 +13,7 @@ public class CauHoi {
 
 	private String NoiDungCauHoi;
 	
-	private String STTCauHoi;
+	private Integer STTCauHoi;
 
 	public String getId() {
 		return id;
@@ -33,11 +33,11 @@ public class CauHoi {
 	}
 
 	@JsonProperty("STTCauHoi")
-	public String getSTTCauHoi() {
+	public Integer getSTTCauHoi() {
 		return STTCauHoi;
 	}
 
-	public void setSTTCauHoi(String sTTCauHoi) {
+	public void setSTTCauHoi(Integer sTTCauHoi) {
 		STTCauHoi = sTTCauHoi;
 	}
 }
