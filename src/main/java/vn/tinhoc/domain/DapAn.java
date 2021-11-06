@@ -12,7 +12,7 @@ public class DapAn {
 	
 	private String NoiDungDapAn;
 	
-	private Boolean KetQua;
+	private String KetQua;
 
 	public String getId() {
 		return id;
@@ -26,23 +26,23 @@ public class DapAn {
 		return ThuocCauHoi;
 	}
 
-	public void setThuocCauHoi(CauHoi thuocCauHoi) {
-		ThuocCauHoi = thuocCauHoi;
+	public void setThuocCauHoi(CauHoi ThuocCauHoi) {
+		this.ThuocCauHoi = ThuocCauHoi;
 	}
 
 	public String getNoiDungDapAn() {
 		return NoiDungDapAn;
 	}
 
-	public void setNoiDungDapAn(String noiDungDapAn) {
-		NoiDungDapAn = noiDungDapAn;
+	public void setNoiDungDapAn(String NoiDungDapAn) {
+		this.NoiDungDapAn = NoiDungDapAn;
 	}
 
-	public Boolean getKetQua() {
+	public String getKetQua() {
 		return KetQua;
 	}
 
-	public void setKetQua(Boolean ketQua) {
-		KetQua = ketQua;
+	public void setKetQua(String KetQua) {
+		this.KetQua = KetQua;
 	}
 }

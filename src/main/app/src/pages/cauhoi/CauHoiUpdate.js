@@ -30,6 +30,9 @@ export default class CauHoiUpdate extends Component {
     }
 
     submit = (values) => {
+        values.dapAns.forEach(dapAn => {
+            dapAn.ketQua = dapAn.ketQua ? 1 : 0
+        })
         PublicService.saveCauHoi(values)
         .then(response => {
             if (response?.status === 200) {
@@ -58,7 +61,7 @@ export default class CauHoiUpdate extends Component {
                             <label htmlFor='cauHoi.noiDungCauHoi'>Nội dung câu hỏi</label>
                             <Field 
                                 className='m-auto'
-                                name='cauHoi.NoiDungCauHoi'
+                                name='cauHoi.noiDungCauHoi'
                                 component='input'
                                 type='text'
                                 placeholder='...'
@@ -68,7 +71,7 @@ export default class CauHoiUpdate extends Component {
                             <label htmlFor='cauHoi.sttcauHoi'>Số thứ tự</label>
                             <Field 
                                 className='m-auto'
-                                name='cauHoi.STTCauHoi'
+                                name='cauHoi.sttcauHoi'
                                 component='input'
                                 type='text'
                                 onInput={(e) => { e.target.value = FieldNumberOnly(e.target.value); } }
