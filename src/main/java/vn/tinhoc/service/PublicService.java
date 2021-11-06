@@ -36,21 +36,16 @@ public class PublicService {
 		CauHoi cauHoi = cauHoiDTO.getCauHoi();
 		List<DapAn> dapAns = cauHoiDTO.getDapAns();
 		
-		cauHoi.setId(vars.getBaseUri() + "Cau2_KTC2_Lop6_1aaaa");
+		cauHoi.setId("Cau2_KTC2_Lop6_1");
 		cauHoiRepository.save(cauHoi);
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		
 		for (int i = 1; i <= dapAns.size(); i++) {
 			DapAn dapAn = dapAns.get(i - 1);
-			dapAn.setId("DapAn" + i);
+			dapAn.setId("DapAn" + i + "_Cau2_KTC2_Lop6_1");
 			dapAn.setThuocCauHoi(cauHoi);
-			dapAnRepository.save(dapAn);
 		}
+		
+		dapAns.forEach(dapAn -> dapAnRepository.save(dapAn));
 		
 		return cauHoiDTO;
 	}
