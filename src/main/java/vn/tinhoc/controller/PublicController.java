@@ -28,7 +28,7 @@ public class PublicController {
 	@GetMapping("/cau-hoi")
 	public ResponseEntity<?> listCauHoi() {
 		
-		return new ResponseEntity<>(cauHoiRepository.find(), HttpStatus.OK);
+		return new ResponseEntity<>(publicService.listCauHoi(), HttpStatus.OK);
 	}
 	
 	@PostMapping("/cau-hoi")

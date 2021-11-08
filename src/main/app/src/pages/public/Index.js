@@ -13,6 +13,14 @@ export default class Index extends Component {
     render() {
         return (
             <div>
+                <CauHoiIndex />
+                {/* <h2 class="sub-title">Trắc nghiệm Tin học lớp 6:</h2>
+                <p><b class="color-green">Bài 1:</b> Thông tin có thể giúp cho con người:</p>
+                <p>A.	Nắm được quy luật của tự nhiên và do đó trở nên mạnh mẽ hơn.</p>
+                <p>B.	Hiểu biết về cuộc sống và xã hội xung quanh.</p>
+                <p>C.	Biết được các tin tức và sự kiện xảy ra trong xã hội.</p>
+                <p>D.	Tất cả các khẳng định trên đều đúng.</p> */}
+
                 <Link to='/admin/cau-hoi/cap-nhat' >Cập nhật câu hỏi</Link>
                 <Switch>
                     <Route exact path='/admin/cau-hoi/cap-nhat' component={CauHoiUpdate} />
