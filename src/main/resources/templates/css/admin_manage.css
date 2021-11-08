@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    text-align: center;
+}
+
+.item{
+    width: 250px;
+    border: 1px solid black;
+}
+
+.item1{
+    background-color: #6778dd;
+    color: antiquewhite;
+}
+
+#size{
+    min-height: 60vh;
+}
+
+#content{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}

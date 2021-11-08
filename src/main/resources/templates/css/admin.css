@@ -1,0 +1,17 @@
+.frame{
+    text-align: center;
+}
+.frame #name{
+    color: rgba(55, 23,123, 0.9);
+    text-shadow: 2px 2px 8px rgba(55, 23,123, 0.9);
+    font-size: 40px;
+}
+#admin_logo{
+    height: 300px;
+    width: auto;
+}
+.frame #job{
+    color:rgba(186, 154, 196, 0.9);
+    text-shadow: 2px 2px 8px rgba(186, 154, 196, 0.9);
+    font-size: 30px;
+}

@@ -1,5 +1,6 @@
 package vn.tinhoc.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -52,17 +53,23 @@ public class PublicService {
 	public List<CauHoiDTO> listCauHoi() {
 		List<CauHoi> cauHois = cauHoiRepository.find();
 		List<DapAn> dapAns = dapAnRepository.find();
-		return cauHois.stream().map(ch -> {
-			List<DapAn> das = dapAns.stream()
-			.filter(da -> da.getThuocCauHoi() != null)
-			.filter(da -> {
-				return da.getThuocCauHoi().getId().equals(ch.getId());
-			})
-			.collect(Collectors.toList());
+		
+		List<CauHoiDTO> cauHoiDTOS = new ArrayList<>();
+		
+		for(CauHoi cauHoi: cauHois ) {
+			List<DapAn> DapAnTuongUng = 
+					dapAns.stream()
+						.filter(dapAn -> {
+							if(dapAn.getThuocCauHoi() != null) {
+								return dapAn.getThuocCauHoi().getId().equals(cauHoi.getId());
+							}
+							return false;
+						})
+						.collect(Collectors.toList());
 			
-			das.forEach(da -> da.setThuocCauHoi(null));
-			return new CauHoiDTO(ch, das);
-		})
-		.collect(Collectors.toList());
+			CauHoiDTO cauHoiDTO = new CauHoiDTO(cauHoi, DapAnTuongUng);
+			cauHoiDTOS.add(cauHoiDTO);
+		}
+		return cauHoiDTOS;
 	}
 }

@@ -1,0 +1,58 @@
+#nav-bar{
+    
+    height: auto;
+    position: fixed;
+    width: 100%;
+    margin-bottom: 200px;
+    z-index: 2;
+  
+}
+.logo{
+    width: 100px;
+    border-radius: 50%;
+}
+#collapsibleNavbar ul li{
+    width: 170px;
+    
+}
+#collapsibleNavbar ul li:first-child a
+{
+    text-align: end;
+}
+#collapsibleNavbar ul li a{
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+}
+
+#collapsibleNavbar ul li a:hover{
+   cursor: pointer;
+ 
+}
+
+.sticky {
+    width: 100%;
+    transition: height 2s;
+    top: 0;
+  
+}
+.showHeader{
+    transition: height 2s;
+}
+.setBackgroundNav{
+    background: black;
+}
+.dropdown-menu a:hover{
+    color:black !important;
+}
+@media only screen and (max-width: 770px) {
+    #collapsibleNavbar ul li:first-child a
+{
+    text-align: left;
+}
+    #collapsibleNavbar ul li a
+    {
+        text-align: left;
+    }
+  }

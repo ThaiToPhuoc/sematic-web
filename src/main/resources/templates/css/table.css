@@ -1,0 +1,17 @@
+.tb{
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+}
+
+.tb tr th, .tb tr td{
+	padding: 5px 7px;
+	border: 1px solid black;
+}
+
+.tb-collapse{
+	border-collapse: collapse;
+}
+.tb-even tr:nth-child(even){
+	background-color: #f2f2f2;
+}
