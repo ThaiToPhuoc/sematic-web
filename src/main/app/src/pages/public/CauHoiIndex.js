@@ -27,27 +27,70 @@ export default class CauHoiIndex extends Component {
         })
     }
     
+    getRandomDapAn = (dapAns)=> {
+        return dapAns.sort((a,b) => 0.5 - Math.random());
+    }
+
+    onPickDapAn = (dapAn, index, cauHoi) => {
+
+        cauHoi['ispicked'] = 1;
+
+        if(dapAn.ketQua === 1){
+            dapAn['style'] = {
+                color: 'green'
+            }
+        } else {
+            dapAn['style'] = {
+                color: 'red'
+            }
+        }
+
+        let dto = this.state.cauHoiDTOs.find(d => d.cauHoi.id === cauHoi.id);
+
+        dto.dapAns.splice(index, 1, dapAn);
+        dto.cauHoi = cauHoi;
+        this.setState({
+            dto
+        })
+    }
+
     render() {
         return(
             <div class="container">
                 {this.state.cauHoiDTOs.map((dto, index) => {
                         let cauHoi = dto.cauHoi;
-                        let dapAn = dto.dapAns;
+                        let dapAns = dto.dapAns;
                         return(
                             <div key={index}>
                                 <b>Câu {cauHoi.sttcauHoi}: </b>
                                 {cauHoi.noiDungCauHoi}
-                                {dapAn.sort((a,b) => 0.5 - Math.random())
-                                    .map((dapAn, index) => {
+
+                                {dapAns.map((dapAn, index) => {
                                         return(
-                                            <div>
+                                            <div style={dapAn.style} onClick={() => this.onPickDapAn(dapAn, index,cauHoi)}>
                                                 <b>{Alphabetical(index + 1)}:</b>
                                                 {dapAn.noiDungDapAn}
                                             </div>
                                         )
+                                })}
+                                {cauHoi.ispicked === 1 ?
+                                    <div>
+                                    {dapAns.map((dapAn, index) =>{
+                                        return(
+                                            dapAn.ketQua === 1
+                                            ?<div>
+                                                <b>Đáp án đúng: {Alphabetical(index + 1)}</b>
+                                            </div>
+                                            : <></>
+                                        )
                                     })}
+                                    </div>
+                                :<></>
+                                }
+                                
+
                             </div>
-                    )
+                        )
                     })}
 
             </div>
