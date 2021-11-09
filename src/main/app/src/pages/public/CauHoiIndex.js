@@ -34,7 +34,7 @@ export default class CauHoiIndex extends Component {
 
     onPickDapAn = (dapAn, index, cauHoi) => {
 
-        cauHoi['ispicked'] = true
+        cauHoi['ispicked'] = 1;
 
         if(dapAn.ketQua === 1){
             dapAn['style'] = {
@@ -49,6 +49,7 @@ export default class CauHoiIndex extends Component {
         let dto = this.state.cauHoiDTOs.find(d => d.cauHoi.id === cauHoi.id);
 
         dto.dapAns.splice(index, 1, dapAn);
+        dto.cauHoi = cauHoi;
         this.setState({
             dto
         })
@@ -73,16 +74,21 @@ export default class CauHoiIndex extends Component {
                                             </div>
                                         )
                                 })}
-
-                                {dapAns.map((dapAn, index) =>{
-                                    return(
-                                        dapAn.ketQua === 1
-                                        ?<div>
-                                            <b>Đáp án đúng: {Alphabetical(index + 1)}</b>
-                                        </div>
-                                        : <></>
-                                    )
-                                })}
+                                {cauHoi.ispicked === 1 ?
+                                    <div>
+                                    {dapAns.map((dapAn, index) =>{
+                                        return(
+                                            dapAn.ketQua === 1
+                                            ?<div>
+                                                <b>Đáp án đúng: {Alphabetical(index + 1)}</b>
+                                            </div>
+                                            : <></>
+                                        )
+                                    })}
+                                    </div>
+                                :<></>
+                                }
+                                
 
                             </div>
                         )
