@@ -12,7 +12,7 @@ public class DapAn {
 	
 	private String NoiDungDapAn;
 	
-	private String KetQua;
+	private Integer KetQua;
 
 	public String getId() {
 		return id;
@@ -38,11 +38,11 @@ public class DapAn {
 		this.NoiDungDapAn = NoiDungDapAn;
 	}
 
-	public String getKetQua() {
+	public Integer getKetQua() {
 		return KetQua;
 	}
 
-	public void setKetQua(String KetQua) {
+	public void setKetQua(Integer KetQua) {
 		this.KetQua = KetQua;
 	}
 }
