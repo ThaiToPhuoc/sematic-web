@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Notify from '../../components/notify/Notify';
 import CauHoiUpdate from '../cauhoi/CauHoiUpdate';
 import CauHoiIndex from './CauHoiIndex';
+import ChuongDetail from './ChuongDetail';
 
 export default class Index extends Component {
     componentDidMount() {
@@ -13,7 +14,6 @@ export default class Index extends Component {
     render() {
         return (
             <div>
-                <CauHoiIndex />
                 {/* <h2 class="sub-title">Trắc nghiệm Tin học lớp 6:</h2>
                 <p><b class="color-green">Bài 1:</b> Thông tin có thể giúp cho con người:</p>
                 <p>A.	Nắm được quy luật của tự nhiên và do đó trở nên mạnh mẽ hơn.</p>
@@ -23,6 +23,8 @@ export default class Index extends Component {
 
                 <Link to='/admin/cau-hoi/cap-nhat' >Cập nhật câu hỏi</Link>
                 <Switch>
+                    <Route exact path="/" component={CauHoiIndex} />
+                    <Route exact path="/chuong/:id" component={ChuongDetail} />
                     <Route exact path='/admin/cau-hoi/cap-nhat' component={CauHoiUpdate} />
                 </Switch>
             </div>

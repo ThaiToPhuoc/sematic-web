@@ -8,6 +8,10 @@ class PublicService {
     saveCauHoi(form) {
         return API.post('/public/cau-hoi', form);
     }
+
+    findChuongById(id) {
+        return API.get(`/public/chuong/${id}`);
+    }
 }
 
 export default new PublicService();
