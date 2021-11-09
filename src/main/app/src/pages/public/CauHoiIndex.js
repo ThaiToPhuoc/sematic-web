@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Notify, { AlertTypes } from '../../components/notify/Notify';
 import {Alphabetical} from '../../components/helpers/FieldValidate';
 import PublicService from '../../services/PublicService';
-import { thisExpression } from '@babel/types';
 
 export default class CauHoiIndex extends Component {
     constructor(props) {
