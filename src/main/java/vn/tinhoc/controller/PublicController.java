@@ -5,12 +5,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import vn.tinhoc.domain.CauHoi;
+import vn.tinhoc.domain.Chuong;
 import vn.tinhoc.domain.dto.CauHoiDTO;
 import vn.tinhoc.repository.CauHoiRepository;
 import vn.tinhoc.service.PublicService;
@@ -35,5 +37,13 @@ public class PublicController {
 	public ResponseEntity<?> save(@RequestBody CauHoiDTO cauHoiDTO) {
 		
 		return new ResponseEntity<>(publicService.create(cauHoiDTO), HttpStatus.OK);
+	}
+	
+	@GetMapping("/chuong/{id}")
+	public ResponseEntity<?> findChuongById(@PathVariable String id) {
+		Chuong chuong = publicService.findChuongById(id);
+		return chuong != null
+				? new ResponseEntity<>(chuong, HttpStatus.OK)
+				: new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 }

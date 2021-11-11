@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Notify from '../../components/notify/Notify';
 import CauHoiUpdate from '../cauhoi/CauHoiUpdate';
 import CauHoiIndex from './CauHoiIndex';
+import ChuongDetail from './ChuongDetail';
 
 export default class Index extends Component {
     componentDidMount() {
@@ -23,6 +24,8 @@ export default class Index extends Component {
 
                 <Link to='/admin/cau-hoi/cap-nhat' >Cập nhật câu hỏi</Link>
                 <Switch>
+                    <Route exact path="/" component={CauHoiIndex}/>
+                    <Route exact path="/chuong/:id" component={ChuongDetail} />
                     <Route exact path='/admin/cau-hoi/cap-nhat' component={CauHoiUpdate} />
                 </Switch>
             </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Notify, { AlertTypes } from '../../components/notify/Notify';
 import {Alphabetical} from '../../components/helpers/FieldValidate';
 import PublicService from '../../services/PublicService';
-import { thisExpression } from '@babel/types';
+import { Link } from 'react-router-dom';
 
 export default class CauHoiIndex extends Component {
     constructor(props) {
@@ -30,6 +30,12 @@ export default class CauHoiIndex extends Component {
     
     getRandomDapAn = (dapAns)=> {
         return dapAns.sort((a,b) => 0.5 - Math.random());
+    }
+
+    getChuongId = (cauHoi) => {
+        let id = cauHoi?.thuocTiet?.thuocChuong.id;
+        id = id.substring(id.indexOf('#') + 1)
+        return <Link to={`/chuong/${id}`}>{id}</Link>;
     }
 
     onPickDapAn = (dapAn, index, cauHoi) => {
@@ -68,7 +74,7 @@ export default class CauHoiIndex extends Component {
 
                                 {dapAns.map((dapAn, index) => {
                                         return(
-                                            <div style={dapAn.style} onClick={() => this.onPickDapAn(dapAn, index,cauHoi)}>
+                                            <div style={dapAn.style} onClick={() => this.onPickDapAn(dapAn, index, cauHoi)}>
                                                 <b>{Alphabetical(index + 1)}:</b>
                                                 {dapAn.noiDungDapAn}
                                             </div>
@@ -85,6 +91,8 @@ export default class CauHoiIndex extends Component {
                                             : <></>
                                         )
                                     })}
+                                    {this.getChuongId(cauHoi)}
+                                    
                                     </div>
                                 :<></>
                                 }
