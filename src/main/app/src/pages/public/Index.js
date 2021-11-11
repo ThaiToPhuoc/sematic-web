@@ -14,7 +14,6 @@ export default class Index extends Component {
     render() {
         return (
             <div>
-                <CauHoiIndex />
                 {/* <h2 class="sub-title">Trắc nghiệm Tin học lớp 6:</h2>
                 <p><b class="color-green">Bài 1:</b> Thông tin có thể giúp cho con người:</p>
                 <p>A.	Nắm được quy luật của tự nhiên và do đó trở nên mạnh mẽ hơn.</p>
