@@ -15,6 +15,7 @@ export default class ChuongDetail extends Component {
         PublicService.findChuongById(this.state.id)
         .then(response => {
             if (response?.data) {
+                console.log(response)
                 this.setState({
                     chuong: response.data
                 })
@@ -24,10 +25,16 @@ export default class ChuongDetail extends Component {
 
     render() {
         return (
-            <div>
-                URL: {this.state.id}
-                <br />
-                Object: {this.state.chuong.id}
+            <div class = "container">
+                <h2>Chương {this.state.chuong?.sttchuong}: {this.state.chuong?.noiDungChuong}</h2>
+                <div class = "container">
+                    {this.state.chuong?.gomTiet?.sort((a, b) => a.stttiet > b.stttiet ? 1 : -1)
+                    .map((tiet) => {
+                        return(
+                            <p>Tiết {tiet.stttiet}: {tiet.noiDungTiet}</p>
+                        )
+                    })}
+                </div>
             </div>
         )
     }

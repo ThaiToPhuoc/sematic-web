@@ -9,6 +9,8 @@ public class Tiet {
     private String id;
 
     private String NoiDungTiet;
+    
+    private Integer STTTiet;
 
     private String TuKhoa;
 
@@ -29,8 +31,16 @@ public class Tiet {
     public void setNoiDungTiet(String noiDungTiet) {
         NoiDungTiet = noiDungTiet;
     }
+    
+    public Integer getSTTTiet() {
+		return STTTiet;
+	}
 
-    public String getTuKhoa() {
+	public void setSTTTiet(Integer sTTTiet) {
+		STTTiet = sTTTiet;
+	}
+
+	public String getTuKhoa() {
         return TuKhoa;
     }
 

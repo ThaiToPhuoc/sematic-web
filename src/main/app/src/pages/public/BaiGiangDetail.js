@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PublicService from '../../services/PublicService';
+import { Link } from 'react-router-dom';
 
 export default class ChuongDetail extends Component {
     constructor(props) {
@@ -23,6 +24,12 @@ export default class ChuongDetail extends Component {
         })
     }
 
+    getChuongId = (chuong) => {
+        let id = chuong?.id;
+        id = id.substring(id.indexOf('#') + 1)
+        return <Link to={`/chuong/${id}`}>Chương {chuong.sttchuong}: {chuong.noiDungChuong}</Link>;
+    }
+
     componentDidMount() {
         this.callAPI();
     }
@@ -34,9 +41,9 @@ export default class ChuongDetail extends Component {
                 <p>Học kỳ: {this.state.baiGiang.hocKy}</p>
                 <p>Nội dung chương trình: </p>
                 <div class = "container">
-                    {this.state.baiGiang?.gomChuong?.map((chuong) => {
+                    {this.state.baiGiang?.gomChuong?.sort((a, b) => a.sttchuong > b.sttchuong ? 1 : -1).map((chuong) => {
                         return(
-                            <p>Chương {chuong.sttchuong}: {chuong.noiDungChuong}</p>
+                            <p>{this.getChuongId(chuong)}</p>
                         )
                     })}
                 </div>

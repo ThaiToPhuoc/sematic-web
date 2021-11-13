@@ -614,7 +614,7 @@
     <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Chuong1_Lop6_1">
         <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
         <GomTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C1_Lop6_1"/>
-        <GomTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
+        <GomTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet2_C1_Lop6_1"/>
         <ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
         <NoiDungChuong>Chuột và máy tính</NoiDungChuong>
         <STTChuong rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTChuong>
