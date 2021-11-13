@@ -16,7 +16,6 @@ export default class TietDetail extends Component {
         PublicService.findTietById(this.state.id)
         .then(response => {
             if (response?.data) {
-                console.log(response)
                 this.setState({
                     tiet: response.data
                 })

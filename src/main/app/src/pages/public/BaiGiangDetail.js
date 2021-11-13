@@ -16,7 +16,6 @@ export default class ChuongDetail extends Component {
         PublicService.findBaiGiangById(this.state.id)
         .then(response => {
             if (response?.data) {
-                console.log(response)
                 this.setState({
                     baiGiang: response.data
                 })
