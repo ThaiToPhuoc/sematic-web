@@ -7,6 +7,7 @@ import BaiGiangIndex from './BaiGiangIndex';
 import CauHoiIndex from './CauHoiIndex';
 import ChuongDetail from './ChuongDetail';
 import BaiGiangDetail from './BaiGiangDetail';
+import TietDetail from './TietDetail';
 
 export default class Index extends Component {
     componentDidMount() {
@@ -28,6 +29,8 @@ export default class Index extends Component {
                     <Route exact path="/" component={BaiGiangIndex}/>
                     <Route exact path="/chuong/:id" component={ChuongDetail} />
                     <Route exact path="/bai-giang/:id" component={BaiGiangDetail} />
+                    <Route exact path="/tiet/:id" component={TietDetail} />
+                    <Route exact path="/cau-hoi/:id" component={CauHoiIndex} />
                     <Route exact path='/admin/cau-hoi/cap-nhat' component={CauHoiUpdate} />
                 </Switch>
             </div>

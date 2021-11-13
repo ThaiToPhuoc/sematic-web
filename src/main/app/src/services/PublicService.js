@@ -1,8 +1,8 @@
 import API from '../components/axios/API';
 
 class PublicService {
-    listCauHoi() {
-        return API.get('/public/cau-hoi');
+    listCauHoi(id) {
+        return API.get(`/public/cau-hoi/${id}`);
     }
 
     saveCauHoi(form) {
@@ -15,6 +15,10 @@ class PublicService {
 
     findBaiGiangById(id) {
         return API.get(`/public/bai-giang/${id}`);
+    }
+
+    findTietById(id) {
+        return API.get(`/public/tiet/${id}`);
     }
 
     listBaiGiang() {

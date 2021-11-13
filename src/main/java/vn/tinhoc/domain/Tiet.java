@@ -1,5 +1,7 @@
 package vn.tinhoc.domain;
 
+import java.util.List;
+
 import vn.lanhoang.ontology.annotation.Name;
 import vn.lanhoang.ontology.annotation.OntologyObject;
 
@@ -10,7 +12,11 @@ public class Tiet {
 
     private String NoiDungTiet;
     
+    private String Link;
+    
     private Integer STTTiet;
+    
+    private List<CauHoi> GomCauHoi;
 
     private String TuKhoa;
 
@@ -32,12 +38,28 @@ public class Tiet {
         NoiDungTiet = noiDungTiet;
     }
     
-    public Integer getSTTTiet() {
+    public String getLink() {
+		return Link;
+	}
+
+	public void setLink(String link) {
+		Link = link;
+	}
+
+	public Integer getSTTTiet() {
 		return STTTiet;
 	}
 
 	public void setSTTTiet(Integer sTTTiet) {
 		STTTiet = sTTTiet;
+	}
+	
+	public List<CauHoi> getGomCauHoi() {
+		return GomCauHoi;
+	}
+
+	public void setGomCauHoi(List<CauHoi> gomCauHoi) {
+		GomCauHoi = gomCauHoi;
 	}
 
 	public String getTuKhoa() {

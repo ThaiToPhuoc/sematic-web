@@ -66,25 +66,37 @@ public class PublicService {
 		return cauHoiDTO;
 	}
 	
-	public List<CauHoiDTO> listCauHoi() {
-		List<CauHoi> cauHois = cauHoiRepository.find();
+	public List<CauHoiDTO> listCauHoi(String id) {
+		Optional<Tiet> op = tietRepository.findByUriTag(id);
+		Tiet tiet = op.orElse(null);
+		List<CauHoi> cauhoilist = cauHoiRepository.find();
+		List<CauHoi> cauHois = tiet.getGomCauHoi();
+		for (int i = 0; i < cauHois.size(); i++) {
+			for(int j = 0; j < cauhoilist.size(); j++) {
+				if(cauHois.get(i).getId().equals(cauhoilist.get(j).getId())) {
+					cauHois.set(i, cauhoilist.get(j));
+					break;
+				}
+			}
+		}
+		
 		List<DapAn> dapAns = dapAnRepository.find();
 		
 		List<CauHoiDTO> cauHoiDTOS = new ArrayList<>();
 		
 		for(CauHoi cauHoi: cauHois ) {
-			List<DapAn> DapAnTuongUng = 
-					dapAns.stream()
-						.filter(dapAn -> {
-							if(dapAn.getThuocCauHoi() != null) {
-								return dapAn.getThuocCauHoi().getId().equals(cauHoi.getId());
-							}
-							return false;
-						})
-						.collect(Collectors.toList());
-			
-			CauHoiDTO cauHoiDTO = new CauHoiDTO(cauHoi, DapAnTuongUng);
-			cauHoiDTOS.add(cauHoiDTO);
+				List<DapAn> DapAnTuongUng = 
+						dapAns.stream()
+							.filter(dapAn -> {
+								if(dapAn.getThuocCauHoi() != null) {
+									return dapAn.getThuocCauHoi().getId().equals(cauHoi.getId());
+								}
+								return false;
+							})
+							.collect(Collectors.toList());
+				
+				CauHoiDTO cauHoiDTO = new CauHoiDTO(cauHoi, DapAnTuongUng);
+				cauHoiDTOS.add(cauHoiDTO);
 		}
 		return cauHoiDTOS;
 	}
@@ -136,5 +148,28 @@ public class PublicService {
 		}
 		
 		return baigiang;
+	}
+	
+	public Tiet findTietById(String id) {
+		Optional<Tiet> op = tietRepository.findByUriTag(id);
+		List<CauHoi> cauhoilist = cauHoiRepository.find();
+		Tiet tiet = op.orElse(null);
+		
+		//fill data vao list
+		if(tiet != null){
+			List<CauHoi> cauhois = tiet.getGomCauHoi();
+			
+			for (int i = 0; i < cauhois.size(); i++) {
+				for(int j = 0; j < cauhoilist.size(); j++) {
+					if(cauhois.get(i).getId().equals(cauhoilist.get(j).getId())) {
+						cauhois.set(i, cauhoilist.get(j));
+						break;
+					}
+				}
+			}
+			tiet.setGomCauHoi(cauhois);
+		}
+		
+		return tiet;
 	}
 }
