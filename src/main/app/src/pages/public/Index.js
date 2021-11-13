@@ -3,8 +3,11 @@ import { Route, Switch } from 'react-router';
 import { Link } from 'react-router-dom';
 import Notify from '../../components/notify/Notify';
 import CauHoiUpdate from '../cauhoi/CauHoiUpdate';
+import BaiGiangIndex from './BaiGiangIndex';
 import CauHoiIndex from './CauHoiIndex';
 import ChuongDetail from './ChuongDetail';
+import BaiGiangDetail from './BaiGiangDetail';
+import TietDetail from './TietDetail';
 
 export default class Index extends Component {
     componentDidMount() {
@@ -19,12 +22,15 @@ export default class Index extends Component {
                 <p>A.	Nắm được quy luật của tự nhiên và do đó trở nên mạnh mẽ hơn.</p>
                 <p>B.	Hiểu biết về cuộc sống và xã hội xung quanh.</p>
                 <p>C.	Biết được các tin tức và sự kiện xảy ra trong xã hội.</p>
-                <p>D.	Tất cả các khẳng định trên đều đúng.</p> */}
+                <p>D.	Tất cả các khẳng định trên đều đúng.</p> 
+                <Link to='/admin/cau-hoi/cap-nhat' >Cập nhật câu hỏi</Link> */}
 
-                <Link to='/admin/cau-hoi/cap-nhat' >Cập nhật câu hỏi</Link>
                 <Switch>
-                    <Route exact path="/" component={CauHoiIndex}/>
+                    <Route exact path="/" component={BaiGiangIndex}/>
                     <Route exact path="/chuong/:id" component={ChuongDetail} />
+                    <Route exact path="/bai-giang/:id" component={BaiGiangDetail} />
+                    <Route exact path="/tiet/:id" component={TietDetail} />
+                    <Route exact path="/cau-hoi/:id" component={CauHoiIndex} />
                     <Route exact path='/admin/cau-hoi/cap-nhat' component={CauHoiUpdate} />
                 </Switch>
             </div>

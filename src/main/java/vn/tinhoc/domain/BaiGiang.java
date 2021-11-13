@@ -1,5 +1,7 @@
 package vn.tinhoc.domain;
 
+import java.util.List;
+
 import vn.lanhoang.ontology.annotation.Name;
 import vn.lanhoang.ontology.annotation.OntologyObject;
 
@@ -15,9 +17,19 @@ public class BaiGiang {
 	private Integer NamHoc ;
 	
 	private GiaoVien DuocSoanBoi;
+	
+	private List<Chuong> GomChuong;
 
 	public GiaoVien getDuocSoanBoi() {
 		return DuocSoanBoi;
+	}
+
+	public List<Chuong> getGomChuong() {
+		return GomChuong;
+	}
+
+	public void setGomChuong(List<Chuong> gomChuong) {
+		GomChuong = gomChuong;
 	}
 
 	public void setDuocSoanBoi(GiaoVien duocSoanBoi) {

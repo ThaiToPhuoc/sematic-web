@@ -9,14 +9,14 @@ export default class CauHoiIndex extends Component {
         super(props);
 
         this.state = {
+            id: props.match?.params?.id ? props.match.params.id : '',
             cauHoiDTOs: []
         }
     }
 
     componentDidMount() {
-        PublicService.listCauHoi()
+        PublicService.listCauHoi(this.state.id)
         .then(response => {
-            console.log(response);
             if (response?.data) {
                 this.setState({
                     cauHoiDTOs: response.data
