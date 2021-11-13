@@ -33,6 +33,13 @@ export default class ChuongDetail extends Component {
                 <h2> Chương trình lớp: {this.state.baiGiang.chuongTrinh}</h2>
                 <p>Học kỳ: {this.state.baiGiang.hocKy}</p>
                 <p>Nội dung chương trình: </p>
+                <div class = "container">
+                    {this.state.baiGiang?.gomChuong?.map((chuong) => {
+                        return(
+                            <p>Chương {chuong.sttchuong}: {chuong.noiDungChuong}</p>
+                        )
+                    })}
+                </div>
             </div>
         )
     }

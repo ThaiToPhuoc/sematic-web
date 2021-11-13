@@ -104,7 +104,7 @@ public class PublicService {
 			
 			for (int i = 0; i < chuongs.size(); i++) {
 				for(int j = 0; j < chuonglist.size(); j++) {
-					if(chuongs.get(i).getId() == chuonglist.get(j).getId()) {
+					if(chuongs.get(i).getId().equals(chuonglist.get(j).getId())) {
 						chuongs.set(i, chuonglist.get(j));
 						break;
 					}
