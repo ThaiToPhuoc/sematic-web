@@ -10,7 +10,7 @@ public class Chuong {
     @Name
     private String id;
     
-    private Integer SSTChuong;
+    private Integer STTChuong;
     
     private String NoiDungChuong;
 
@@ -26,12 +26,12 @@ public class Chuong {
         this.id = id;
     }
 
-    public Integer getSSTChuong() {
-		return SSTChuong;
+    public Integer getSTTChuong() {
+		return STTChuong;
 	}
 
-	public void setSSTChuong(Integer sSTChuong) {
-		SSTChuong = sSTChuong;
+	public void setSTTChuong(Integer sTTChuong) {
+		STTChuong = sTTChuong;
 	}
 
 	public String getNoiDungChuong() {

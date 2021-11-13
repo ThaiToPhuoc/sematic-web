@@ -233,21 +233,21 @@
     
 
 
-    <!-- http://www.tinhoc.edu.vn#NoiChungChuong -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NoiChungChuong">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#TenChuong"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://www.tinhoc.edu.vn#NoiDungCauHoi -->
 
     <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NoiDungCauHoi">
         <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
         <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.tinhoc.edu.vn#NoiDungChuong -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NoiDungChuong">
+        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#TenChuong"/>
+        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -616,7 +616,7 @@
         <GomTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C1_Lop6_1"/>
         <GomTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
         <ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
-        <NoiChungChuong>Chuột và máy tính</NoiChungChuong>
+        <NoiDungChuong>Chuột và máy tính</NoiDungChuong>
         <STTChuong rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTChuong>
     </owl:NamedIndividual>
     
@@ -628,7 +628,7 @@
         <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
         <GomTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
         <ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
-        <NoiChungChuong>Thông tin</NoiChungChuong>
+        <NoiDungChuong>Thông tin</NoiDungChuong>
         <STTChuong rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</STTChuong>
     </owl:NamedIndividual>
     
