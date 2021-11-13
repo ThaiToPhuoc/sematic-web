@@ -11,10 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import vn.lanhoang.ontology.configuration.OntologyVariables;
+import vn.tinhoc.domain.BaiGiang;
 import vn.tinhoc.domain.CauHoi;
 import vn.tinhoc.domain.Chuong;
 import vn.tinhoc.domain.DapAn;
 import vn.tinhoc.domain.dto.CauHoiDTO;
+import vn.tinhoc.repository.BaiGiangRepository;
 import vn.tinhoc.repository.CauHoiRepository;
 import vn.tinhoc.repository.ChuongRepository;
 import vn.tinhoc.repository.DapAnRepository;
@@ -30,6 +32,9 @@ public class PublicService {
 
 	@Autowired
 	ChuongRepository chuongRepository;
+	
+	@Autowired
+	BaiGiangRepository baiGiangRepository;
 	
 	@Autowired
 	OntologyVariables vars;
@@ -82,5 +87,32 @@ public class PublicService {
 	public Chuong findChuongById(String id) {
 		Optional<Chuong> op = chuongRepository.findByUriTag(id);
 		return op.orElse(null);
+	}
+	
+	public List<BaiGiang> listBaiGiang(){
+		return baiGiangRepository.find();
+	}
+	
+	public BaiGiang findBaiGiangById(String id) {
+		Optional<BaiGiang> op = baiGiangRepository.findByUriTag(id);
+		List<Chuong> chuonglist = chuongRepository.find();
+		BaiGiang baigiang = op.orElse(null);
+		
+		//fill data vao list
+		if(baigiang != null){
+			List<Chuong> chuongs = baigiang.getGomChuong();
+			
+			for (int i = 0; i < chuongs.size(); i++) {
+				for(int j = 0; j < chuonglist.size(); j++) {
+					if(chuongs.get(i).getId() == chuonglist.get(j).getId()) {
+						chuongs.set(i, chuonglist.get(j));
+						break;
+					}
+				}
+			}
+			baigiang.setGomChuong(chuongs);
+		}
+		
+		return baigiang;
 	}
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import vn.tinhoc.domain.BaiGiang;
 import vn.tinhoc.domain.CauHoi;
 import vn.tinhoc.domain.Chuong;
 import vn.tinhoc.domain.dto.CauHoiDTO;
@@ -45,5 +46,19 @@ public class PublicController {
 		return chuong != null
 				? new ResponseEntity<>(chuong, HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	@GetMapping("/bai-giang/{id}")
+	public ResponseEntity<?> findBaiGiangById(@PathVariable String id) {
+		BaiGiang baiGiang = publicService.findBaiGiangById(id);
+		return baiGiang != null
+				? new ResponseEntity<>(baiGiang, HttpStatus.OK)
+				: new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	@GetMapping("/bai-giang")
+	public ResponseEntity<?> listBaiGiang() {
+		
+		return new ResponseEntity<>(publicService.listBaiGiang(), HttpStatus.OK);
 	}
 }

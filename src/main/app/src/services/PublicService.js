@@ -12,6 +12,14 @@ class PublicService {
     findChuongById(id) {
         return API.get(`/public/chuong/${id}`);
     }
+
+    findBaiGiangById(id) {
+        return API.get(`/public/bai-giang/${id}`);
+    }
+
+    listBaiGiang() {
+        return API.get('public/bai-giang');
+    }
 }
 
 export default new PublicService();
