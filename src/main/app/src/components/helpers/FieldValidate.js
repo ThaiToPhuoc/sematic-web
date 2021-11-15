@@ -1,4 +1,8 @@
 
+export const Required = (val) => {
+  return val ? undefined : 'Không được bỏ trống'
+}
+
 export const FieldNumberOnly = (val) => {
     return val?.replace(/[^0-9]/g,'');
 }

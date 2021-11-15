@@ -59,6 +59,15 @@
     
 
 
+    <!-- http://www.tinhoc.edu.vn#GomQuyen -->
+
+    <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#GomQuyen">
+        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
+        <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#Quyen"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.tinhoc.edu.vn#GomTiet -->
 
     <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#GomTiet">
@@ -348,6 +357,12 @@
     
 
 
+    <!-- http://www.tinhoc.edu.vn#TenQuyen -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TenQuyen"/>
+    
+
+
     <!-- http://www.tinhoc.edu.vn#TenTaiKhoan -->
 
     <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TenTaiKhoan">
@@ -447,6 +462,12 @@
     
 
 
+    <!-- http://www.tinhoc.edu.vn#Quyen -->
+
+    <owl:Class rdf:about="http://www.tinhoc.edu.vn#Quyen"/>
+    
+
+
     <!-- http://www.tinhoc.edu.vn#TaiLieu -->
 
     <owl:Class rdf:about="http://www.tinhoc.edu.vn#TaiLieu"/>
@@ -469,6 +490,17 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.tinhoc.edu.vn#Admin -->
+
+    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Admin">
+        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
+        <GomQuyen rdf:resource="http://www.tinhoc.edu.vn#ROLE_ADMIN"/>
+        <MatKhau>admin</MatKhau>
+        <TenTaiKhoan>admin</TenTaiKhoan>
+    </owl:NamedIndividual>
     
 
 
@@ -1184,10 +1216,29 @@
 
     <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#PTTThuy">
         <rdf:type rdf:resource="http://www.tinhoc.edu.vn#GiaoVien"/>
+        <GomQuyen rdf:resource="http://www.tinhoc.edu.vn#ROLE_ADMIN"/>
         <Ho>Phạm Thị Thu</Ho>
         <MatKhau>Thuy</MatKhau>
         <Ten>Thúy</Ten>
         <TenTaiKhoan>PTTThuy</TenTaiKhoan>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.tinhoc.edu.vn#ROLE_ADMIN -->
+
+    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#ROLE_ADMIN">
+        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Quyen"/>
+        <TenQuyen>ROLE_ADMIN</TenQuyen>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.tinhoc.edu.vn#ROLE_STUDENT -->
+
+    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#ROLE_STUDENT">
+        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Quyen"/>
+        <TenQuyen>ROLE_STUDENT</TenQuyen>
     </owl:NamedIndividual>
     
 
@@ -1246,6 +1297,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#ToPhuocThai">
         <rdf:type rdf:resource="http://www.tinhoc.edu.vn#HocSinh"/>
+        <GomQuyen rdf:resource="http://www.tinhoc.edu.vn#ROLE_STUDENT"/>
         <Dung rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</Dung>
         <Ho>Tô Phước</Ho>
         <Lop rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</Lop>

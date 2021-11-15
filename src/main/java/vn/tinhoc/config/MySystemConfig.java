@@ -27,7 +27,6 @@ public class MySystemConfig {
 		ontologyVariables.setBaseUri(baseUri.endsWith("#") ? baseUri : baseUri + "#");
 		ontologyVariables.setPath(path);
 		ontologyVariables.setMaxNestedCount(maxNestedCount);
-//		ontologyVariables.setModel(FileManager.getInternal().loadModelInternal(path));
 		ontologyVariables.setPreffix(preffix + ":");
 		
 		ontologyVariables.getModel().setNsPrefix(preffix, ontologyVariables.getBaseUri());

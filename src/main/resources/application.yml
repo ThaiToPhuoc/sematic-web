@@ -7,6 +7,9 @@ spring:
     base-uri: http://www.tinhoc.edu.vn
     max-nested-count: 5
     prefix: thoc
+  application:
+    jwt-secret: TdupoBlZjaeEOQOcIwKgdLdbFQHSnkYR
+    jwt-expire: 18000000 #2hours
     
   devtools:
     restart:
