@@ -1,6 +1,5 @@
 package vn.tinhoc.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -11,8 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +27,8 @@ import vn.tinhoc.domain.dto.Role;
 import vn.tinhoc.domain.dto.User;
 import vn.tinhoc.repository.RoleRepository;
 import vn.tinhoc.repository.UserRepository;
+
+import javax.annotation.security.PermitAll;
 
 @RestController
 @RequestMapping("/api/user")
@@ -49,6 +50,7 @@ public class UserController {
 	private OntologyVariables vars;
 	
 	@PostMapping("/login")
+	@PermitAll
 	public ResponseEntity<?> login(@RequestBody LoginRequest form) {
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(form.getUsername(), form.getPassword()));
@@ -58,16 +60,16 @@ public class UserController {
 		
 		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
 		List<String> roles = userDetails.getAuthorities().stream()
-				.map(item -> item.getAuthority())
+				.map(GrantedAuthority::getAuthority)
 				.collect(Collectors.toList());
 		return ResponseEntity.ok(new LoginResponse(userDetails.getUsername(), token, roles));
 	}
 	
 	@PostMapping("/register")
+	@PermitAll
 	public ResponseEntity<?> register(@RequestBody User user) {
-		QueryParam param = new QueryParam("?subject", vars.getPreffix() + "TenTaiKhoan", "\"" + user.getTenTaiKhoan() + "\"");
-		List<User> users = userRepository.query(param);
-		if (!CollectionUtils.isEmpty(users)) {
+		Optional<User> uOp = userRepository.findByPropertyValue("TenTaiKhoan", user.getTenTaiKhoan());
+		if (uOp.isPresent()) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		} else {
 			Optional<Role> op = roleRepository.findByUriTag("ROLE_STUDENT");
@@ -77,9 +79,9 @@ public class UserController {
 			
 			List<Role> roles = List.of(op.get());
 			user.setGomQuyen(roles);
-			
-			userRepository.save(user);
-			return ResponseEntity.ok(user);
+			user.setId(user.getTenTaiKhoan());
+
+			return ResponseEntity.ok(userRepository.save(user));
 		}
 	}
 }

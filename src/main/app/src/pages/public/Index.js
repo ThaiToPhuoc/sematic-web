@@ -8,11 +8,12 @@ import CauHoiIndex from './CauHoiIndex';
 import ChuongDetail from './ChuongDetail';
 import BaiGiangDetail from './BaiGiangDetail';
 import TietDetail from './TietDetail';
+import PrivateRoute from '../../components/axios/PrivateRoute';
+import DangNhap from './Login/DangNhap';
+import UserService from '../../services/UserService';
+import DangXuat from './Login/DangXuat';
 
 export default class Index extends Component {
-    componentDidMount() {
-        Notify.info('Xin chào!');
-    }
 
     render() {
         return (
@@ -25,13 +26,15 @@ export default class Index extends Component {
                 <p>D.	Tất cả các khẳng định trên đều đúng.</p> 
                 <Link to='/admin/cau-hoi/cap-nhat' >Cập nhật câu hỏi</Link> */}
 
+                <DangXuat />
+
                 <Switch>
-                    <Route exact path="/" component={BaiGiangIndex}/>
-                    <Route exact path="/chuong/:id" component={ChuongDetail} />
-                    <Route exact path="/bai-giang/:id" component={BaiGiangDetail} />
-                    <Route exact path="/tiet/:id" component={TietDetail} />
-                    <Route exact path="/cau-hoi/:id" component={CauHoiIndex} />
-                    <Route exact path='/admin/cau-hoi/cap-nhat' component={CauHoiUpdate} />
+                    <PrivateRoute exact path="/" component={BaiGiangIndex}/>
+                    <PrivateRoute exact path="/chuong/:id" component={ChuongDetail} />
+                    <PrivateRoute exact path="/bai-giang/:id" component={BaiGiangDetail} />
+                    <PrivateRoute exact path="/tiet/:id" component={TietDetail} />
+                    <PrivateRoute exact path="/cau-hoi/:id" component={CauHoiIndex} />
+                    <PrivateRoute exact path='/admin/cau-hoi/cap-nhat' component={CauHoiUpdate} />
                 </Switch>
             </div>
         )

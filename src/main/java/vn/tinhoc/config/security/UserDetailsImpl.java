@@ -27,9 +27,7 @@ public class UserDetailsImpl implements UserDetails {
 	
 	public static UserDetailsImpl build(User user) {
 		List<GrantedAuthority> authorities = user.getGomQuyen().stream()
-				.map(role -> { 
-					return new SimpleGrantedAuthority(role.getTenQuyen());
-				})
+				.map(role -> new SimpleGrantedAuthority(role.getTenQuyen()))
 				.collect(Collectors.toList());
 		
 		return new UserDetailsImpl(user.getTenTaiKhoan(), user.getMatKhau(), authorities);

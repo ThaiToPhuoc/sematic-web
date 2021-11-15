@@ -47,9 +47,9 @@
 		</dependency>
 		
 		<dependency>
-    	    <groupId>com.github.LanHoangNTU</groupId>
+    	    <groupId>com.github.lanhoangntu</groupId>
     	    <artifactId>ontology</artifactId>
-    	    <version>0.0.15</version>
+    	    <version>0.0.16</version>
 	   </dependency>
 	   
 		<dependency>

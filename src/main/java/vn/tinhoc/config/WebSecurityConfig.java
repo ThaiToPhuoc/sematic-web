@@ -16,6 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import vn.tinhoc.config.security.AuthEntryPointJwt;
 import vn.tinhoc.config.security.AuthTokenFilter;
+import vn.tinhoc.config.security.PasswordLiteralEncoder;
 import vn.tinhoc.config.security.UserDetailsServiceImpl;
 
 @Configuration
@@ -23,12 +24,12 @@ import vn.tinhoc.config.security.UserDetailsServiceImpl;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	private final String PUBLIC_ENDPOINTS[] = {
+	private final String[] PUBLIC_ENDPOINTS = {
 		"/api/user/login", "/api/user/register",
 		"/api/public/**"
 	};
 	
-	private final String ADMIN_ENDPOINTS[] = {
+	private final String[] ADMIN_ENDPOINTS = {
 		"/api/admin/**"
 	};
 	
@@ -56,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+		return new PasswordLiteralEncoder();
 	}
 
 	@Override

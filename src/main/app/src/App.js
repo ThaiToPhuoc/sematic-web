@@ -5,7 +5,10 @@ import { ToastContainer } from 'react-toastify';
 import React, { Component } from 'react';
 import Index from './pages/public/Index';
 import Notify from './components/notify/Notify';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import PrivateRoute from './components/axios/PrivateRoute';
+import DangNhap from './pages/public/Login/DangNhap';
+import DangKy from './pages/public/Login/DangKy';
 
 export default class App extends Component {
   componentDidMount() {
@@ -16,7 +19,11 @@ export default class App extends Component {
     return (
       <div className="position-relative app-body">
         <BrowserRouter>
-          <Index />
+          <Switch>
+            <Route exact path='/dang-nhap' component={DangNhap} />
+            <Route exact path='/dang-ky' component={DangKy} />
+            <PrivateRoute exact path='/' component={Index} />
+          </Switch>
         </BrowserRouter>
 
         <ToastContainer autoClose={3500} theme='colored' />

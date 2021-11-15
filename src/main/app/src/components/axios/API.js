@@ -1,5 +1,6 @@
 import axios from "axios";
 import Notify from "../notify/Notify";
+import AuthHeader from "./AuthHeader";
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Server = axios.create({
