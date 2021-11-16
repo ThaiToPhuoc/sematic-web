@@ -526,7 +526,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1">
         <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C1_Lop6_1"/>
+        <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet2_C1_Lop6_1"/>
         <NoiDungCauHoi>Chức năng phím DELETE trên bàn phím là gì?</NoiDungCauHoi>
         <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</STTCauHoi>
         <TuKhoa>bàn phím</TuKhoa>
@@ -1209,7 +1209,6 @@
     <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Tiet1_C1_Lop6_1">
         <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
         <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1"/>
         <ThuocChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong1_Lop6_1"/>
         <Link>bai 5 luyen tap chuot.mp4</Link>
         <NoiDungTiet>Chuột máy tính là gì? Tập sử dụng chuột</NoiDungTiet>
@@ -1246,6 +1245,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Tiet2_C1_Lop6_1">
         <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
+        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1"/>
         <ThuocChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong1_Lop6_1"/>
         <Link>Bai 7 Su dung phan mem Mario de luyen go phim_2.mp4</Link>
         <NoiDungTiet>Sử dụng bàn phím</NoiDungTiet>
