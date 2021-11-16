@@ -22,7 +22,7 @@ export default class App extends Component {
           <Switch>
             <Route exact path='/dang-nhap' component={DangNhap} />
             <Route exact path='/dang-ky' component={DangKy} />
-            <PrivateRoute exact path='/' component={Index} />
+            <PrivateRoute path='/' component={Index} />
           </Switch>
         </BrowserRouter>
 

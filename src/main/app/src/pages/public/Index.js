@@ -29,12 +29,12 @@ export default class Index extends Component {
                 <DangXuat />
 
                 <Switch>
-                    <PrivateRoute exact path="/" component={BaiGiangIndex}/>
                     <PrivateRoute exact path="/chuong/:id" component={ChuongDetail} />
                     <PrivateRoute exact path="/bai-giang/:id" component={BaiGiangDetail} />
                     <PrivateRoute exact path="/tiet/:id" component={TietDetail} />
                     <PrivateRoute exact path="/cau-hoi/:id" component={CauHoiIndex} />
                     <PrivateRoute exact path='/admin/cau-hoi/cap-nhat' component={CauHoiUpdate} />
+                    <PrivateRoute exact path="/" component={BaiGiangIndex}/>
                 </Switch>
             </div>
         )
