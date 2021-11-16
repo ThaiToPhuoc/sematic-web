@@ -525,6 +525,7 @@
         <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
         <NoiDungCauHoi>Hoạt động thông tin là:</NoiDungCauHoi>
         <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</STTCauHoi>
+        <TuKhoa>thông tin</TuKhoa>
     </owl:NamedIndividual>
     
 
@@ -534,8 +535,9 @@
     <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1">
         <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
         <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C1_Lop6_1"/>
-        <NoiDungCauHoi>Khi ta cần chọn mở một file hoặc một thư mục, ta cần bấm vào:</NoiDungCauHoi>
+        <NoiDungCauHoi>Khi ta cần chọn mở một file hoặc một thư mục, ta cần bấm vào nút nào trên chuột:</NoiDungCauHoi>
         <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTCauHoi>
+        <TuKhoa>chuột</TuKhoa>
     </owl:NamedIndividual>
     
 
@@ -547,6 +549,7 @@
         <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
         <NoiDungCauHoi>Thông tin có thể giúp cho con người:</NoiDungCauHoi>
         <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTCauHoi>
+        <TuKhoa>thông tin</TuKhoa>
     </owl:NamedIndividual>
     
 
@@ -556,8 +559,9 @@
     <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1">
         <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
         <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C1_Lop6_1"/>
-        <NoiDungCauHoi>Chức năng phím DELETE là gì?</NoiDungCauHoi>
+        <NoiDungCauHoi>Chức năng phím DELETE trên bàn phím là gì?</NoiDungCauHoi>
         <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</STTCauHoi>
+        <TuKhoa>bàn phím</TuKhoa>
     </owl:NamedIndividual>
     
 
@@ -569,6 +573,7 @@
         <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
         <NoiDungCauHoi>Chúng ta gọi dữ liệu hoặc lệnh được nhập vào máy tính là :</NoiDungCauHoi>
         <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</STTCauHoi>
+        <TuKhoa>dữ liệu;thông tin</TuKhoa>
     </owl:NamedIndividual>
     
 
@@ -580,6 +585,7 @@
         <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
         <NoiDungCauHoi>Em là sao đỏ của lớp. Theo em, thông tin nào dưới đây không phải là thông tin cần xử lí ( thông tin vào ) để xếp loại các tổ cuối tuần?</NoiDungCauHoi>
         <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</STTCauHoi>
+        <TuKhoa>thông tin</TuKhoa>
     </owl:NamedIndividual>
     
 
@@ -591,6 +597,7 @@
         <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
         <NoiDungCauHoi>Nghe bản tin dự báo thời tiết “Ngày mai trời có thể mưa”, em sẽ xử lý thông tin và quyết định như thế nào (thông tin ra) ?</NoiDungCauHoi>
         <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</STTCauHoi>
+        <TuKhoa>thông tin</TuKhoa>
     </owl:NamedIndividual>
     
 
@@ -602,6 +609,7 @@
         <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
         <NoiDungCauHoi>Tai người bình thường có thể tiếp nhận thông tin nào dưới đây:</NoiDungCauHoi>
         <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</STTCauHoi>
+        <TuKhoa>thông tin</TuKhoa>
     </owl:NamedIndividual>
     
 
@@ -613,6 +621,7 @@
         <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
         <NoiDungCauHoi>Mắt thường không thể tiếp nhận thông tin nào dưới đây?</NoiDungCauHoi>
         <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</STTCauHoi>
+        <TuKhoa>thông tin</TuKhoa>
     </owl:NamedIndividual>
     
 
@@ -624,6 +633,7 @@
         <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
         <NoiDungCauHoi>Trước khi sang đường theo em, con người cần phải xử lý những thông tin gì?</NoiDungCauHoi>
         <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</STTCauHoi>
+        <TuKhoa>thông tin</TuKhoa>
     </owl:NamedIndividual>
     
 
@@ -635,6 +645,7 @@
         <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
         <NoiDungCauHoi>Em cần nấu một nồi cơm. Hãy xác định những thông tin nào cần xử lý?</NoiDungCauHoi>
         <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</STTCauHoi>
+        <TuKhoa>thông tin</TuKhoa>
     </owl:NamedIndividual>
     
 
@@ -646,6 +657,7 @@
         <ThuocTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
         <NoiDungCauHoi>Một trong những nhiệm vụ chính của tin học là:</NoiDungCauHoi>
         <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</STTCauHoi>
+        <TuKhoa>thông tin</TuKhoa>
     </owl:NamedIndividual>
     
 
@@ -1276,7 +1288,7 @@
         <Link>Thông tin là sự thông báo, trao đổi, giải thích về một đối tượng cụ thể nào đó và được thể hiện thông qua các dạng tín hiệu như âm thanh, chữ số, chữ viết… nhằm mang lại một sự hiểu biết nào đó cho đối tượng nhận tin.</Link>
         <NoiDungTiet>Thông tin là gì?</NoiDungTiet>
         <STTTiet rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTTiet>
-        <TuKhoa>thông tin</TuKhoa>
+        <TuKhoa>dữ liệu;thông tin</TuKhoa>
     </owl:NamedIndividual>
     
 
@@ -1289,6 +1301,7 @@
         <Link>Bai 7 Su dung phan mem Mario de luyen go phim_2.mp4</Link>
         <NoiDungTiet>Sử dụng bàn phím</NoiDungTiet>
         <STTTiet rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</STTTiet>
+        <TuKhoa>Bàn phím</TuKhoa>
     </owl:NamedIndividual>
     
 
