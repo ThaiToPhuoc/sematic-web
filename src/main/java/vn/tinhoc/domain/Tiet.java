@@ -15,8 +15,6 @@ public class Tiet {
     private String Link;
     
     private Integer STTTiet;
-    
-    private List<CauHoi> GomCauHoi;
 
     private String TuKhoa;
 
@@ -54,14 +52,6 @@ public class Tiet {
 		STTTiet = sTTTiet;
 	}
 	
-	public List<CauHoi> getGomCauHoi() {
-		return GomCauHoi;
-	}
-
-	public void setGomCauHoi(List<CauHoi> gomCauHoi) {
-		GomCauHoi = gomCauHoi;
-	}
-
 	public String getTuKhoa() {
         return TuKhoa;
     }

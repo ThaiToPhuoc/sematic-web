@@ -15,12 +15,14 @@ import vn.tinhoc.domain.BaiGiang;
 import vn.tinhoc.domain.CauHoi;
 import vn.tinhoc.domain.Chuong;
 import vn.tinhoc.domain.DapAn;
+import vn.tinhoc.domain.KiemTra;
 import vn.tinhoc.domain.Tiet;
 import vn.tinhoc.domain.dto.CauHoiDTO;
 import vn.tinhoc.repository.BaiGiangRepository;
 import vn.tinhoc.repository.CauHoiRepository;
 import vn.tinhoc.repository.ChuongRepository;
 import vn.tinhoc.repository.DapAnRepository;
+import vn.tinhoc.repository.KiemTraRepository;
 import vn.tinhoc.repository.TietRepository;
 
 @Service
@@ -40,6 +42,9 @@ public class PublicService {
 	
 	@Autowired
 	TietRepository tietRepository;
+	
+	@Autowired
+	KiemTraRepository kiemtraRepository;
 	
 	@Autowired
 	OntologyVariables vars;
@@ -67,10 +72,10 @@ public class PublicService {
 	}
 	
 	public List<CauHoiDTO> listCauHoi(String id) {
-		Optional<Tiet> op = tietRepository.findByUriTag(id);
-		Tiet tiet = op.orElse(null);
+		Optional<KiemTra> op = kiemtraRepository.findByUriTag(id);
+		KiemTra kiemtra = op.orElse(null);
 		List<CauHoi> cauhoilist = cauHoiRepository.find();
-		List<CauHoi> cauHois = tiet.getGomCauHoi();
+		List<CauHoi> cauHois = kiemtra.getGomCauHoi();
 		for (int i = 0; i < cauHois.size(); i++) {
 			for(int j = 0; j < cauhoilist.size(); j++) {
 				if(cauHois.get(i).getId().equals(cauhoilist.get(j).getId())) {
@@ -152,24 +157,6 @@ public class PublicService {
 	
 	public Tiet findTietById(String id) {
 		Optional<Tiet> op = tietRepository.findByUriTag(id);
-		List<CauHoi> cauhoilist = cauHoiRepository.find();
-		Tiet tiet = op.orElse(null);
-		
-		//fill data vao list
-		if(tiet != null){
-			List<CauHoi> cauhois = tiet.getGomCauHoi();
-			
-			for (int i = 0; i < cauhois.size(); i++) {
-				for(int j = 0; j < cauhoilist.size(); j++) {
-					if(cauhois.get(i).getId().equals(cauhoilist.get(j).getId())) {
-						cauhois.set(i, cauhoilist.get(j));
-						break;
-					}
-				}
-			}
-			tiet.setGomCauHoi(cauhois);
-		}
-		
-		return tiet;
+		return op.orElse(null);
 	}
 }

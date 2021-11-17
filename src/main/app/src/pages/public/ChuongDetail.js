@@ -18,12 +18,6 @@ export default class ChuongDetail extends Component {
         return <Link to={`/tiet/${id}`}>Nội dung tiết học</Link>;
     }
 
-    getCauHoi = (tiet) => {
-        let id = tiet?.id;
-        id = id.substring(id.indexOf('#') + 1)
-        return <Link to={`/cau-hoi/${id}`}>Câu hỏi ôn tập</Link>;
-    }
-
     componentDidMount() {
         PublicService.findChuongById(this.state.id)
         .then(response => {
@@ -49,7 +43,6 @@ export default class ChuongDetail extends Component {
                                 <p>Tiết {tiet.stttiet}: {tiet.noiDungTiet}  </p> 
                                 <div class = "container">
                                     <p>{this.getTietId(tiet)}</p>
-                                    <p>{this.getCauHoi(tiet)}</p>
                                 </div>
                             </div>
                         )
