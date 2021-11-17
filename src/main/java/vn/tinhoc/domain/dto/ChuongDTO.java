@@ -5,6 +5,7 @@ import java.util.List;
 import vn.lanhoang.ontology.annotation.Name;
 import vn.lanhoang.ontology.annotation.OntologyObject;
 import vn.tinhoc.domain.Chuong;
+import vn.tinhoc.domain.KiemTra;
 import vn.tinhoc.domain.Tiet;
 
 @OntologyObject(uri = "Chuong")
@@ -14,7 +15,7 @@ public class ChuongDTO {
 
     private List<Tiet> tiets;
     
-    public ChuongDTO(Chuong chuong, List<Tiet> tiets) {
+	public ChuongDTO(Chuong chuong, List<Tiet> tiets) {
 		this.chuong = chuong;
 		this.tiets = tiets;
 	}
