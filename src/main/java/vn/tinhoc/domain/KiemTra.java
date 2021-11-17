@@ -10,7 +10,7 @@ public class KiemTra {
 	@Name
 	private String id;
 	
-	private Chuong ThuocChuong;
+	private BaiGiang ThuocBaiGiang;
 	
 	private List<CauHoi> GomCauHoi;
 
@@ -22,12 +22,12 @@ public class KiemTra {
 		this.id = id;
 	}
 
-	public Chuong getThuocChuong() {
-		return ThuocChuong;
+	public BaiGiang getThuocBaiGiang() {
+		return ThuocBaiGiang;
 	}
 
-	public void setThuocChuong(Chuong thuocChuong) {
-		ThuocChuong = thuocChuong;
+	public void setThuocBaiGiang(BaiGiang thuocBaiGiang) {
+		ThuocBaiGiang = thuocBaiGiang;
 	}
 
 	public List<CauHoi> getGomCauHoi() {

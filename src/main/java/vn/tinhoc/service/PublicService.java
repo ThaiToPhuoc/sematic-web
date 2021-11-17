@@ -17,7 +17,9 @@ import vn.tinhoc.domain.Chuong;
 import vn.tinhoc.domain.DapAn;
 import vn.tinhoc.domain.KiemTra;
 import vn.tinhoc.domain.Tiet;
+import vn.tinhoc.domain.dto.BaiGiangDTO;
 import vn.tinhoc.domain.dto.CauHoiDTO;
+import vn.tinhoc.domain.dto.ChuongDTO;
 import vn.tinhoc.repository.BaiGiangRepository;
 import vn.tinhoc.repository.CauHoiRepository;
 import vn.tinhoc.repository.ChuongRepository;
@@ -132,7 +134,7 @@ public class PublicService {
 		return baiGiangRepository.find();
 	}
 	
-	public BaiGiang findBaiGiangById(String id) {
+	public BaiGiangDTO findBaiGiangById(String id) {
 		Optional<BaiGiang> op = baiGiangRepository.findByUriTag(id);
 		List<Chuong> chuonglist = chuongRepository.find();
 		BaiGiang baigiang = op.orElse(null);
@@ -152,7 +154,20 @@ public class PublicService {
 			baigiang.setGomChuong(chuongs);
 		}
 		
-		return baigiang;
+		List<KiemTra> kiemTras = kiemtraRepository.find();
+		
+		List<KiemTra> KiemTraTuongUng = 
+				kiemTras.stream()
+					.filter(kiemTra -> {
+						if(kiemTra.getThuocBaiGiang() != null) {
+							return kiemTra.getThuocBaiGiang().getId().equals(baigiang.getId());
+						}
+						return false;
+					})
+					.collect(Collectors.toList());
+		
+		BaiGiangDTO baigiangdto = new BaiGiangDTO(baigiang, KiemTraTuongUng);
+		return baigiangdto;
 	}
 	
 	public Tiet findTietById(String id) {

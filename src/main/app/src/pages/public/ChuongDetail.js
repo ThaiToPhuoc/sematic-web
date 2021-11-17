@@ -8,7 +8,7 @@ export default class ChuongDetail extends Component {
 
         this.state = {
             id: props.match?.params?.id ? props.match.params.id : '',
-            chuong: { }
+            chuongdto: { }
         }
     }
 
@@ -17,13 +17,13 @@ export default class ChuongDetail extends Component {
         id = id.substring(id.indexOf('#') + 1)
         return <Link to={`/tiet/${id}`}>Nội dung tiết học</Link>;
     }
-
+    
     componentDidMount() {
         PublicService.findChuongById(this.state.id)
         .then(response => {
             if (response?.data) {
                 this.setState({
-                    chuong: response.data
+                    chuongdto: response.data
                 })
             }
         })
@@ -34,9 +34,9 @@ export default class ChuongDetail extends Component {
     render() {
         return (
             <div class = "container">
-                <h2>Chương {this.state.chuong?.sttchuong}: {this.state.chuong?.noiDungChuong}</h2>
+                <h2>Chương {this.state.chuongdto?.chuong?.sttchuong}: {this.state.chuongdto?.chuong?.noiDungChuong}</h2>
                 <div class = "container">
-                    {this.state.chuong?.gomTiet?.sort((a, b) => a.stttiet > b.stttiet ? 1 : -1)
+                    {this.state.chuongdto?.chuong?.gomTiet?.sort((a, b) => a.stttiet > b.stttiet ? 1 : -1)
                     .map((tiet) => {
                         return(
                             <div>
@@ -44,6 +44,14 @@ export default class ChuongDetail extends Component {
                                 <div class = "container">
                                     <p>{this.getTietId(tiet)}</p>
                                 </div>
+                            </div>
+                        )
+                    })}
+                <h3>Ôn tập: </h3>
+                    {this.state.chuongdto?.kiemtras?.map((kt, index) => {
+                        return(
+                            <div>
+                                <p>Đề {index + 1}</p>
                             </div>
                         )
                     })}

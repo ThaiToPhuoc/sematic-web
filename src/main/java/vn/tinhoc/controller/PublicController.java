@@ -17,6 +17,7 @@ import vn.tinhoc.domain.BaiGiang;
 import vn.tinhoc.domain.CauHoi;
 import vn.tinhoc.domain.Chuong;
 import vn.tinhoc.domain.Tiet;
+import vn.tinhoc.domain.dto.BaiGiangDTO;
 import vn.tinhoc.domain.dto.CauHoiDTO;
 import vn.tinhoc.repository.CauHoiRepository;
 import vn.tinhoc.service.PublicService;
@@ -64,9 +65,9 @@ public class PublicController {
 	
 	@GetMapping("/bai-giang/{id}")
 	public ResponseEntity<?> findBaiGiangById(@PathVariable String id) {
-		BaiGiang baiGiang = publicService.findBaiGiangById(id);
-		return baiGiang != null
-				? new ResponseEntity<>(baiGiang, HttpStatus.OK)
+		BaiGiangDTO baiGiangdto = publicService.findBaiGiangById(id);
+		return baiGiangdto != null
+				? new ResponseEntity<>(baiGiangdto, HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
