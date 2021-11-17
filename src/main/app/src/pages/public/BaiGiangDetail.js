@@ -8,7 +8,7 @@ export default class ChuongDetail extends Component {
 
         this.state = {
             id: props.match?.params?.id ? props.match.params.id : '',
-            baiGiang: { }
+            baiGiangdto: { }
         }
     }
 
@@ -16,8 +16,9 @@ export default class ChuongDetail extends Component {
         PublicService.findBaiGiangById(this.state.id)
         .then(response => {
             if (response?.data) {
+                console.log(response)
                 this.setState({
-                    baiGiang: response.data
+                    baiGiangdto: response.data
                 })
             }
         })
@@ -36,8 +37,8 @@ export default class ChuongDetail extends Component {
     render() {
         return (
             <div class = "container">
-                <h2> Chương trình lớp: {this.state.baiGiang.chuongTrinh}</h2>
-                <p>Học kỳ: {this.state.baiGiang.hocKy}</p>
+                {/* <h2> Chương trình lớp: {this.state.baiGiangdto?.baiGiang.chuongTrinh}</h2>
+                <p>Học kỳ: {this.state.baiGiangdto?.baiGiang.hocKy}</p>
                 <p>Nội dung chương trình: </p>
                 <div class = "container">
                     {this.state.baiGiang?.gomChuong?.sort((a, b) => a.sttchuong > b.sttchuong ? 1 : -1).map((chuong) => {
@@ -45,7 +46,7 @@ export default class ChuongDetail extends Component {
                             <p>{this.getChuongId(chuong)}</p>
                         )
                     })}
-                </div>
+                </div> */}
             </div>
         )
     }
