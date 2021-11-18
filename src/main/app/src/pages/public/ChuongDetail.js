@@ -22,7 +22,6 @@ export default class ChuongDetail extends Component {
         PublicService.findChuongById(this.state.id)
         .then(response => {
             if (response?.data) {
-                console.log(response)
                 this.setState({
                     chuongdto: response.data
                 })
