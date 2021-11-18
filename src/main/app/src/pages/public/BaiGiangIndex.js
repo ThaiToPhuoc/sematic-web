@@ -36,36 +36,6 @@ export default class BaiGiangIndex extends Component {
     render() {
         return (
             <div>
-                 <nav class="navbar navbar-expand-md navbar-light bg-warning sticky-top mx-auto">
-                    <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item">
-								<Link style={{ textDecoration: 'none' , color: 'white', margin: "1rem",}}>Trang chủ</Link>
-							</li>
-                            {this.state.BaiGiang.map((bg) => {
-                                return(
-                                    <div>
-                                        {this.getBaiGiangId(bg)}
-                                    </div>
-                                )
-                            })}
-							<li class="nav-item ml-1">
-								<Link style={{ textDecoration: 'none' ,color: 'white', margin: "1rem",}}>Kiểm tra</Link>
-							</li>
-						</ul>
-					</div>
-                    </div>
-                </nav>
-                {/* {this.state.BaiGiang.map((bg) => {
-                    return(
-                        <div>
-                            <h2>{this.getBaiGiangId(bg)}</h2>
-                            <p>Học kỳ: {bg.hocKy}</p>
-                            <p>Được soạn bởi: {bg.duocSoanBoi.ho} {bg.duocSoanBoi.ten}</p>
-                        </div>
-                    )
-                })} */}
                 <div class = 'container'>
                     <h2 class="text-center">Thông tin và tin học</h2>
                     <p>1. Thông tin là gì?</p>
