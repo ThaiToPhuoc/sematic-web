@@ -12,6 +12,7 @@ import PrivateRoute from '../../components/axios/PrivateRoute';
 import DangNhap from './Login/DangNhap';
 import UserService from '../../services/UserService';
 import DangXuat from './Login/DangXuat';
+import Navbar from './Navbar';
 
 export default class Index extends Component {
 
@@ -27,6 +28,7 @@ export default class Index extends Component {
                 <Link to='/admin/cau-hoi/cap-nhat' >Cập nhật câu hỏi</Link> */}
 
                 <DangXuat />
+                <Navbar />
 
                 <Switch>
                     <PrivateRoute exact path="/chuong/:id" component={ChuongDetail} />

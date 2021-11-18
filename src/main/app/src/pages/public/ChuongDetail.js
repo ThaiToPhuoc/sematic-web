@@ -34,9 +34,9 @@ export default class ChuongDetail extends Component {
     render() {
         return (
             <div class = "container">
-                <h2>Chương {this.state.chuongdto?.chuong?.sttchuong}: {this.state.chuongdto?.chuong?.noiDungChuong}</h2>
+                <h2>Chương {this.state.chuongdto?.sttchuong}: {this.state.chuongdto?.noiDungChuong}</h2>
                 <div class = "container">
-                    {this.state.chuongdto?.chuong?.gomTiet?.sort((a, b) => a.stttiet > b.stttiet ? 1 : -1)
+                    {this.state.chuongdto?.gomTiet?.sort((a, b) => a.stttiet > b.stttiet ? 1 : -1)
                     .map((tiet) => {
                         return(
                             <div>
@@ -44,14 +44,6 @@ export default class ChuongDetail extends Component {
                                 <div class = "container">
                                     <p>{this.getTietId(tiet)}</p>
                                 </div>
-                            </div>
-                        )
-                    })}
-                <h3>Ôn tập: </h3>
-                    {this.state.chuongdto?.kiemtras?.map((kt, index) => {
-                        return(
-                            <div>
-                                <p>Đề {index + 1}</p>
                             </div>
                         )
                     })}

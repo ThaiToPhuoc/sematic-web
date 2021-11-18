@@ -16,7 +16,6 @@ export default class ChuongDetail extends Component {
         PublicService.findBaiGiangById(this.state.id)
         .then(response => {
             if (response?.data) {
-                console.log(response)
                 this.setState({
                     baiGiangdto: response.data
                 })
@@ -30,6 +29,18 @@ export default class ChuongDetail extends Component {
         return <Link to={`/chuong/${id}`}>Chương {chuong.sttchuong}: {chuong.noiDungChuong}</Link>;
     }
 
+    getChuongId = (chuong) => {
+        let id = chuong?.id;
+        id = id.substring(id.indexOf('#') + 1)
+        return <Link to={`/chuong/${id}`}>Chương {chuong.sttchuong}: {chuong.noiDungChuong}</Link>;
+    }
+
+    getKiemTra = (kt) => {
+        let id = kt?.id;
+        id = id.substring(id.indexOf('#') + 1)
+        return <Link to={`/cau-hoi/${id}`}>link</Link>;
+    }
+
     componentDidMount() {
         this.callAPI();
     }
@@ -37,16 +48,25 @@ export default class ChuongDetail extends Component {
     render() {
         return (
             <div class = "container">
-                {/* <h2> Chương trình lớp: {this.state.baiGiangdto?.baiGiang.chuongTrinh}</h2>
-                <p>Học kỳ: {this.state.baiGiangdto?.baiGiang.hocKy}</p>
+               <h2> Chương trình lớp: {this.state.baiGiangdto?.baiGiang?.chuongTrinh}</h2>
+                <p>Học kỳ: {this.state.baiGiangdto?.baiGiang?.hocKy}</p>
                 <p>Nội dung chương trình: </p>
                 <div class = "container">
-                    {this.state.baiGiang?.gomChuong?.sort((a, b) => a.sttchuong > b.sttchuong ? 1 : -1).map((chuong) => {
+                    {this.state.baiGiangdto?.baiGiang?.gomChuong?.sort((a, b) => a.sttchuong > b.sttchuong ? 1 : -1).map((chuong) => {
                         return(
                             <p>{this.getChuongId(chuong)}</p>
                         )
                     })}
-                </div> */}
+                </div>
+                <p>Kiểm tra: </p>
+                <div class = "container">
+                   {this.state?.baiGiangdto?.kiemTras?.map((kt, index)=>{
+                       return(
+                           <p>Đề {index + 1}: {this.getKiemTra(kt)}</p>
+                       )
+                   })}
+                </div>
+
             </div>
         )
     }
