@@ -24,7 +24,6 @@ export default class BaiGiangIndex extends Component {
         PublicService.listBaiGiang()
         .then(response => {
             if (response?.data) {
-                console.log(response)
                 this.setState({
                     BaiGiang: response.data
                 })
