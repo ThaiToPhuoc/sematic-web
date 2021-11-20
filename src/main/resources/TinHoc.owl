@@ -401,9 +401,7 @@
 
     <!-- http://www.tinhoc.edu.vn#CauHoi -->
 
-    <owl:Class rdf:about="http://www.tinhoc.edu.vn#CauHoi">
-        <rdfs:subClassOf rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.tinhoc.edu.vn#CauHoi"/>
     
 
 
@@ -423,9 +421,7 @@
 
     <!-- http://www.tinhoc.edu.vn#DapAn -->
 
-    <owl:Class rdf:about="http://www.tinhoc.edu.vn#DapAn">
-        <rdfs:subClassOf rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.tinhoc.edu.vn#DapAn"/>
     
 
 
@@ -933,7 +929,7 @@
     <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau10_KTC2_Lop6_1">
         <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
         <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1"/>
-        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</KetQua>
+        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
         <NoiDungDapAn>Truyền (trao đổi) thông tin.</NoiDungDapAn>
     </owl:NamedIndividual>
     
