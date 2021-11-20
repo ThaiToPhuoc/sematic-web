@@ -19,7 +19,6 @@ export default class CauHoiIndex extends Component {
         PublicService.listCauHoi(this.state.id)
         .then(response => {
             if (response?.data) {
-                console.log(response)
                 this.setState({
                     cauHoiDTOs: response.data
                 })
