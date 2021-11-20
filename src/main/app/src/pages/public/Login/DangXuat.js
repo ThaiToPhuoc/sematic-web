@@ -20,7 +20,7 @@ export default class DangXuat extends Component {
                     onClick={this.logout}
                 >
                     LOGOUT
-                    <img src={logo} width="40" height="40" />
+                    <img alt='logout' src={logo} width="40" height="40" />
                 </button>
                 </div>
 			    </nav>

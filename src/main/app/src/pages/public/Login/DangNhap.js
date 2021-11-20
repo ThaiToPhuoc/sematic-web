@@ -8,7 +8,6 @@ import UserService from '../../../services/UserService';
 export default class DangNhap extends Component {
 
     submit = (values) => {
-        console.log(values);
 
         UserService.login(values)
         .then(user => {

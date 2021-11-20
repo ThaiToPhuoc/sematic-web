@@ -1,6 +1,4 @@
 import API from '../components/axios/API';
-import AuthHeader from '../components/axios/AuthHeader';
-import Notify from '../components/notify/Notify';
 
 class UserService {
     login(form) {
