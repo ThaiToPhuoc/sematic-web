@@ -10,7 +10,8 @@ export default class CauHoiIndex extends Component {
 
         this.state = {
             id: props.match?.params?.id ? props.match.params.id : '',
-            cauHoiDTOs: []
+            cauHoiDTOs: [],
+            KQ: '',
         }
     }
 
@@ -39,26 +40,171 @@ export default class CauHoiIndex extends Component {
     }
 
     onPickDapAn = (dapAn, index, cauHoi) => {
+        let dto = this.state.cauHoiDTOs.find(d => d.cauHoi.id === cauHoi.id);
 
         cauHoi['ispicked'] = 1;
 
-        if(dapAn.ketQua === 1){
-            dapAn['style'] = {
-                color: 'green'
-            }
-        } else {
-            dapAn['style'] = {
-                color: 'red'
-            }
+        dto.dapAns.map((d) => {
+            d['ispicked'] = 0
+        })
+
+        if(dapAn.ispicked === 1)
+        {
+            dapAn['ispicked'] = 0;
         }
 
-        let dto = this.state.cauHoiDTOs.find(d => d.cauHoi.id === cauHoi.id);
-
+        else{
+            dapAn['ispicked'] = 1;
+        }
+        
         dto.dapAns.splice(index, 1, dapAn);
         dto.cauHoi = cauHoi;
+        dto.dapAns.map((d) => {
+            if(d['ispicked'] === 0)
+            {
+                d['style'] =
+                {
+                    color: 'black'
+                }
+            }
+
+            if(d['ispicked'] === 1)
+            {
+                d['style'] =
+                {
+                    color: 'green'
+                }
+            }
+        })
+    
         this.setState({
             dto
         })
+    }
+
+    handleEntailmentRequest(e) {
+         let dto = this.state.cauHoiDTOs;
+        dto.map((ch) => {
+            if(ch.ispicked === 1){
+                ch.map((d)=>{
+                    if(d.ispicked == 1){
+                        if(d.ketQua == 0)
+                        {
+                            d['style'] =
+                            {
+                                color: 'red'
+                            }
+                        }
+                        else
+                        {
+                            d['style'] =
+                            {
+                                color: 'blue'
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if(d.ketQua == 0)
+                        {
+                            d['style'] =
+                            {
+                                color: 'black'
+                            }
+                        }
+                        else
+                        {
+                            d['style'] =
+                            {
+                                color: 'blue'
+                            }
+                        }
+                    }
+                })
+            }
+        })
+        this.setState(
+            {
+                cauHoiDTOs: dto,
+                KQ:'Đã nộp bài'
+            }
+        )
+    }
+
+    onClickNopBai = (e) => {
+        let dto = this.state.cauHoiDTOs;
+        let ketqua = '';
+        let diem = 0;
+        dto.map((ch) => {
+            if(ch.cauHoi.ispicked === 1){
+                ch.dapAns.map((d)=>{
+                    if(d.ispicked == 1){
+                        if(d.ketQua == 0)
+                        {
+                            d['style'] =
+                            {
+                                color: 'red'
+                            }
+                            ch.cauHoi['kq'] = 'Bạn đã trả lời sai! Đáp án đúng: ' + d.noiDungDapAn;
+                        }
+                        else
+                        {
+                            d['style'] =
+                            {
+                                color: 'blue'
+                            }
+                            diem = diem + 1;
+                            ch.cauHoi['kq'] = 'Chính xác!';
+                        }
+                    }
+                    else
+                    {
+                        if(d.ketQua == 0)
+                        {
+                            d['style'] =
+                            {
+                                color: 'black'
+                            }
+                        }
+                        else
+                        {
+                            d['style'] =
+                            {
+                                color: 'blue'
+                            }
+                        }
+                    }
+                })
+            }
+
+            else{
+                ch.dapAns.map((d)=>{
+                        if(d.ketQua == 0)
+                        {
+                            d['style'] =
+                            {
+                                color: 'black'
+                            }
+                        }
+                        else
+                        {
+                            d['style'] =
+                            {
+                                color: 'blue'
+                            }
+                            ch.cauHoi['kq'] = 'Bạn chưa làm câu này! Đáp án: ' + d.noiDungDapAn;
+                        }
+                })
+                
+            }
+        })
+        this.setState(
+            {
+                cauHoiDTOs: dto,
+                KQ:'Đã nộp bài! Điểm số của bạn là: ' + diem + '/10'
+            }
+        )
+        e.preventDefault();
     }
 
     render() {
@@ -68,7 +214,7 @@ export default class CauHoiIndex extends Component {
                         let cauHoi = dto.cauHoi;
                         let dapAns = dto.dapAns;
                         return(
-                            <div key={index}>
+                            <div key={index} className ='my-5'>
                                 <b>Câu {cauHoi.sttcauHoi}: </b>
                                 {cauHoi.noiDungCauHoi}
 
@@ -80,27 +226,19 @@ export default class CauHoiIndex extends Component {
                                             </div>
                                         )
                                 })}
-                                {cauHoi.ispicked === 1 ?
-                                    <div>
-                                    {dapAns.map((dapAn, index) =>{
-                                        return(
-                                            dapAn.ketQua === 1
-                                            ?<div>
-                                                <b>Đáp án đúng: {Alphabetical(index + 1)}</b>
-                                            </div>
-                                            : <></>
-                                        )
-                                    })}
-                                    {this.getChuongId(cauHoi)}
-                                    
-                                    </div>
-                                :<></>
-                                }
-                                
-
+                                <div>
+                                    <b>{cauHoi.kq}</b>
+                                </div>
                             </div>
                         )
                     })}
+                <button className='btn btn-warning' onClick= {(e) => {this.onClickNopBai(e)}}>
+                    Nộp bài
+                </button>
+                <div>
+                    {this.state.KQ}
+                    
+                </div>
 
             </div>
             // <div>

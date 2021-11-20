@@ -3,6 +3,7 @@ import Notify, { AlertTypes } from '../../components/notify/Notify';
 import {Alphabetical} from '../../components/helpers/FieldValidate';
 import PublicService from '../../services/PublicService';
 import { Link } from 'react-router-dom';
+import Accordion from '../../components/Accordion';
 
 export default class BaiGiangIndex extends Component {
     constructor(props) {
@@ -33,6 +34,12 @@ export default class BaiGiangIndex extends Component {
         })
     }
 
+    getTietId = (tiet) => {
+        let id = tiet?.id;
+        id = id.substring(id.indexOf('#') + 1)
+        return <Link to={`/tiet/${id}`}>Nội dung tiết học</Link>;
+    }
+
     render() {
         return (
             <div>
@@ -52,6 +59,36 @@ export default class BaiGiangIndex extends Component {
                         <li> Xử lý thông tin có vai trò quan trọng nhất, mục đích là đem lại sự hiểu biết cho con người để có những kết luận, quyết định cần thiết.</li>
                         <li>• Thông tin trước khi xử lý được gọi là thông tin vào, sau khi thông tin được xử lý được gọi là thông tin ra.</li>
                     </ul>
+                </div>
+                <div className='container'>
+                    <h2 class="text-center">Danh sách các bài giảng</h2>
+                    {
+                        this.state.BaiGiang.map((bg) =>{
+                            return(
+                                <Accordion title={`Lớp ${bg.chuongTrinh}`}>
+                                    {
+                                        bg.gomChuong.map((chuong) =>{
+                                            return(
+                                                <div className='container'>
+                                                    <h3>Chương {chuong.sttchuong}:</h3>
+                                                    {chuong.gomTiet?.sort((a, b) => a.stttiet > b.stttiet ? 1 : -1)
+                                                    .map((tiet) => {
+                                                        return(
+                                                            <div>
+                                                                <h4>Tiết {tiet.stttiet}: {tiet.noiDungTiet}  </h4>
+                                                                <p>{this.getTietId(tiet)}</p>
+                                                            </div>
+                                                        )
+                                                    })}
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </Accordion>
+                            )
+                        })
+                    }   
+                    
                 </div>
             </div>
         )
