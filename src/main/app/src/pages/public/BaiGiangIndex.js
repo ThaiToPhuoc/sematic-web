@@ -34,6 +34,12 @@ export default class BaiGiangIndex extends Component {
         })
     }
 
+    getTietId = (tiet) => {
+        let id = tiet?.id;
+        id = id.substring(id.indexOf('#') + 1)
+        return <Link to={`/tiet/${id}`}>Nội dung tiết học</Link>;
+    }
+
     render() {
         return (
             <div>
@@ -70,7 +76,7 @@ export default class BaiGiangIndex extends Component {
                                                         return(
                                                             <div>
                                                                 <h4>Tiết {tiet.stttiet}: {tiet.noiDungTiet}  </h4>
-                                                                <p>{tiet.link}</p>
+                                                                <p>{this.getTietId(tiet)}</p>
                                                             </div>
                                                         )
                                                     })}
