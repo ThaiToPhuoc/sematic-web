@@ -8,6 +8,14 @@ class AdminService {
     createBaiGiang(form) {
         return API.post(`/admin/bai-giang`, form);
     }
+
+    updateChuong(form) {
+        return API.put(`/admin/chuong`, form);
+    }
+
+    createChuong(form) {
+        return API.post(`/admin/chuong`, form);
+    }
 }
 
 export default new AdminService();

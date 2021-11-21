@@ -5,11 +5,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import vn.tinhoc.domain.BaiGiang;
+import vn.tinhoc.domain.Chuong;
 import vn.tinhoc.repository.BaiGiangRepository;
+import vn.tinhoc.repository.ChuongRepository;
 import vn.tinhoc.service.AdminService;
 
 @RestController
@@ -21,6 +24,9 @@ public class AdminController {
 
     @Autowired
     BaiGiangRepository baiGiangRepository;
+
+    @Autowired
+    ChuongRepository chuongRepository;
 
     @GetMapping("/bai-giang")
     public ResponseEntity<?> findAllBaiGiang() {
@@ -44,5 +50,36 @@ public class AdminController {
         baiGiang.setId(id);
 
         return new ResponseEntity<>(baiGiangRepository.save(baiGiang), HttpStatus.OK);
+    }
+
+    @PostMapping("chuong")
+    public ResponseEntity<?> createChuong(@RequestBody Chuong chuong) {
+        HttpStatus errorStatus = adminService.getError(chuong);
+        if (errorStatus != null) {
+            return new ResponseEntity<>(errorStatus);
+        } else {
+            chuong = adminService.create(chuong);
+            if (chuong == null) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+
+        return new ResponseEntity<>(chuong, HttpStatus.OK);
+    }
+
+    @PutMapping("/chuong")
+    public ResponseEntity<?> updateChuong(@RequestBody Chuong chuong) {
+        if (!chuongRepository.exists(chuong.getId())) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else if (chuong.getThuocBaiGiang() == null || !baiGiangRepository.exists(chuong.getThuocBaiGiang().getId())) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } else {
+            chuong = adminService.update(chuong);
+            if (chuong == null) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+
+        return new ResponseEntity<>(chuong, HttpStatus.OK);
     }
 }

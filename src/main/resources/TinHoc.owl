@@ -496,20 +496,9 @@
         <DuocSoanBoi rdf:resource="http://www.tinhoc.edu.vn#PTTThuy"/>
         <GomChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong1_Lop6_1"/>
         <GomChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong2_Lop6_1"/>
-        <ChuongTrinh rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</ChuongTrinh>
-        <HocKy rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</HocKy>
-        <NamHoc rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</NamHoc>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#CTLop6_2 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#CTLop6_2">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#BaiGiang"/>
-        <DuocSoanBoi rdf:resource="http://www.tinhoc.edu.vn#PTTThuy"/>
+        <GomChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong3_Lop6_1"/>
         <ChuongTrinh>6</ChuongTrinh>
-        <HocKy>2</HocKy>
+        <HocKy>1</HocKy>
         <NamHoc>2021</NamHoc>
     </owl:NamedIndividual>
     
@@ -668,6 +657,18 @@
         <ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
         <NoiDungChuong>Thông tin</NoiDungChuong>
         <STTChuong rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</STTChuong>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.tinhoc.edu.vn#Chuong3_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Chuong3_Lop6_1">
+        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
+        <GomTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C3_Lop6_1"/>
+        <ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
+        <NoiDungChuong>abcd</NoiDungChuong>
+        <STTChuong>3</STTChuong>
     </owl:NamedIndividual>
     
 
@@ -941,7 +942,7 @@
     <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau10_KTC2_Lop6_1">
         <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
         <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1"/>
-        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
+        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</KetQua>
         <NoiDungDapAn>Truyền (trao đổi) thông tin.</NoiDungDapAn>
     </owl:NamedIndividual>
     
@@ -1283,6 +1284,18 @@
         <NoiDungTiet>Thông tin là gì?</NoiDungTiet>
         <STTTiet rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTTiet>
         <TuKhoa>dữ liệu;thông tin</TuKhoa>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.tinhoc.edu.vn#Tiet1_C3_Lop6_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Tiet1_C3_Lop6_1">
+        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
+        <ThuocChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong3_Lop6_1"/>
+        <Link>abc</Link>
+        <STTTiet>1</STTTiet>
+        <TuKhoa>abc</TuKhoa>
     </owl:NamedIndividual>
     
 

@@ -20,7 +20,6 @@ export const Alphabetical = (num) => {
     num = (num - t)/26 | 0;
   }
 
-  console.log(s)
   return s || undefined;
 }
 

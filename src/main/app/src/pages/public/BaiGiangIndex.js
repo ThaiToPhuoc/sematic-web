@@ -67,7 +67,7 @@ export default class BaiGiangIndex extends Component {
                             return(
                                 <Accordion title={`Lớp ${bg.chuongTrinh}`}>
                                     {
-                                        bg.gomChuong.map((chuong) =>{
+                                        bg.gomChuong?.map((chuong) =>{
                                             return(
                                                 <div className='container'>
                                                     <h3>Chương {chuong.sttchuong}:</h3>

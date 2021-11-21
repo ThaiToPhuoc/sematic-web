@@ -53,7 +53,9 @@ export default class BaiGiangList extends Component {
             mCreateVisible: false,
             mChuongModal: false,
             height90: `${Height*95/100}px`,
-            cacChuong: []
+            cacChuong: [],
+            cacKiemTra: [],
+            currChuong: { }
         }
     }
 
@@ -63,7 +65,20 @@ export default class BaiGiangList extends Component {
         })
     }
 
+    openChuongModal = (chuong) => {
+        this.setState({
+            mChuongModal: true,
+            currChuong: chuong
+        })
+    }
+
     refresh = () => {
+        this.setState({
+            mChuongModal: false,
+            mCreateVisible: false,
+            currChuong: {},
+            cacChuong: []
+        })
         AdminService.findAllBaiGiang()
         .then(response => {
             if (response?.data) {
@@ -83,17 +98,20 @@ export default class BaiGiangList extends Component {
 
         this.setState({
             baiGiangs: baiGiangs,
-            cacChuong: baiGiangs.find(bg => bg.id === item.id).gomChuong
+            cacChuong: baiGiangs.find(bg => bg.id === item.id).gomChuong,
+
         })
     }
 
     componentDidMount() {
+        ReactModal.setAppElement('#root')
         this.refresh()
     }
 
     render() {
         const { height90 } = this.state;
         return (
+            <>
             <div className='row'>
                 <div className="col-lg-7">
                     <div
@@ -134,10 +152,13 @@ export default class BaiGiangList extends Component {
                             ? (
                                 <div className='d-flex flex-wrap'>
                                     {this.state.cacChuong
+                                    .sort((a, b) => a.id > b.id ? 1 : -1)
                                     .map(chuong => {
                                         let id = TruncateSharp(chuong.id)
                                         return (
-                                            <div key={id} className='border rounded px-1 mx-1 flex pointer'>
+                                            <div key={id} className='border rounded px-1 mx-1 flex pointer'
+                                                onClick={() => this.openChuongModal(chuong)}
+                                            >
                                                 {id}
                                             </div>
                                         )
@@ -145,7 +166,7 @@ export default class BaiGiangList extends Component {
                                     
                                     <div 
                                         className='border rounded px-1 mx-1 flex pointer'
-                                        onClick={() => this.setState({ mChuongModal: true })}
+                                        onClick={() => this.openChuongModal({  })}
                                     >
                                         <FontAwesomeIcon className='text-success' icon={faPlusCircle} />
                                     </div>
@@ -169,31 +190,73 @@ export default class BaiGiangList extends Component {
                         </div>
 
                         <div className='border rounded h-50 mt-1'>
-                            <div>a</div>
+                        {
+                            this.state.cacChuong?.length > 0
+                            ? (
+                                <div className='d-flex flex-wrap'>
+                                    {this.state.cacChuong
+                                    .sort((a, b) => a.id > b.id ? 1 : -1)
+                                    .map(chuong => {
+                                        let id = TruncateSharp(chuong.id)
+                                        return (
+                                            <div key={id} className='border rounded px-1 mx-1 flex pointer'
+                                                onClick={() => this.openChuongModal(chuong)}
+                                            >
+                                                {id}
+                                            </div>
+                                        )
+                                    })}
+                                    
+                                    <div 
+                                        className='border rounded px-1 mx-1 flex pointer'
+                                        onClick={() => this.openChuongModal({  })}
+                                    >
+                                        <FontAwesomeIcon className='text-success' icon={faPlusCircle} />
+                                    </div>
+                                </div>
+                            )
+                            : ( /* GomChuong === undefind | null | empty */
+                                <div className='w-100 h-100 position-relative'>
+                                    <div
+                                        style={{
+                                            position: 'absolute',
+                                            top: '50%',
+                                            left: '50%',
+                                            transform: 'translate(-50%, 0%)'
+                                        }}
+                                    >
+                                        <h5>Không tìm thấy chương liên quan!</h5>
+                                    </div>
+                                </div>
+                            )
+                        }
                         </div>
                     </div>
                 </div>
-
-                        
-                <ReactModal 
-                    style={modalStyle}
-                    isOpen={this.state.mCreateVisible}>
-                    <BaiGiangCreate
-                        close={() => this.setState({ mCreateVisible: false })}
-                        refresh={this.refresh}
-                    />
-                </ReactModal>
-
-                <ReactModal
-                    style={modalStyle}
-                    isOpen={this.state.mChuongModal}>
-                >
-                    <ChuongModal 
-                        close={() => this.setState({ mChuongModal: false })}
-                        refresh={this.refresh}
-                    />
-                </ReactModal>
             </div>
+            
+            <ReactModal 
+                style={modalStyle}
+                isOpen={this.state.mCreateVisible}>
+                <BaiGiangCreate
+                    close={() => this.setState({ mCreateVisible: false })}
+                    refresh={this.refresh}
+                />
+            </ReactModal>
+
+            <ReactModal
+                style={modalStyle}
+                isOpen={this.state.mChuongModal}>
+            >
+                <ChuongModal 
+                    readMode={true}
+                    form={this.state.currChuong}
+                    thuocBaiGiang={this.state.baiGiangs.find(bg => bg.selected)}
+                    close={() => this.setState({ mChuongModal: false, chuong: { } })}
+                    refresh={this.refresh}
+                />
+            </ReactModal>
+            </>
         )
     }
 }
