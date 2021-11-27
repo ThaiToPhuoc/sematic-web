@@ -24,6 +24,10 @@ class PublicService {
     listBaiGiang() {
         return API.get('public/bai-giang');
     }
+
+    nopBai(form) {
+        return API.post('/public/nop-bai', form);
+    }
 }
 
 export default new PublicService();

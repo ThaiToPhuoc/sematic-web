@@ -19,6 +19,7 @@ import vn.tinhoc.domain.Chuong;
 import vn.tinhoc.domain.Tiet;
 import vn.tinhoc.domain.dto.BaiGiangDTO;
 import vn.tinhoc.domain.dto.CauHoiDTO;
+import vn.tinhoc.domain.dto.NopBaiDTO;
 import vn.tinhoc.repository.CauHoiRepository;
 import vn.tinhoc.service.PublicService;
 
@@ -75,5 +76,10 @@ public class PublicController {
 	public ResponseEntity<?> listBaiGiang() {
 		
 		return new ResponseEntity<>(publicService.listBaiGiang(), HttpStatus.OK);
+	}
+
+	@PostMapping("/nop-bai")
+	public ResponseEntity<?> nopBai(@RequestBody List<NopBaiDTO> nopBaiDTOs){
+		return ResponseEntity.ok(publicService.nopBai(nopBaiDTOs));
 	}
 }

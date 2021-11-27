@@ -1,12 +1,13 @@
 package vn.tinhoc.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import vn.lanhoang.ontology.annotation.Name;
 import vn.lanhoang.ontology.annotation.OntologyObject;
 
 @OntologyObject(uri = "BaiGiang")
-public class BaiGiang {
+public class BaiGiang implements Serializable {
 	@Name
 	private String id;
 	

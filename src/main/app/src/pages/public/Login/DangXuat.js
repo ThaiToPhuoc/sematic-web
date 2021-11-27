@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import logo from '../Login/login.png';
 import UserService from '../../../services/UserService';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 export default class DangXuat extends Component {
 
@@ -12,19 +14,12 @@ export default class DangXuat extends Component {
 
     render() {
         return (
-            <div>
-                <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-				<div class="container-fluid">
-                <button 
-                    className='btn btn-danger'
-                    onClick={this.logout}
-                >
-                    LOGOUT
-                    <img alt='logout' src={logo} width="40" height="40" />
-                </button>
-                </div>
-			    </nav>
-            </div>
+            <button 
+                className='btn btn-danger'
+                onClick={this.logout}
+            >
+                <FontAwesomeIcon icon={faSignOutAlt} /> Đăng xuất
+            </button>
         )
     }
 }

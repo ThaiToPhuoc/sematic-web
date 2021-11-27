@@ -13,6 +13,8 @@ public class CauHoi {
 	
 	private Integer STTCauHoi;
 
+	private String TuKhoa;
+
 	public String getId() {
 		return id;
 	}
@@ -35,5 +37,13 @@ public class CauHoi {
 
 	public void setSTTCauHoi(Integer STTCauHoi) {
 		this.STTCauHoi = STTCauHoi;
+	}
+
+	public String getTuKhoa() {
+		return TuKhoa;
+	}
+
+	public void setTuKhoa(String tuKhoa) {
+		TuKhoa = tuKhoa;
 	}
 }

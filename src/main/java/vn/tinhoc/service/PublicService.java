@@ -1,12 +1,16 @@
 package vn.tinhoc.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.Locale;
 import java.util.Optional;
-import java.util.UUID;
+import java.util.Set;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +23,8 @@ import vn.tinhoc.domain.KiemTra;
 import vn.tinhoc.domain.Tiet;
 import vn.tinhoc.domain.dto.BaiGiangDTO;
 import vn.tinhoc.domain.dto.CauHoiDTO;
-import vn.tinhoc.domain.dto.ChuongDTO;
+import vn.tinhoc.domain.dto.KetQuaDTO;
+import vn.tinhoc.domain.dto.NopBaiDTO;
 import vn.tinhoc.repository.BaiGiangRepository;
 import vn.tinhoc.repository.CauHoiRepository;
 import vn.tinhoc.repository.ChuongRepository;
@@ -165,13 +170,51 @@ public class PublicService {
 						return false;
 					})
 					.collect(Collectors.toList());
-		
-		BaiGiangDTO baigiangdto = new BaiGiangDTO(baigiang, KiemTraTuongUng);
-		return baigiangdto;
+
+		return new BaiGiangDTO(baigiang, KiemTraTuongUng);
 	}
 	
 	public Tiet findTietById(String id) {
 		Optional<Tiet> op = tietRepository.findByUriTag(id);
 		return op.orElse(null);
+	}
+
+	public List<KetQuaDTO> nopBai(List<NopBaiDTO> nopBaiDTOs) {
+		List<KetQuaDTO> ketQuaDTOS = new ArrayList<>();
+		nopBaiDTOs.forEach(nopBaiDTO -> {
+			Optional<CauHoi> cauHoiOP = cauHoiRepository.findByUriTag(nopBaiDTO.getCauHoi());
+
+			if (cauHoiOP.isPresent()) {
+				CauHoi cauHoi = cauHoiOP.get();
+
+				String tuKhoaSTR = cauHoi.getTuKhoa();
+				Supplier<Stream<String>> tuKhoasStream = () -> Arrays
+						.stream(StringUtils.split(tuKhoaSTR, ";"));
+
+				Set<String> tuKhoaSet = tuKhoasStream.get().collect(Collectors.toSet());
+				String tuKhoas = tuKhoasStream
+						.get()
+						.map(s -> String.format("regex(?o, \"%s\", \"i\")", s.toLowerCase(Locale.ROOT)))
+						.collect(Collectors.joining(" || "));
+
+				String select = String.format(
+					"SELECT ?s " +
+					"WHERE {" +
+					"	?s rdf:type thoc:Tiet ." +
+					"	?s thoc:TuKhoa ?o ." +
+					"	FILTER (%s)" +
+					"}",
+					tuKhoas
+				);
+
+				List<Tiet> tiets = tietRepository.query(select);
+				KetQuaDTO ketQuaDTO = new KetQuaDTO(nopBaiDTO);
+				ketQuaDTO.tuKhoas.addAll(tuKhoaSet);
+				ketQuaDTO.chuongs.addAll(KetQuaDTO.GroupBy.group(tiets));
+				ketQuaDTOS.add(ketQuaDTO);
+			}
+		});
+
+		return ketQuaDTOS;
 	}
 }
