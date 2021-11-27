@@ -9,6 +9,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import PrivateRoute from './components/axios/PrivateRoute';
 import DangNhap from './pages/public/Login/DangNhap';
 import DangKy from './pages/public/Login/DangKy';
+import DashBoard from './pages/admin/Components/DashBoard';
 
 export default class App extends Component {
   componentDidMount() {
@@ -22,6 +23,9 @@ export default class App extends Component {
           <Switch>
             <Route exact path='/dang-nhap' component={DangNhap} />
             <Route exact path='/dang-ky' component={DangKy} />
+            
+            <PrivateRoute path='/admin' component={DashBoard} />
+            
             <PrivateRoute path='/' component={Index} />
           </Switch>
         </BrowserRouter>

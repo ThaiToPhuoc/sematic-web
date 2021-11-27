@@ -8,14 +8,17 @@ import UserService from '../../../services/UserService';
 export default class DangNhap extends Component {
 
     submit = (values) => {
-        console.log(values);
 
         UserService.login(values)
         .then(user => {
             if (user?.token) {
                 Notify.info(`Welcome ${user.username}`);
 
-                this.props.history.push('/')
+                if (user.roles.includes('ROLE_ADMIN')) {
+                    window.location.href = '/admin'
+                } else {
+                    this.props.history.push('/')
+                }
             }
         })
     }

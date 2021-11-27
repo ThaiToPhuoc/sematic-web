@@ -1,0 +1,86 @@
+:root {
+    --nav-width: 200px;
+    --item-height: 2em;
+    --transition-length: 150ms;
+    --nav-bg-color: aqua
+}
+
+.nav--sidenav {
+    // No Select
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+
+    z-index: 69;
+    height: 100%;
+    position: fixed;
+    overflow-x: hidden;
+    width: var(--nav-width);
+    background-color: aqua;
+    transition: width var(--transition-length) ease-in-out;
+
+    .nav--icon {
+        font-size: 2rem;
+        cursor: pointer;
+        margin-right: 5px;
+
+        & > svg {
+            transition: transform var(--transition-length);
+
+            &.rotate {
+                transform: rotate(-90deg);
+            }
+        }
+    }
+
+    & > .nav--toggle {
+        width: inherit;
+        padding: 0 .3em;
+        font-weight: 600;
+        display: table-cell;
+        vertical-align: middle;
+        filter: brightness(65%);
+        height: var(--item-height);
+        background-color: var(--nav-bg-color);
+    }
+
+    & > .nav--items {
+        & > .nav--item {
+            white-space: nowrap;
+            padding: 0 .3em;
+            text-align: left;
+            text-overflow: clip;
+            // height: var(--item-height);
+            > span {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            > .nav--text {
+                font-size: 1rem;
+                font-weight: 500;
+                line-height: normal;
+                text-overflow: clip;
+            }
+
+            &:hover {
+                background-color: cadetblue;
+                cursor: pointer;
+            }
+
+            &.active {
+                background-color: cadetblue;
+            }
+        }
+
+    }
+}
+
+.dashboard--main {
+    margin-left: var(--nav-width);
+    padding: .5em 1em;
+    transition: margin-left var(--transition-length) ease-in-out;
+}

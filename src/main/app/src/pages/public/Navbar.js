@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Notify, { AlertTypes } from '../../components/notify/Notify';
-import {Alphabetical} from '../../components/helpers/FieldValidate';
+import Notify from '../../components/notify/Notify';
 import PublicService from '../../services/PublicService';
 import { Link } from 'react-router-dom';
 export default class Navbar extends Component {
