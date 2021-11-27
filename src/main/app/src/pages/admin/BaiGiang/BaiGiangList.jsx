@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faList, faPlusCircle, faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 import { TruncateSharp } from '../../../components/helpers/FieldValidate'
 import ChuongModal from './Chuong/ChuongModal'
+import KiemTraModal from './KiemTra/KiemTraModal'
 
 const modalStyle = {
     content: {
@@ -50,12 +51,14 @@ export default class BaiGiangList extends Component {
         this.state = {
             columns: _columns,
             baiGiangs: [],
+            height90: `${Height*95/100}px`,
             mCreateVisible: false,
             mChuongModal: false,
-            height90: `${Height*95/100}px`,
+            mKiemTraModal: false,
             cacChuong: [],
             cacKiemTra: [],
-            currChuong: { }
+            currChuong: { },
+            currKiemTra: { },
         }
     }
 
@@ -76,8 +79,10 @@ export default class BaiGiangList extends Component {
         this.setState({
             mChuongModal: false,
             mCreateVisible: false,
+            mKiemTraModal: false,
+            cacChuong: [],
             currChuong: {},
-            cacChuong: []
+            currKiemTra: { },
         })
         AdminService.findAllBaiGiang()
         .then(response => {
@@ -101,6 +106,15 @@ export default class BaiGiangList extends Component {
             cacChuong: baiGiangs.find(bg => bg.id === item.id).gomChuong,
 
         })
+        
+        AdminService.findKiemTraByBaiGiang(TruncateSharp(item.id))
+        .then(response => {
+            if (response?.data) {
+                this.setState({
+                    cacKiemTra: response.data
+                })
+            }
+        }) 
     }
 
     componentDidMount() {
@@ -148,12 +162,12 @@ export default class BaiGiangList extends Component {
                     >
                         <div className='border rounded h-50 mb-1 p-1'>
                         {
-                            this.state.cacChuong?.length > 0
+                            this.state.baiGiangs.some(bg => bg.selected)
                             ? (
                                 <div className='d-flex flex-wrap'>
                                     {this.state.cacChuong
-                                    .sort((a, b) => a.id > b.id ? 1 : -1)
-                                    .map(chuong => {
+                                    ?.sort((a, b) => a.id > b.id ? 1 : -1)
+                                    ?.map(chuong => {
                                         let id = TruncateSharp(chuong.id)
                                         return (
                                             <div key={id} className='border rounded px-1 mx-1 flex pointer'
@@ -169,6 +183,7 @@ export default class BaiGiangList extends Component {
                                         onClick={() => this.openChuongModal({  })}
                                     >
                                         <FontAwesomeIcon className='text-success' icon={faPlusCircle} />
+                                        &nbsp;Thêm chương
                                     </div>
                                 </div>
                             )
@@ -189,18 +204,18 @@ export default class BaiGiangList extends Component {
                         }
                         </div>
 
-                        <div className='border rounded h-50 mt-1'>
+                        <div className='border rounded h-50 mt-1 p-1'>
                         {
-                            this.state.cacChuong?.length > 0
+                            this.state.baiGiangs.some(bg => bg.selected)
                             ? (
                                 <div className='d-flex flex-wrap'>
-                                    {this.state.cacChuong
-                                    .sort((a, b) => a.id > b.id ? 1 : -1)
-                                    .map(chuong => {
-                                        let id = TruncateSharp(chuong.id)
+                                    {this.state.cacKiemTra
+                                    .sort((a, b) => a.kiemTra.id > b.kiemTra.id ? 1 : -1)
+                                    .map(kiemTraDTO => {
+                                        let id = TruncateSharp(kiemTraDTO?.kiemTra?.id)
                                         return (
                                             <div key={id} className='border rounded px-1 mx-1 flex pointer'
-                                                onClick={() => this.openChuongModal(chuong)}
+                                                onClick={() => this.setState({ mKiemTraModal: true, currKiemTra: kiemTraDTO })}
                                             >
                                                 {id}
                                             </div>
@@ -209,9 +224,10 @@ export default class BaiGiangList extends Component {
                                     
                                     <div 
                                         className='border rounded px-1 mx-1 flex pointer'
-                                        onClick={() => this.openChuongModal({  })}
+                                        onClick={() => this.setState({ mKiemTraModal: true, currKiemTra: { } })}
                                     >
                                         <FontAwesomeIcon className='text-success' icon={faPlusCircle} />
+                                        &nbsp;Thêm kiểm tra
                                     </div>
                                 </div>
                             )
@@ -225,7 +241,7 @@ export default class BaiGiangList extends Component {
                                             transform: 'translate(-50%, 0%)'
                                         }}
                                     >
-                                        <h5>Không tìm thấy chương liên quan!</h5>
+                                        <h5>Không tìm thấy Kiểm tra liên quan!</h5>
                                     </div>
                                 </div>
                             )
@@ -252,7 +268,20 @@ export default class BaiGiangList extends Component {
                     readMode={true}
                     form={this.state.currChuong}
                     thuocBaiGiang={this.state.baiGiangs.find(bg => bg.selected)}
-                    close={() => this.setState({ mChuongModal: false, chuong: { } })}
+                    close={() => this.setState({ mChuongModal: false, currChuong: { } })}
+                    refresh={this.refresh}
+                />
+            </ReactModal>
+
+            <ReactModal
+                style={modalStyle}
+                isOpen={this.state.mKiemTraModal}>
+            >
+                <KiemTraModal 
+                    readMode={true}
+                    form={this.state.currKiemTra}
+                    thuocBaiGiang={this.state.baiGiangs.find(bg => bg.selected)}
+                    close={() => this.setState({ mKiemTraModal: false, currKiemTra: { } })}
                     refresh={this.refresh}
                 />
             </ReactModal>

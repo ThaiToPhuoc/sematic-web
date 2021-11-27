@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import vn.tinhoc.domain.BaiGiang;
 import vn.tinhoc.domain.Chuong;
+import vn.tinhoc.domain.request.KiemTraWrite;
 import vn.tinhoc.repository.BaiGiangRepository;
 import vn.tinhoc.repository.ChuongRepository;
 import vn.tinhoc.service.AdminService;
+
+import javax.annotation.security.PermitAll;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -50,6 +54,23 @@ public class AdminController {
         baiGiang.setId(id);
 
         return new ResponseEntity<>(baiGiangRepository.save(baiGiang), HttpStatus.OK);
+    }
+
+    @GetMapping("/bai-giang/{id}/kiem-tra")
+    public ResponseEntity<?> findKiemTraFromBaiGiang(@PathVariable String id) {
+        return ResponseEntity.ok(adminService.findKiemTraByBaiGiang(id));
+    }
+
+    @PostMapping("/kiem-tra")
+    public ResponseEntity<?> createKiemTra(@RequestBody KiemTraWrite kiemTraWrite) {
+
+        return ResponseEntity.ok(adminService.create(kiemTraWrite));
+    }
+
+    @PutMapping("/kiem-tra")
+    public ResponseEntity<?> updateKiemTra(@RequestBody KiemTraWrite kiemTraWrite) {
+
+        return ResponseEntity.ok(adminService.update(kiemTraWrite));
     }
 
     @PostMapping("chuong")

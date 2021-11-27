@@ -1,8 +1,9 @@
-import { faBars, faChalkboardTeacher, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faChalkboardTeacher, faHome, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { Component } from 'react'
 import "../style.scss"
 import { withRouter } from "react-router-dom";
+import UserService from '../../../../services/UserService';
 
 const items = [
     {
@@ -69,6 +70,16 @@ class AdminNavbar extends Component {
                             </div>
                         )
                     )}
+                    <hr />
+                    <div 
+                        className={ `nav--item`}
+                        onClick={() => { UserService.logout(); window.location.reload(); }}
+                    >
+                                <span className='nav--icon'>
+                                    <FontAwesomeIcon icon={faSignOutAlt} fixedWidth />
+                                </span>
+                                <span className='nav--text'>Đăng xuất</span>
+                            </div>
                 </div>
             </div>
         )

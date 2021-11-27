@@ -2,6 +2,7 @@ package vn.tinhoc.utils;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -46,6 +47,27 @@ public class DataUtils {
         while (matcher.find()) {
             words.add(matcher.group(0));
         }
-        return words.stream().collect(Collectors.joining(" "));
+        return String.join(" ", words);
     }
+
+	public static int smallestMissingNumber(Integer... numbers) {
+		Arrays.sort(numbers);
+
+		if (numbers.length == 0 || numbers[0] != 1) {
+			return 1;
+		}
+
+		for (int i = 0; i < numbers.length; i++) {
+			int nextIndex = i + 1;
+			if (nextIndex < numbers.length && numbers[i] + 1 != numbers[nextIndex]) {
+				return numbers[i] + 1;
+			}
+		}
+
+		return numbers[numbers.length - 1] + 1;
+	}
+
+	public static String removeSharp(String id) {
+		return id.contains("#") ? id.substring(id.indexOf("#") + 1) : id;
+	}
 }

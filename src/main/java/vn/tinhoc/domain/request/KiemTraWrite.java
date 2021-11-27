@@ -1,14 +1,14 @@
 package vn.tinhoc.domain.request;
 
-import vn.tinhoc.domain.DapAn;
 import vn.tinhoc.domain.KiemTra;
+import vn.tinhoc.domain.dto.CauHoiDTO;
 
 import java.util.List;
 
-public class KiemTraCreate {
+public class KiemTraWrite {
     KiemTra kiemTra;
 
-    List<DapAn> dapAns;
+    List<CauHoiDTO> cauHoi;
 
     public KiemTra getKiemTra() {
         return kiemTra;
@@ -18,11 +18,11 @@ public class KiemTraCreate {
         this.kiemTra = kiemTra;
     }
 
-    public List<DapAn> getDapAns() {
-        return dapAns;
+    public List<CauHoiDTO> getCauHoi() {
+        return cauHoi;
     }
 
-    public void setDapAns(List<DapAn> dapAns) {
-        this.dapAns = dapAns;
+    public void setCauHoi(List<CauHoiDTO> cauHoi) {
+        this.cauHoi = cauHoi;
     }
 }

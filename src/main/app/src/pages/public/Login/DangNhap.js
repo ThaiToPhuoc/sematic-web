@@ -14,7 +14,11 @@ export default class DangNhap extends Component {
             if (user?.token) {
                 Notify.info(`Welcome ${user.username}`);
 
-                this.props.history.push('/')
+                if (user.roles.includes('ROLE_ADMIN')) {
+                    window.location.href = '/admin'
+                } else {
+                    this.props.history.push('/')
+                }
             }
         })
     }

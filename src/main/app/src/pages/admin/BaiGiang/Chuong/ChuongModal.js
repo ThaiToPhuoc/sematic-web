@@ -3,7 +3,7 @@ import { Field, Form } from 'react-final-form';
 import { FieldArray } from 'react-final-form-arrays';
 import Select from 'react-select';
 import arrayMutators from "final-form-arrays";
-import { Alphabetical, Required } from '../../../../components/helpers/FieldValidate';
+import { Required } from '../../../../components/helpers/FieldValidate';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare, faTimes } from '@fortawesome/free-solid-svg-icons';
 import AdminService from '../../../../services/AdminService';
