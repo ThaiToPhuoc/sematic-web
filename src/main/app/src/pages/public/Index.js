@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Notify from '../../components/notify/Notify';
 import CauHoiUpdate from '../cauhoi/CauHoiUpdate';
 import BaiGiangIndex from './BaiGiangIndex';
-import CauHoiIndex from './CauHoiIndex';
+import CauHoiIndex from './CauHoi/CauHoiIndex';
 import ChuongDetail from './ChuongDetail';
 import BaiGiangDetail from './BaiGiangDetail';
 import TietDetail from './TietDetail';
@@ -26,8 +26,6 @@ export default class Index extends Component {
                 <p>C.	Biết được các tin tức và sự kiện xảy ra trong xã hội.</p>
                 <p>D.	Tất cả các khẳng định trên đều đúng.</p> 
                 <Link to='/admin/cau-hoi/cap-nhat' >Cập nhật câu hỏi</Link> */}
-
-                <DangXuat />
                 <Navbar />
 
                 <Switch>

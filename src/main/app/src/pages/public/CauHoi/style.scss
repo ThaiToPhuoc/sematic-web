@@ -1,0 +1,18 @@
+.dap-an {
+    border: 1px solid transparent;
+
+    &:hover {
+        background-color: #FFFEA9;
+        border: 1px solid #E6DF9A;
+    }
+}
+
+.cau-hoi {
+    max-height: 500px;
+    overflow-y: scroll;
+
+    & > .ch-container {
+        background-color: #C2FFF9;
+        border: 1px solid #009DAE;
+    }
+}

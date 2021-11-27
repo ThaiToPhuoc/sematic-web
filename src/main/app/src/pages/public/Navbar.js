@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Notify from '../../components/notify/Notify';
 import PublicService from '../../services/PublicService';
 import { Link } from 'react-router-dom';
+import DangXuat from './Login/DangXuat';
+
 export default class Navbar extends Component {
     constructor(props) {
         super(props);
@@ -37,7 +39,7 @@ export default class Navbar extends Component {
                  <nav class="navbar navbar-expand-md navbar-light bg-warning sticky-top mx-auto">
                     <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarResponsive">
-						<ul class="navbar-nav ml-auto">
+						<ul class="navbar-nav">
 							<li class="nav-item">
 								<Link to={`/`} style={{ textDecoration: 'none' , color: 'white', margin: "2rem", fontSize: '30px'}}>Trang chủ</Link>
 							</li>
@@ -48,9 +50,15 @@ export default class Navbar extends Component {
                                     </div>
                                 )
                             })}
-							<li class="nav-item ml-1">
+							<li class="nav-item ms-1">
 								<Link style={{ textDecoration: 'none' ,color: 'white', margin: "2rem", fontSize: '30px'}}>Kiểm tra</Link>
 							</li>
+                            
+                            <div className='ms-auto'>
+                                <li class="nav-item ms-auto">
+                                    <DangXuat />
+                                </li>
+                            </div>
 						</ul>
 					</div>
                     </div>
