@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import Notify from '../../components/notify/Notify';
 import PublicService from '../../services/PublicService';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import DangXuat from './Login/DangXuat';
+import { TruncateSharp } from '../../components/helpers/FieldValidate';
 
-export default class Navbar extends Component {
+class Navbar extends Component {
     constructor(props) {
         super(props);
 
@@ -13,10 +14,9 @@ export default class Navbar extends Component {
         }
     }
 
-    getBaiGiangId = (bg) => {
-        let id = bg.id;
-        id = id.substring(id.indexOf('#') + 1)
-        return <Link to={`/bai-giang/${id}`} style={{ textDecoration: 'none', color: 'white', fontSize: '30px'}}><li class="nav-item">lớp {bg.chuongTrinh}</li></Link>;
+    reroute = (id) => {
+        this.props.history.push(`/bai-giang/${id}`)
+        window.location.reload()
     }
     
     componentDidMount() {
@@ -36,26 +36,32 @@ export default class Navbar extends Component {
     render() {
         return (
             <div>
-                 <nav class="navbar navbar-expand-md navbar-light bg-warning sticky-top mx-auto">
-                    <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-						<ul class="navbar-nav">
-							<li class="nav-item">
+                 <nav className="navbar navbar-expand-md navbar-light bg-warning sticky-top mx-auto">
+                    <div className="container-fluid">
+                    <div className="collapse navbar-collapse" id="navbarResponsive">
+						<ul className="navbar-nav">
+							<li className="nav-item">
 								<Link to={`/`} style={{ textDecoration: 'none' , color: 'white', margin: "2rem", fontSize: '30px'}}>Trang chủ</Link>
 							</li>
                             {this.state.BaiGiang.map((bg) => {
-                                return(
-                                    <div>
-                                        {this.getBaiGiangId(bg)}
-                                    </div>
+                                let id = TruncateSharp(bg.id)
+                                return (
+                                    <li 
+                                        className="nav-item pointer" 
+                                        onClick={() => this.reroute(id)}
+                                        style={{ 
+                                            textDecoration: 'none', 
+                                            color: 'white', 
+                                            fontSize: '30px'}}
+                                        >lớp {bg.chuongTrinh}</li>
                                 )
                             })}
-							<li class="nav-item ms-1">
+							<li className="nav-item ms-1">
 								<Link style={{ textDecoration: 'none' ,color: 'white', margin: "2rem", fontSize: '30px'}}>Kiểm tra</Link>
 							</li>
                             
                             <div className='ms-auto'>
-                                <li class="nav-item ms-auto">
+                                <li className="nav-item ms-auto">
                                     <DangXuat />
                                 </li>
                             </div>
@@ -68,3 +74,4 @@ export default class Navbar extends Component {
     }
 }
 
+export default withRouter(Navbar)

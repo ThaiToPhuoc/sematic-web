@@ -29,10 +29,10 @@ export default class Index extends Component {
                 <Navbar />
 
                 <Switch>
-                    <PrivateRoute exact path="/chuong/:id" component={ChuongDetail} />
                     <PrivateRoute exact path="/bai-giang/:id" component={BaiGiangDetail} />
-                    <PrivateRoute exact path="/tiet/:id" component={TietDetail} />
-                    <PrivateRoute exact path="/cau-hoi/:id" component={CauHoiIndex} />
+                    <PrivateRoute path="/chuong/:id" component={ChuongDetail} />
+                    <PrivateRoute path="/tiet/:id" component={TietDetail} />
+                    <PrivateRoute path="/cau-hoi/:id" component={CauHoiIndex} />
                     <PrivateRoute path="/" component={BaiGiangIndex}/>
                 </Switch>
             </div>
