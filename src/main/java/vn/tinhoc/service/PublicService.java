@@ -207,6 +207,7 @@ public class PublicService {
 					tuKhoas
 				);
 
+				System.out.println(select);
 
 				List<Tiet> tiets = tietRepository.query(select);
 				KetQuaDTO ketQuaDTO = new KetQuaDTO(nopBaiDTO);

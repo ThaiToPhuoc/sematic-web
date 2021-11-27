@@ -40,3 +40,12 @@
 .pointer:hover {
   cursor: pointer;
 }
+
+.link {
+  color: #1597E5;
+}
+
+.link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

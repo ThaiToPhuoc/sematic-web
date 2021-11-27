@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Notify, { AlertTypes } from '../../../components/notify/Notify';
-import {Alphabetical} from '../../../components/helpers/FieldValidate';
+import { Alphabetical, TruncateSharp } from '../../../components/helpers/FieldValidate';
 import PublicService from '../../../services/PublicService';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './style.scss'
 
 const color = {
@@ -11,7 +11,7 @@ const color = {
     green: '#28A745'
 }
 
-export default class CauHoiIndex extends Component {
+class CauHoiIndex extends Component {
     constructor(props) {
         super(props);
 
@@ -19,7 +19,8 @@ export default class CauHoiIndex extends Component {
             id: props.match?.params?.id ? props.match.params.id : '',
             cauHoiDTOs: [],
             KQ: '',
-            daNopBai: false
+            daNopBai: false,
+            KetQua: []
         }
     }
 
@@ -81,9 +82,9 @@ export default class CauHoiIndex extends Component {
             let dapAnDung = ch.dapAns.find(d => d.ketQua)
 
             let kqMsgs = {
-                sai: 'Bạn đã trả lời sai! Đáp án đúng: ' + dapAnDung.noiDungDapAn,
+                sai: <>Bạn đã trả lời sai! <p>Đáp án đúng: <b>{dapAnDung.noiDungDapAn}</b></p></>,
                 dung: 'Chính xác!',
-                chuaLam: 'Bạn chưa làm câu này! Đáp án: ' + dapAnDung.noiDungDapAn
+                chuaLam: <>Bạn chưa làm câu này! <p>Đáp án: <b>{dapAnDung.noiDungDapAn}</b></p></>
             }
             ch.dapAns.forEach((d) => {
 
@@ -123,15 +124,28 @@ export default class CauHoiIndex extends Component {
                         color: 'white'
                     }
                 }
-            })
-        })
+            });
+        });
 
         this.setState({
             cauHoiDTOs: dto,
-            KQ:'Đã nộp bài! Điểm số của bạn là: ' + diem + '/' + dto.length
-        })
+            KQ: <>Đã nộp bài! Điểm số của bạn là: {diem}/{dto.length}</>
+        });
 
-        console.log(dto.map(d => ({ cauHoi: d.cauHoi.id })))
+        PublicService.nopBai(
+            dto.map(d => ({ cauHoi: d.cauHoi.id }))
+        )
+        .then(response => {
+            if (response?.data) {
+                this.setState({
+                    KetQua: response.data
+                })
+            }
+        })
+    }
+
+    reroute = (link) => {
+        this.props.history.replace(link)
     }
 
     render() {
@@ -153,6 +167,8 @@ export default class CauHoiIndex extends Component {
                             {this.state.cauHoiDTOs.map((dto, index) => {
                                 let cauHoi = dto.cauHoi;
                                 let dapAns = dto.dapAns;
+                                let kq = this.state.KetQua?.find(k => cauHoi.id === k.cauHoi)
+
                                 return(
                                     <div key={index} className ='my-3 p-1 rounded ch-container'>
                                         <h5 className='px-1'>
@@ -171,7 +187,45 @@ export default class CauHoiIndex extends Component {
                                             </div>
                                         ))}
                                         <div className='px-1'>
-                                            <b>{cauHoi.kq}</b>
+                                            {
+                                                kq ? 
+                                                <>
+                                                    <hr />
+                                                    {cauHoi.kq}
+
+                                                    <div className='px-2 rounded tiet'>
+                                                        {kq.chuongs.map(({ chuongId, noiDungChuong, tiets }) => {
+                                                            let chuong = TruncateSharp(chuongId)
+                                                            return (
+                                                                <div key={chuong}>
+                                                                    <h6>Chương:&nbsp;
+                                                                        <span 
+                                                                            className='link' 
+                                                                            onClick={() => this.reroute(`/bai-giang/${chuong}`)}
+                                                                        >{chuong}</span>
+                                                                    </h6>
+                                                                    <h6>Tiết: </h6>
+                                                                    <ul>
+                                                                        {tiets.map(tiet => {
+                                                                            let tietId = TruncateSharp(tiet.id)
+                                                                            return (
+                                                                                <li>
+                                                                                    <span 
+                                                                                        className='link'
+                                                                                        onClick={() => this.reroute(`/tiet/${tietId}`)}
+                                                                                    >{tietId}</span>
+                                                                                </li>
+                                                                            )
+                                                                        })}
+                                                                    </ul>
+                                                                </div>
+                                                            )
+                                                        })}
+                                                    </div>
+                                                </>
+                                                : <></>
+                                            }
+                                            
                                         </div>
                                     </div>
                                 )
@@ -183,3 +237,5 @@ export default class CauHoiIndex extends Component {
         )
     }
 }
+
+export default withRouter(CauHoiIndex)

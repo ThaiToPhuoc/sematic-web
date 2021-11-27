@@ -1399,7 +1399,7 @@
     <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1">
         <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
         <ThuocChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong2_Lop6_1"/>
-        <Link>Thông tin là sự thông báo, trao đổi, giải thích về một đối tượng cụ thể nào đó và được thể hiện thông qua các dạng tín hiệu như âm thanh, chữ số, chữ viết… nhằm mang lại một sự hiểu biết nào đó cho đối tượng nhận tin.</Link>
+        <Link>Thông tin là sự thông báo, trao đổi, giải thích về một đối tượng cụ thể nào đó và được thể hiện thông qua các dạng tín hiệu như âm thanh, chữ số, chữ viết, v.v… nhằm mang lại một sự hiểu biết nào đó cho đối tượng nhận tin.</Link>
         <NoiDungTiet>Thông tin là gì?</NoiDungTiet>
         <STTTiet rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTTiet>
         <TuKhoa>dữ liệu;thông tin</TuKhoa>
