@@ -59,7 +59,7 @@ export default class CauHoiIndex extends Component {
         
         dto.dapAns.splice(index, 1, dapAn);
         dto.cauHoi = cauHoi;
-        dto.dapAns.map((d) => {
+        dto.dapAns.forEach((d) => {
             if(d['ispicked'] === 0)
             {
                 d['style'] =
@@ -84,9 +84,9 @@ export default class CauHoiIndex extends Component {
 
     handleEntailmentRequest(e) {
          let dto = this.state.cauHoiDTOs;
-        dto.map((ch) => {
+        dto.forEach((ch) => {
             if(ch.ispicked === 1){
-                ch.map((d)=>{
+                ch.forEach((d) => {
                     if(d.ispicked == 1){
                         if(d.ketQua == 0)
                         {
@@ -135,11 +135,11 @@ export default class CauHoiIndex extends Component {
         let dto = this.state.cauHoiDTOs;
         let ketqua = '';
         let diem = 0;
-        dto.map((ch) => {
+        dto.forEach((ch) => {
             if(ch.cauHoi.ispicked === 1){
-                ch.dapAns.map((d)=>{
-                    if(d.ispicked == 1){
-                        if(d.ketQua == 0)
+                ch.dapAns.forEach((d) => {
+                    if(d.ispicked === 1){
+                        if(d.ketQua === 0)
                         {
                             d['style'] =
                             {
@@ -159,7 +159,7 @@ export default class CauHoiIndex extends Component {
                     }
                     else
                     {
-                        if(d.ketQua == 0)
+                        if(d.ketQua === 0)
                         {
                             d['style'] =
                             {
@@ -178,8 +178,8 @@ export default class CauHoiIndex extends Component {
             }
 
             else{
-                ch.dapAns.map((d)=>{
-                        if(d.ketQua == 0)
+                ch.dapAns.forEach((d) => {
+                        if(d.ketQua === 0)
                         {
                             d['style'] =
                             {
