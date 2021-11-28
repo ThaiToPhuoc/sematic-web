@@ -133,7 +133,11 @@ class CauHoiIndex extends Component {
         });
 
         PublicService.nopBai(
-            dto.map(d => ({ cauHoi: d.cauHoi.id }))
+            dto.map(d => ({ 
+                cauHoi: d.cauHoi.id,
+                dapAn: d.dapAns.find(da => da.ispicked)?.id
+            })),
+            this.state.id
         )
         .then(response => {
             if (response?.data) {

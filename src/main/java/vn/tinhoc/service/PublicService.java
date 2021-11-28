@@ -14,23 +14,30 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.util.CollectionUtils;
 import vn.lanhoang.ontology.configuration.OntologyVariables;
 import vn.tinhoc.domain.BaiGiang;
 import vn.tinhoc.domain.CauHoi;
 import vn.tinhoc.domain.Chuong;
 import vn.tinhoc.domain.DapAn;
+import vn.tinhoc.domain.KQKiemTra;
 import vn.tinhoc.domain.KiemTra;
 import vn.tinhoc.domain.Tiet;
 import vn.tinhoc.domain.dto.BaiGiangDTO;
 import vn.tinhoc.domain.dto.CauHoiDTO;
+import vn.tinhoc.domain.dto.KQKtraDTO;
 import vn.tinhoc.domain.dto.KetQuaDTO;
 import vn.tinhoc.domain.dto.NopBaiDTO;
+import vn.tinhoc.domain.dto.User;
 import vn.tinhoc.repository.BaiGiangRepository;
 import vn.tinhoc.repository.CauHoiRepository;
 import vn.tinhoc.repository.ChuongRepository;
 import vn.tinhoc.repository.DapAnRepository;
+import vn.tinhoc.repository.KQKiemTraRepository;
 import vn.tinhoc.repository.KiemTraRepository;
 import vn.tinhoc.repository.TietRepository;
+import vn.tinhoc.repository.UserRepository;
+import vn.tinhoc.utils.DataUtils;
 
 @Service
 public class PublicService {
@@ -52,6 +59,12 @@ public class PublicService {
 	
 	@Autowired
 	KiemTraRepository kiemtraRepository;
+
+	@Autowired
+	UserRepository userRepository;
+
+	@Autowired
+	KQKiemTraRepository kqKiemTraRepository;
 	
 	@Autowired
 	OntologyVariables vars;
@@ -179,42 +192,117 @@ public class PublicService {
 		return op.orElse(null);
 	}
 
-	public List<KetQuaDTO> nopBai(List<NopBaiDTO> nopBaiDTOs) {
+	public List<KetQuaDTO> nopBai(List<NopBaiDTO> nopBaiDTOs, String user, String ktra) {
 		List<KetQuaDTO> ketQuaDTOS = new ArrayList<>();
 		nopBaiDTOs.forEach(nopBaiDTO -> {
 			Optional<CauHoi> cauHoiOP = cauHoiRepository.findByUriTag(nopBaiDTO.getCauHoi());
 
-			if (cauHoiOP.isPresent()) {
-				CauHoi cauHoi = cauHoiOP.get();
-
-				String tuKhoaSTR = cauHoi.getTuKhoa();
-				Supplier<Stream<String>> tuKhoasStream = () -> Arrays
-						.stream(StringUtils.split(tuKhoaSTR, ";"));
-
-				Set<String> tuKhoaSet = tuKhoasStream.get().collect(Collectors.toSet());
-				String tuKhoas = tuKhoasStream
-						.get()
-						.map(s -> String.format("regex(?o, \"%s\", \"i\")", s.toLowerCase(Locale.ROOT)))
-						.collect(Collectors.joining(" || "));
-
-				String select = String.format(
-					"SELECT ?s " +
-					"WHERE {" +
-					"	?s rdf:type thoc:Tiet ." +
-					"	?s thoc:TuKhoa ?o ." +
-					"	FILTER (%s)" +
-					"}",
-					tuKhoas
-				);
-
-				List<Tiet> tiets = tietRepository.query(select);
-				KetQuaDTO ketQuaDTO = new KetQuaDTO(nopBaiDTO);
-				ketQuaDTO.tuKhoas.addAll(tuKhoaSet);
-				ketQuaDTO.chuongs.addAll(KetQuaDTO.GroupBy.group(tiets));
-				ketQuaDTOS.add(ketQuaDTO);
-			}
+			cauHoiOP.ifPresent(cauHoi -> searchTuKhoa(ketQuaDTOS, cauHoi));
 		});
 
+		saveKetQua(nopBaiDTOs, user, ktra);
 		return ketQuaDTOS;
+	}
+
+	private void saveKetQua(List<NopBaiDTO> nopBaiDTOs, String user, String ktra) {
+		// KQKiemTra id = KQKTra_<User id>_<n>
+		User userInOWL = userRepository.findByPropertyValue("TenTaiKhoan", user).orElseThrow();
+		KiemTra kiemTra = kiemtraRepository.findByUriTag(ktra).orElseThrow();
+		KQKiemTra kqKiemTra = new KQKiemTra();
+		int newIndex = 1;
+		List<KQKiemTra> kqKiemTras = kqKiemTraRepository.query(
+			"SELECT ?s " +
+					"WHERE { " +
+					"	?s rdf:type thoc:KQKiemTra ." +
+					"	?s thoc:CuaHocSinh thoc:" + user + ". " +
+					" }"
+		);
+
+		if (!CollectionUtils.isEmpty(kqKiemTras)) {
+			newIndex = DataUtils.smallestMissingNumber(
+					kqKiemTras.stream()
+							.map(kq -> {
+								int lastIndexSpace = kq.getId().lastIndexOf('_');
+								return Integer.parseInt(kq.getId().substring(lastIndexSpace + 1));
+							}).toArray(Integer[]::new)
+			);
+		}
+
+		String KQId = "KQKTra_" + user + "_" + newIndex;
+
+		kqKiemTra.setId(KQId);
+		kqKiemTra.setCuaHocSinh(userInOWL);
+		kqKiemTra.setCuaBaiKiemTra(kiemTra);
+		kqKiemTra.setGomDapAn(
+			nopBaiDTOs.stream()
+					.map(nopBaiDTO -> {
+						if (StringUtils.isNotBlank(nopBaiDTO.getDapAn())) {
+							return dapAnRepository
+									.findByUriTag(nopBaiDTO.getDapAn())
+									.orElse(new DapAn());
+						}
+
+						return new DapAn();
+					})
+					.filter(dapAn -> StringUtils.isNotBlank(dapAn.getId()))
+					.collect(Collectors.toList())
+		);
+
+		kqKiemTraRepository.save(kqKiemTra);
+	}
+
+	public List<KQKtraDTO> findKQByUsername(String username) {
+		List<KQKiemTra> kqKiemTras = kqKiemTraRepository.query(
+				"SELECT ?s " +
+						"WHERE { " +
+						"	?s rdf:type thoc:KQKiemTra ." +
+						"	?s thoc:CuaHocSinh thoc:" + username + ". " +
+						" }"
+		);
+		List<KQKtraDTO> kqKtraDTOS = new ArrayList<>();
+		kqKiemTras.forEach(kqKiemTra -> {
+			List<KetQuaDTO> ketQuaDTOS = new ArrayList<>();
+			kqKiemTra.getCuaBaiKiemTra()
+				.getGomCauHoi()
+				.forEach(cauHoi -> {
+					searchTuKhoa(ketQuaDTOS, cauHoi);
+				});
+
+			KQKtraDTO kqKtraDTO = new KQKtraDTO();
+			kqKtraDTO.setKqKiemTra(kqKiemTra);
+			kqKtraDTO.setKetQuaDTOS(ketQuaDTOS);
+			kqKtraDTO.setCauHoiDTOS(listCauHoi(kqKiemTra.getCuaBaiKiemTra().getId()));
+			kqKtraDTOS.add(kqKtraDTO);
+		});
+
+		return kqKtraDTOS;
+	}
+
+	private void searchTuKhoa(List<KetQuaDTO> ketQuaDTOS, CauHoi cauHoi) {
+		String tuKhoaSTR = cauHoi.getTuKhoa();
+		Supplier<Stream<String>> tuKhoasStream = () -> Arrays
+				.stream(StringUtils.split(tuKhoaSTR, ";"));
+
+		Set<String> tuKhoaSet = tuKhoasStream.get().collect(Collectors.toSet());
+		String tuKhoas = tuKhoasStream
+				.get()
+				.map(s -> String.format("regex(?o, \"%s\", \"i\")", s.toLowerCase(Locale.ROOT)))
+				.collect(Collectors.joining(" || "));
+
+		String select = String.format(
+				"SELECT ?s " +
+						"WHERE {" +
+						"	?s rdf:type thoc:Tiet ." +
+						"	?s thoc:TuKhoa ?o ." +
+						"	FILTER (%s)" +
+						"}",
+				tuKhoas
+		);
+
+		List<Tiet> tiets = tietRepository.query(select);
+		KetQuaDTO ketQuaDTO = new KetQuaDTO(cauHoi.getId());
+		ketQuaDTO.tuKhoas.addAll(tuKhoaSet);
+		ketQuaDTO.chuongs.addAll(KetQuaDTO.GroupBy.group(tiets));
+		ketQuaDTOS.add(ketQuaDTO);
 	}
 }

@@ -25,8 +25,17 @@ class PublicService {
         return API.get('public/bai-giang');
     }
 
-    nopBai(form) {
-        return API.post('/public/nop-bai', form);
+    nopBai(form, ktra) {
+        return API.post('/public/nop-bai', form, {
+            params: {
+                user: JSON.parse(sessionStorage.getItem('user')).username,
+                ktra: ktra
+            }
+        });
+    }
+
+    findKQs() {
+        return API.get(`/public/ket-qua/${JSON.parse(sessionStorage.getItem('user')).username}`);
     }
 }
 

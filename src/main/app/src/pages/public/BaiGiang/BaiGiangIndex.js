@@ -72,7 +72,7 @@ export default class BaiGiangIndex extends Component {
                                     {bg.gomChuong?.map((chuong) => (
                                             <div className='col-3'>
                                                 <div className='p-2'>
-                                                    <h5>Chương {chuong.sttchuong}:</h5>
+                                                    <h6>Chương {chuong.sttchuong}: {chuong.noiDungChuong}</h6>
                                                     <ol>
                                                     {chuong.gomTiet?.sort((a, b) => a.stttiet > b.stttiet ? 1 : -1)
                                                     .map((tiet) => (

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import vn.tinhoc.domain.BaiGiang;
@@ -79,7 +80,14 @@ public class PublicController {
 	}
 
 	@PostMapping("/nop-bai")
-	public ResponseEntity<?> nopBai(@RequestBody List<NopBaiDTO> nopBaiDTOs){
-		return ResponseEntity.ok(publicService.nopBai(nopBaiDTOs));
+	public ResponseEntity<?> nopBai(@RequestBody List<NopBaiDTO> nopBaiDTOs,
+									@RequestParam String user,
+									@RequestParam String ktra){
+		return ResponseEntity.ok(publicService.nopBai(nopBaiDTOs, user, ktra));
+	}
+
+	@GetMapping("/ket-qua/{username}")
+	public ResponseEntity<?> xemKetQua(@PathVariable String username) {
+		return ResponseEntity.ok(publicService.findKQByUsername(username));
 	}
 }
