@@ -1,9 +1,16 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react'
 import Notify from '../../components/notify/Notify';
 import PublicService from '../../services/PublicService';
 import { Link, withRouter } from 'react-router-dom';
 import DangXuat from './Login/DangXuat';
 import { TruncateSharp } from '../../components/helpers/FieldValidate';
+
+const linkStyle = {
+    textDecoration: 'none', 
+    color: 'white', 
+    margin: "0 .5rem"
+}
 
 class Navbar extends Component {
     constructor(props) {
@@ -36,37 +43,49 @@ class Navbar extends Component {
     render() {
         return (
             <div>
-                 <nav className="navbar navbar-expand-md navbar-light bg-warning sticky-top mx-auto">
-                    <div className="container-fluid">
-                    <div className="collapse navbar-collapse" id="navbarResponsive">
-						<ul className="navbar-nav">
-							<li className="nav-item">
-								<Link to={`/`} style={{ textDecoration: 'none' , color: 'white', margin: "2rem", fontSize: '30px'}}>Trang chủ</Link>
-							</li>
-                            {this.state.BaiGiang.map((bg) => {
-                                let id = TruncateSharp(bg.id)
-                                return (
-                                    <li 
-                                        className="nav-item pointer" 
-                                        onClick={() => this.reroute(id)}
-                                        style={{ 
-                                            textDecoration: 'none', 
-                                            color: 'white', 
-                                            fontSize: '30px'}}
-                                        >lớp {bg.chuongTrinh}</li>
-                                )
-                            })}
-							<li className="nav-item ms-1">
-								<Link style={{ textDecoration: 'none' ,color: 'white', margin: "2rem", fontSize: '30px'}}>Kiểm tra</Link>
-							</li>
-                            
-                            <div className='ms-auto'>
-                                <li className="nav-item ms-auto">
-                                    <DangXuat />
+                 <nav className="navbar navbar-expand-lg navbar-light sticky-top mx-auto"
+                    style={{backgroundColor: '#e3f2fd'}}
+                 >
+                    <div class="container-fluid">
+                        <Link className='navbar-brand' to='/'>Trang chủ</Link>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav me-auto">
+                                <li class="nav-item dropdown">
+                                    <a 
+                                        class="nav-link dropdown-toggle" 
+                                        href="#" id="navbarDropdown" 
+                                        role="button" 
+                                        data-bs-toggle="dropdown" 
+                                        aria-expanded="false"
+                                    >
+                                        Chương trình
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    {this.state.BaiGiang.map((bg) => {
+                                        let id = TruncateSharp(bg.id)
+                                        return (
+                                            <li onClick={() => this.reroute(id)} >
+                                                <span className='dropdown-item pointer'>
+                                                    Lớp {bg.chuongTrinh} - HK {bg.hocKy}
+                                                </span>
+                                            </li>
+                                        )
+                                    })}
+                                    </ul>
                                 </li>
-                            </div>
-						</ul>
-					</div>
+
+                                <li className="nav-item ms-1">
+                                    <Link className='nav-link'>Kiểm tra</Link>
+                                </li>
+                            </ul>
+                        
+                            <span className='navbar-text'>
+                                <DangXuat />
+                            </span>
+                        </div>
                     </div>
                 </nav>
             </div>

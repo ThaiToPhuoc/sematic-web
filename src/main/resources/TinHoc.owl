@@ -1,1454 +1,788 @@
-<?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.tinhoc.edu.vn#"
-     xml:base="http://www.tinhoc.edu.vn"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:thoc="http://www.tinhoc.edu.vn#">
-    <owl:Ontology rdf:about="http://www.tinhoc.edu.vn"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DaLam -->
-
-    <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#DaLam">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#HocSinh"/>
-        <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DuocSoanBoi -->
-
-    <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#DuocSoanBoi">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#BaiGiang"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
-        <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#GiaoVien"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#GomCauHoi -->
-
-    <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#GomCauHoi">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
-        <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#GomChuong -->
-
-    <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#GomChuong">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#BaiGiang"/>
-        <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#GomQuyen -->
-
-    <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#GomQuyen">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
-        <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#Quyen"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#GomTiet -->
-
-    <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#GomTiet">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
-        <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#ThuocBaiGiang -->
-
-    <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#ThuocBaiGiang">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
-        <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#BaiGiang"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#ThuocCauHoi -->
-
-    <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#ThuocCauHoi">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#ThuocChuong -->
-
-    <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#ThuocChuong">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
-        <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#CauHoi -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#CauHoi">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#ChuongTrinh -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#ChuongTrinh">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#TaiLieu"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#DapAn">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Diemso -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Diemso">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#HocSinh"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Dung -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Dung">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#Diemso"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#HocSinh"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Ho -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Ho">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#HoTen"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#HoTen -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#HoTen">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#HocKy -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#HocKy">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#TaiLieu"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#KetQua -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#KetQua">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Link -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Link">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Lop -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Lop">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#MatKhau -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#MatKhau">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#TaiKhoan"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#NamHoc -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NamHoc">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#TaiLieu"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#NamSinh -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NamSinh">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#NoiDungCauHoi -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NoiDungCauHoi">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#NoiDungChuong -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NoiDungChuong">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#TenChuong"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#NoiDungDapAn -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NoiDungDapAn">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#NoiDungTiet -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NoiDungTiet">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#TenTietHoc"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#STTCauHoi -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#STTCauHoi">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#STTChuong -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#STTChuong">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#TenChuong"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#STTTiet -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#STTTiet">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#TenTietHoc"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Sai -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Sai">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#Diemso"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#HocSinh"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#TaiKhoan -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TaiKhoan">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Ten -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Ten">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#HoTen"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#TenChuong -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TenChuong">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#TenQuyen -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TenQuyen"/>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#TenTaiKhoan -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TenTaiKhoan">
-        <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#TaiKhoan"/>
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#TenTietHoc -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TenTietHoc">
-        <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#TuKhoa -->
-
-    <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TuKhoa">
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#BaiGiang -->
-
-    <owl:Class rdf:about="http://www.tinhoc.edu.vn#BaiGiang">
-        <rdfs:subClassOf rdf:resource="http://www.tinhoc.edu.vn#TaiLieu"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#CauHoi -->
-
-    <owl:Class rdf:about="http://www.tinhoc.edu.vn#CauHoi"/>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Chuong -->
-
-    <owl:Class rdf:about="http://www.tinhoc.edu.vn#Chuong">
-        <rdfs:subClassOf rdf:resource="http://www.tinhoc.edu.vn#TaiLieu"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#ConNguoi -->
-
-    <owl:Class rdf:about="http://www.tinhoc.edu.vn#ConNguoi"/>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn -->
-
-    <owl:Class rdf:about="http://www.tinhoc.edu.vn#DapAn"/>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#GiaoVien -->
-
-    <owl:Class rdf:about="http://www.tinhoc.edu.vn#GiaoVien">
-        <rdfs:subClassOf rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#HocSinh -->
-
-    <owl:Class rdf:about="http://www.tinhoc.edu.vn#HocSinh">
-        <rdfs:subClassOf rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#KiemTra -->
-
-    <owl:Class rdf:about="http://www.tinhoc.edu.vn#KiemTra"/>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Quyen -->
-
-    <owl:Class rdf:about="http://www.tinhoc.edu.vn#Quyen"/>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#TaiLieu -->
-
-    <owl:Class rdf:about="http://www.tinhoc.edu.vn#TaiLieu"/>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Tiet -->
-
-    <owl:Class rdf:about="http://www.tinhoc.edu.vn#Tiet">
-        <rdfs:subClassOf rdf:resource="http://www.tinhoc.edu.vn#TaiLieu"/>
-    </owl:Class>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Admin -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Admin">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
-        <GomQuyen rdf:resource="http://www.tinhoc.edu.vn#ROLE_ADMIN"/>
-        <MatKhau>admin</MatKhau>
-        <TenTaiKhoan>admin</TenTaiKhoan>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#CTLop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#CTLop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#BaiGiang"/>
-        <DuocSoanBoi rdf:resource="http://www.tinhoc.edu.vn#PTTThuy"/>
-        <GomChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong1_Lop6_1"/>
-        <GomChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong2_Lop6_1"/>
-        <GomChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong3_Lop6_1"/>
-        <ChuongTrinh>6</ChuongTrinh>
-        <HocKy>1</HocKy>
-        <NamHoc>2021</NamHoc>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#CTLop6_2 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#CTLop6_2">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#BaiGiang"/>
-        <ChuongTrinh>6</ChuongTrinh>
-        <HocKy>2</HocKy>
-        <NamHoc>2021</NamHoc>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>Hoạt động thông tin là:</NoiDungCauHoi>
-        <STTCauHoi>10</STTCauHoi>
-        <TuKhoa>thông tin</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>Khi ta cần chọn mở một file hoặc một thư mục, ta cần bấm vào nút nào trên chuột:</NoiDungCauHoi>
-        <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTCauHoi>
-        <TuKhoa>chuột</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau1_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau1_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>Thông tin có thể giúp cho con người:</NoiDungCauHoi>
-        <STTCauHoi>1</STTCauHoi>
-        <TuKhoa>thông tin</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau1_KTC3_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau1_KTC3_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>a</NoiDungCauHoi>
-        <STTCauHoi>1</STTCauHoi>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>Chức năng phím DELETE trên bàn phím là gì?</NoiDungCauHoi>
-        <STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</STTCauHoi>
-        <TuKhoa>bàn phím</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau2_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau2_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>Chúng ta gọi dữ liệu hoặc lệnh được nhập vào máy tính là :</NoiDungCauHoi>
-        <STTCauHoi>2</STTCauHoi>
-        <TuKhoa>dữ liệu;thông tin</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau3_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau3_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>Em là sao đỏ của lớp. Theo em, thông tin nào dưới đây không phải là thông tin cần xử lí ( thông tin vào ) để xếp loại các tổ cuối tuần?</NoiDungCauHoi>
-        <STTCauHoi>3</STTCauHoi>
-        <TuKhoa>thông tin</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau3_KTC3_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau3_KTC3_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>xx</NoiDungCauHoi>
-        <STTCauHoi>3</STTCauHoi>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau4_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau4_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>Nghe bản tin dự báo thời tiết “Ngày mai trời có thể mưa”, em sẽ xử lý thông tin và quyết định như thế nào (thông tin ra) ?</NoiDungCauHoi>
-        <STTCauHoi>4</STTCauHoi>
-        <TuKhoa>thông tin</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau5_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau5_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>Tai người bình thường có thể tiếp nhận thông tin nào dưới đây:</NoiDungCauHoi>
-        <STTCauHoi>5</STTCauHoi>
-        <TuKhoa>thông tin</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau6_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau6_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>Mắt thường không thể tiếp nhận thông tin nào dưới đây?</NoiDungCauHoi>
-        <STTCauHoi>6</STTCauHoi>
-        <TuKhoa>thông tin</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau7_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau7_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>Trước khi sang đường theo em, con người cần phải xử lý những thông tin gì?</NoiDungCauHoi>
-        <STTCauHoi>7</STTCauHoi>
-        <TuKhoa>thông tin</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau8_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau8_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>Em cần nấu một nồi cơm. Hãy xác định những thông tin nào cần xử lý?</NoiDungCauHoi>
-        <STTCauHoi>8</STTCauHoi>
-        <TuKhoa>thông tin</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Cau9_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Cau9_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
-        <NoiDungCauHoi>Một trong những nhiệm vụ chính của tin học là:</NoiDungCauHoi>
-        <STTCauHoi>9</STTCauHoi>
-        <TuKhoa>thông tin</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Chuong1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Chuong1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
-        <GomTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C1_Lop6_1"/>
-        <GomTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet2_C1_Lop6_1"/>
-        <ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
-        <NoiDungChuong>Chuột và máy tính</NoiDungChuong>
-        <STTChuong rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTChuong>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Chuong2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Chuong2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
-        <GomTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1"/>
-        <ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
-        <NoiDungChuong>Thông tin</NoiDungChuong>
-        <STTChuong rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</STTChuong>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Chuong3_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Chuong3_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
-        <GomTiet rdf:resource="http://www.tinhoc.edu.vn#Tiet1_C3_Lop6_1"/>
-        <ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
-        <NoiDungChuong>abcd</NoiDungChuong>
-        <STTChuong>3</STTChuong>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau10_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau10_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Tiếp nhận thông tin.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau1_KTC1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau1_KTC1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1"/>
-        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</KetQua>
-        <NoiDungDapAn>Nhấn đúp chuột trái</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau1_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau1_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Nắm được quy luật của tự nhiên và do đó trở nên mạnh mẽ hơn.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau1_KTC3_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau1_KTC3_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC3_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>a</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau2_KTC1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau2_KTC1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1"/>
-        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
-        <NoiDungDapAn>Xóa ký tự trước con trỏ</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau2_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau2_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>dữ liệu được lưu trữ.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau3_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau3_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC2_Lop6_1"/>
-        <KetQua>1</KetQua>
-        <NoiDungDapAn>Số lượng điểm 10.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau3_KTC3_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau3_KTC3_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC3_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>xx</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau4_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau4_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau4_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Mặc đồng phục.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau5_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau5_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau5_KTC2_Lop6_1"/>
-        <KetQua>1</KetQua>
-        <NoiDungDapAn>Tiếng chim hót.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau6_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau6_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau6_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Đàn kiến đang “tấn công” lọ đường quên đậy nắp.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau7_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau7_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau7_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Quan sát xem có phương tiện giao thông đang đến gần không.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau8_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau8_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau8_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Kiểm tra gạo trong thùng còn không.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn1_Cau9_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau9_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau9_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Nghiên cứu giải các bài toán trên máy tính.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau10_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau10_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Xử lí, lưu trữ thông tin.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau1_KTC1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau1_KTC1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1"/>
-        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
-        <NoiDungDapAn>Nhấn đúp chuột phải</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau1_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau1_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Hiểu biết về cuộc sống và xã hội xung quanh.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau1_KTC3_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau1_KTC3_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC3_Lop6_1"/>
-        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</KetQua>
-        <NoiDungDapAn>a</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau2_KTC1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau2_KTC1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1"/>
-        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
-        <NoiDungDapAn>Xóa ký tự ngẫu nhiên</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau2_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau2_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC2_Lop6_1"/>
-        <KetQua>1</KetQua>
-        <NoiDungDapAn>thông tin vào.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau3_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau3_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Số các bạn bị ghi tên vì đi muộn.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau3_KTC3_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau3_KTC3_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC3_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>xx</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau4_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau4_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau4_KTC2_Lop6_1"/>
-        <KetQua>1</KetQua>
-        <NoiDungDapAn>Đi học mang theo áo mưa.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau5_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau5_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau5_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Đi học mang theo áo mưa.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau6_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau6_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau6_KTC2_Lop6_1"/>
-        <KetQua>1</KetQua>
-        <NoiDungDapAn>Những con vi trùng gây bệnh lị lẫn trong thức ăn bị ôi thiu.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau7_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau7_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau7_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Nghĩ về bài toán hôm qua trên lớp chưa làm được.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau8_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau8_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau8_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Nước cho vào nồi đã đủ chưa.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn2_Cau9_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau9_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau9_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Nghiên cứu chế tạo các máy tính với nhiều tính năng ngày càng ưu việt hơn.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau10_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau10_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Truyền (trao đổi) thông tin.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau1_KTC1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau1_KTC1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1"/>
-        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
-        <NoiDungDapAn>Nhấn đúp thanh cuộn</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau1_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau1_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Biết được các tin tức và sự kiện xảy ra trong xã hội.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau1_KTC3_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau1_KTC3_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC3_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>a</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau2_KTC1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau2_KTC1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1"/>
-        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</KetQua>
-        <NoiDungDapAn>Xóa ký tự sau con trỏ</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau2_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau2_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>thông tin ra.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau3_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau3_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Số bạn mặc áo xanh.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau3_KTC3_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau3_KTC3_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC3_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>xx</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau4_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau4_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau4_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Ăn sáng trước khi đến trường.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau5_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau5_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau5_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Ăn sáng trước khi đến trường.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau6_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau6_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau6_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Rác bẩn vứt ngoài hành lang lớp học.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau7_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau7_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau7_KTC2_Lop6_1"/>
-        <KetQua>1</KetQua>
-        <NoiDungDapAn>Quan sát xem đèn tín hiệu giao thông đang bật màu gì.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau8_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau8_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau8_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Bếp nấu đã chuẩn bị sẵn sàng chưa.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn3_Cau9_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau9_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau9_KTC2_Lop6_1"/>
-        <KetQua>1</KetQua>
-        <NoiDungDapAn>Nghiên cứu việc thực hiện các hoạt động thông tin một cách tự động nhờ sự trợ giúp của máy tính điện tử.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn4_Cau10_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau10_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1"/>
-        <KetQua>1</KetQua>
-        <NoiDungDapAn>Tất cả các đáp án trên.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn4_Cau1_KTC1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau1_KTC1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1"/>
-        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
-        <NoiDungDapAn>Không thể dùng chuột</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn4_Cau1_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau1_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC2_Lop6_1"/>
-        <KetQua>1</KetQua>
-        <NoiDungDapAn>Tất cả các khẳng định trên đều đúng.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn4_Cau2_KTC1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau2_KTC1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1"/>
-        <KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</KetQua>
-        <NoiDungDapAn>Thêm ký tự vào văn bản</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn4_Cau2_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau2_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>thông tin máy tính.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn4_Cau3_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau3_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Số bạn bị cô giáo nhắc nhở.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn4_Cau3_KTC3_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau3_KTC3_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC3_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>asd</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn4_Cau4_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau4_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau4_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Hẹn bạn Trang cùng đi học.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn4_Cau5_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau5_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau5_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Hẹn bạn Trang cùng đi học.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn4_Cau6_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau6_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau6_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Bạn Phương quên không đeo khăn quàng đỏ.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn4_Cau7_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau7_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau7_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Kiểm tra lại đồ dùng học tập đã có đủ trong cặp sách chưa.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn4_Cau8_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau8_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau8_KTC2_Lop6_1"/>
-        <KetQua>1</KetQua>
-        <NoiDungDapAn>Tất cả các thông tin trên.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#DapAn4_Cau9_KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau9_KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
-        <ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau9_KTC2_Lop6_1"/>
-        <KetQua>0</KetQua>
-        <NoiDungDapAn>Biểu diễn các thông tin đa dạng trong máy tính.</NoiDungDapAn>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#KTC1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#KTC1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1"/>
-        <ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#KTC2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#KTC2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC2_Lop6_1"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC2_Lop6_1"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC2_Lop6_1"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau4_KTC2_Lop6_1"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau5_KTC2_Lop6_1"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau6_KTC2_Lop6_1"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau7_KTC2_Lop6_1"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau8_KTC2_Lop6_1"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau9_KTC2_Lop6_1"/>
-        <ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#KTC3_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#KTC3_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC3_Lop6_1"/>
-        <GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC3_Lop6_1"/>
-        <ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#PTTThuy -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#PTTThuy">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#GiaoVien"/>
-        <GomQuyen rdf:resource="http://www.tinhoc.edu.vn#ROLE_ADMIN"/>
-        <Ho>Phạm Thị Thu</Ho>
-        <MatKhau>Thuy</MatKhau>
-        <Ten>Thúy</Ten>
-        <TenTaiKhoan>PTTThuy</TenTaiKhoan>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#ROLE_ADMIN -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#ROLE_ADMIN">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Quyen"/>
-        <TenQuyen>ROLE_ADMIN</TenQuyen>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#ROLE_STUDENT -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#ROLE_STUDENT">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Quyen"/>
-        <TenQuyen>ROLE_STUDENT</TenQuyen>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Tiet1_C1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Tiet1_C1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
-        <ThuocChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong1_Lop6_1"/>
-        <Link>bai 5 luyen tap chuot.mp4</Link>
-        <NoiDungTiet>Chuột máy tính là gì? Tập sử dụng chuột</NoiDungTiet>
-        <STTTiet rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTTiet>
-        <TuKhoa>chuột</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
-        <ThuocChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong2_Lop6_1"/>
-        <Link>Thông tin là sự thông báo, trao đổi, giải thích về một đối tượng cụ thể nào đó và được thể hiện thông qua các dạng tín hiệu như âm thanh, chữ số, chữ viết, v.v… nhằm mang lại một sự hiểu biết nào đó cho đối tượng nhận tin.</Link>
-        <NoiDungTiet>Thông tin là gì?</NoiDungTiet>
-        <STTTiet rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</STTTiet>
-        <TuKhoa>dữ liệu;thông tin</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Tiet1_C3_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Tiet1_C3_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
-        <ThuocChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong3_Lop6_1"/>
-        <Link>abc</Link>
-        <STTTiet>1</STTTiet>
-        <TuKhoa>abc</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#Tiet2_C1_Lop6_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#Tiet2_C1_Lop6_1">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
-        <ThuocChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong1_Lop6_1"/>
-        <Link>Bai 7 Su dung phan mem Mario de luyen go phim_2.mp4</Link>
-        <NoiDungTiet>Sử dụng bàn phím</NoiDungTiet>
-        <STTTiet rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</STTTiet>
-        <TuKhoa>Bàn phím</TuKhoa>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.tinhoc.edu.vn#ToPhuocThai -->
-
-    <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#ToPhuocThai">
-        <rdf:type rdf:resource="http://www.tinhoc.edu.vn#HocSinh"/>
-        <GomQuyen rdf:resource="http://www.tinhoc.edu.vn#ROLE_STUDENT"/>
-        <Dung rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</Dung>
-        <Ho>Tô Phước</Ho>
-        <Lop rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</Lop>
-        <MatKhau>Thai</MatKhau>
-        <NamSinh>04/11/1991</NamSinh>
-        <Sai rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</Sai>
-        <Ten>Thái</Ten>
-        <TenTaiKhoan>PhuocThai</TenTaiKhoan>
-    </owl:NamedIndividual>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:thoc="http://www.tinhoc.edu.vn#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.tinhoc.edu.vn"/>
+  <owl:Class rdf:about="http://www.tinhoc.edu.vn#Tiet">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.tinhoc.edu.vn#TaiLieu"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.tinhoc.edu.vn#Chuong">
+    <rdfs:subClassOf rdf:resource="http://www.tinhoc.edu.vn#TaiLieu"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.tinhoc.edu.vn#BaiGiang">
+    <rdfs:subClassOf rdf:resource="http://www.tinhoc.edu.vn#TaiLieu"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.tinhoc.edu.vn#CauHoi">
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.tinhoc.edu.vn#HocSinh">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.tinhoc.edu.vn#ConNguoi"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.tinhoc.edu.vn#GiaoVien">
+    <rdfs:subClassOf rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.tinhoc.edu.vn#DapAn">
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.tinhoc.edu.vn#Quyen"/>
+  <owl:Class rdf:about="http://www.tinhoc.edu.vn#KiemTra"/>
+  <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#DuocSoanBoi">
+    <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#GiaoVien"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#BaiGiang"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#ThuocCauHoi">
+    <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#ThuocChuong">
+    <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#GomQuyen">
+    <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#Quyen"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#GomTiet">
+    <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#GomChuong">
+    <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#BaiGiang"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#GomCauHoi">
+    <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#DaLam">
+    <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#HocSinh"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.tinhoc.edu.vn#ThuocBaiGiang">
+    <rdfs:range rdf:resource="http://www.tinhoc.edu.vn#BaiGiang"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TuKhoa">
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TenTietHoc">
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NamHoc">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#TaiLieu"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NamSinh">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#STTChuong">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TenChuong"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#HoTen">
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Ho">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#HoTen"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#MatKhau">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TaiKhoan"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Lop">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#STTTiet">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#TenTietHoc"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NoiDungChuong">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TenChuong"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Dung">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#HocSinh"/>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Diemso"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#ChuongTrinh">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#TaiLieu"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Link">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TaiKhoan">
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Sai">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#HocSinh"/>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Diemso"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TenChuong">
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Chuong"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#KetQua">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Ten">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#HoTen"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TenTaiKhoan">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#ConNguoi"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#TaiKhoan"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#TenQuyen"/>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#Diemso">
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#HocSinh"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NoiDungCauHoi">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NoiDungDapAn">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#DapAn"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#STTCauHoi">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#CauHoi"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#HocKy">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#TaiLieu"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.tinhoc.edu.vn#NoiDungTiet">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.tinhoc.edu.vn#Tiet"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.tinhoc.edu.vn#TenTietHoc"/>
+  </owl:DatatypeProperty>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau2_KTC1_Lop6_1">
+    <thoc:NoiDungDapAn>Thêm ký tự vào văn bản</thoc:NoiDungDapAn>
+    <thoc:KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >0</thoc:KetQua>
+    <thoc:ThuocCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1">
+        <thoc:TuKhoa>bàn phím</thoc:TuKhoa>
+        <thoc:STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >2</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>Chức năng phím DELETE trên bàn phím là gì?</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:ThuocCauHoi>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau5_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Hẹn bạn Trang cùng đi học.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau5_KTC2_Lop6_1">
+        <thoc:TuKhoa>thông tin</thoc:TuKhoa>
+        <thoc:STTCauHoi>5</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>Tai người bình thường có thể tiếp nhận thông tin nào dưới đây:</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:ThuocCauHoi>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau8_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Kiểm tra gạo trong thùng còn không.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau8_KTC2_Lop6_1">
+        <thoc:TuKhoa>thông tin</thoc:TuKhoa>
+        <thoc:STTCauHoi>8</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>Em cần nấu một nồi cơm. Hãy xác định những thông tin nào cần xử lý?</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:ThuocCauHoi>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau1_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Tất cả các khẳng định trên đều đúng.</thoc:NoiDungDapAn>
+    <thoc:KetQua>1</thoc:KetQua>
+    <thoc:ThuocCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau1_KTC2_Lop6_1">
+        <thoc:TuKhoa>thông tin</thoc:TuKhoa>
+        <thoc:STTCauHoi>1</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>Thông tin có thể giúp cho con người:</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:ThuocCauHoi>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau3_KTC3_Lop6_1">
+    <thoc:NoiDungDapAn>xx</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau3_KTC3_Lop6_1">
+        <thoc:STTCauHoi>3</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>xx</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:ThuocCauHoi>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau4_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Mặc đồng phục.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau4_KTC2_Lop6_1">
+        <thoc:TuKhoa>thông tin</thoc:TuKhoa>
+        <thoc:STTCauHoi>4</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>Nghe bản tin dự báo thời tiết “Ngày mai trời có thể mưa”, em sẽ xử lý thông tin và quyết định như thế nào (thông tin ra) ?</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:ThuocCauHoi>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau1_KTC1_Lop6_1">
+    <thoc:NoiDungDapAn>Nhấn đúp chuột trái</thoc:NoiDungDapAn>
+    <thoc:KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >1</thoc:KetQua>
+    <thoc:ThuocCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1">
+        <thoc:TuKhoa>chuột</thoc:TuKhoa>
+        <thoc:STTCauHoi rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>Khi ta cần chọn mở một file hoặc một thư mục, ta cần bấm vào nút nào trên chuột:</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:ThuocCauHoi>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau9_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Nghiên cứu việc thực hiện các hoạt động thông tin một cách tự động nhờ sự trợ giúp của máy tính điện tử.</thoc:NoiDungDapAn>
+    <thoc:KetQua>1</thoc:KetQua>
+    <thoc:ThuocCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau9_KTC2_Lop6_1">
+        <thoc:TuKhoa>thông tin</thoc:TuKhoa>
+        <thoc:STTCauHoi>9</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>Một trong những nhiệm vụ chính của tin học là:</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:ThuocCauHoi>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:ConNguoi rdf:about="http://www.tinhoc.edu.vn#Admin">
+    <thoc:TenTaiKhoan>admin</thoc:TenTaiKhoan>
+    <thoc:MatKhau>admin</thoc:MatKhau>
+    <thoc:GomQuyen>
+      <thoc:Quyen rdf:about="http://www.tinhoc.edu.vn#ROLE_ADMIN">
+        <thoc:TenQuyen>ROLE_ADMIN</thoc:TenQuyen>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:Quyen>
+    </thoc:GomQuyen>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:ConNguoi>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau2_KTC1_Lop6_1">
+    <thoc:NoiDungDapAn>Xóa ký tự sau con trỏ</thoc:NoiDungDapAn>
+    <thoc:KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >1</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau5_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Ăn sáng trước khi đến trường.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau5_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:BaiGiang rdf:about="http://www.tinhoc.edu.vn#CTLop6_2">
+    <thoc:NamHoc>2021</thoc:NamHoc>
+    <thoc:HocKy>2</thoc:HocKy>
+    <thoc:ChuongTrinh>6</thoc:ChuongTrinh>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:BaiGiang>
+  <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#ToPhuocThai">
+    <thoc:Ho>Tô Phước</thoc:Ho>
+    <thoc:Sai rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >0</thoc:Sai>
+    <thoc:Ten>Thái</thoc:Ten>
+    <thoc:GomQuyen>
+      <thoc:Quyen rdf:about="http://www.tinhoc.edu.vn#ROLE_STUDENT">
+        <thoc:TenQuyen>ROLE_STUDENT</thoc:TenQuyen>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:Quyen>
+    </thoc:GomQuyen>
+    <thoc:TenTaiKhoan>PhuocThai</thoc:TenTaiKhoan>
+    <thoc:Lop rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >6</thoc:Lop>
+    <rdf:type rdf:resource="http://www.tinhoc.edu.vn#HocSinh"/>
+    <thoc:NamSinh>04/11/1991</thoc:NamSinh>
+    <thoc:MatKhau>Thai</thoc:MatKhau>
+    <thoc:Dung rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >0</thoc:Dung>
+  </owl:NamedIndividual>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau8_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Nước cho vào nồi đã đủ chưa.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau8_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau1_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Biết được các tin tức và sự kiện xảy ra trong xã hội.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau10_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Tiếp nhận thông tin.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1">
+        <thoc:TuKhoa>thông tin</thoc:TuKhoa>
+        <thoc:STTCauHoi>10</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>Hoạt động thông tin là:</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:ThuocCauHoi>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau10_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Xử lí, lưu trữ thông tin.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau5_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Đi học mang theo áo mưa.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau5_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau4_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Đi học mang theo áo mưa.</thoc:NoiDungDapAn>
+    <thoc:KetQua>1</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau4_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau1_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Hiểu biết về cuộc sống và xã hội xung quanh.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau4_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Hẹn bạn Trang cùng đi học.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau4_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau9_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Nghiên cứu giải các bài toán trên máy tính.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau9_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau2_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>thông tin máy tính.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau2_KTC2_Lop6_1">
+        <thoc:TuKhoa>dữ liệu;thông tin</thoc:TuKhoa>
+        <thoc:STTCauHoi>2</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>Chúng ta gọi dữ liệu hoặc lệnh được nhập vào máy tính là :</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:ThuocCauHoi>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau3_KTC3_Lop6_1">
+    <thoc:NoiDungDapAn>asd</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC3_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau6_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Bạn Phương quên không đeo khăn quàng đỏ.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau6_KTC2_Lop6_1">
+        <thoc:TuKhoa>thông tin</thoc:TuKhoa>
+        <thoc:STTCauHoi>6</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>Mắt thường không thể tiếp nhận thông tin nào dưới đây?</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:ThuocCauHoi>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:KiemTra rdf:about="http://www.tinhoc.edu.vn#KTC1_Lop6_1">
+    <thoc:ThuocBaiGiang>
+      <thoc:BaiGiang rdf:about="http://www.tinhoc.edu.vn#CTLop6_1">
+        <thoc:NamHoc>2021</thoc:NamHoc>
+        <thoc:HocKy>1</thoc:HocKy>
+        <thoc:ChuongTrinh>6</thoc:ChuongTrinh>
+        <thoc:GomChuong>
+          <thoc:Chuong rdf:about="http://www.tinhoc.edu.vn#Chuong3_Lop6_1">
+            <thoc:STTChuong>3</thoc:STTChuong>
+            <thoc:NoiDungChuong>abcd</thoc:NoiDungChuong>
+            <thoc:ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
+            <thoc:GomTiet>
+              <thoc:Tiet rdf:about="http://www.tinhoc.edu.vn#Tiet1_C3_Lop6_1">
+                <thoc:TuKhoa>abc</thoc:TuKhoa>
+                <thoc:STTTiet>1</thoc:STTTiet>
+                <thoc:Link>abc</thoc:Link>
+                <thoc:ThuocChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong3_Lop6_1"/>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+              </thoc:Tiet>
+            </thoc:GomTiet>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </thoc:Chuong>
+        </thoc:GomChuong>
+        <thoc:GomChuong>
+          <thoc:Chuong rdf:about="http://www.tinhoc.edu.vn#Chuong2_Lop6_1">
+            <thoc:STTChuong rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >2</thoc:STTChuong>
+            <thoc:NoiDungChuong>Thông tin</thoc:NoiDungChuong>
+            <thoc:ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
+            <thoc:GomTiet>
+              <thoc:Tiet rdf:about="http://www.tinhoc.edu.vn#Tiet1_C2_Lop6_1">
+                <thoc:TuKhoa>dữ liệu;thông tin</thoc:TuKhoa>
+                <thoc:STTTiet rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >1</thoc:STTTiet>
+                <thoc:NoiDungTiet>Thông tin là gì?</thoc:NoiDungTiet>
+                <thoc:Link>Thông tin là sự thông báo, trao đổi, giải thích về một đối tượng cụ thể nào đó và được thể hiện thông qua các dạng tín hiệu như âm thanh, chữ số, chữ viết, v.v… nhằm mang lại một sự hiểu biết nào đó cho đối tượng nhận tin.</thoc:Link>
+                <thoc:ThuocChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong2_Lop6_1"/>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+              </thoc:Tiet>
+            </thoc:GomTiet>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </thoc:Chuong>
+        </thoc:GomChuong>
+        <thoc:GomChuong>
+          <thoc:Chuong rdf:about="http://www.tinhoc.edu.vn#Chuong1_Lop6_1">
+            <thoc:STTChuong rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >1</thoc:STTChuong>
+            <thoc:NoiDungChuong>Chuột và máy tính</thoc:NoiDungChuong>
+            <thoc:ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
+            <thoc:GomTiet>
+              <thoc:Tiet rdf:about="http://www.tinhoc.edu.vn#Tiet2_C1_Lop6_1">
+                <thoc:TuKhoa>Bàn phím</thoc:TuKhoa>
+                <thoc:STTTiet rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >2</thoc:STTTiet>
+                <thoc:NoiDungTiet>Sử dụng bàn phím</thoc:NoiDungTiet>
+                <thoc:Link>Bai 7 Su dung phan mem Mario de luyen go phim_2.mp4</thoc:Link>
+                <thoc:ThuocChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong1_Lop6_1"/>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+              </thoc:Tiet>
+            </thoc:GomTiet>
+            <thoc:GomTiet>
+              <thoc:Tiet rdf:about="http://www.tinhoc.edu.vn#Tiet1_C1_Lop6_1">
+                <thoc:TuKhoa>chuột</thoc:TuKhoa>
+                <thoc:STTTiet rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >1</thoc:STTTiet>
+                <thoc:NoiDungTiet>Chuột máy tính là gì? Tập sử dụng chuột</thoc:NoiDungTiet>
+                <thoc:Link>bai 5 luyen tap chuot.mp4</thoc:Link>
+                <thoc:ThuocChuong rdf:resource="http://www.tinhoc.edu.vn#Chuong1_Lop6_1"/>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+              </thoc:Tiet>
+            </thoc:GomTiet>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </thoc:Chuong>
+        </thoc:GomChuong>
+        <thoc:DuocSoanBoi>
+          <thoc:GiaoVien rdf:about="http://www.tinhoc.edu.vn#PTTThuy">
+            <thoc:TenTaiKhoan>PTTThuy</thoc:TenTaiKhoan>
+            <thoc:Ten>Thúy</thoc:Ten>
+            <thoc:MatKhau>Thuy</thoc:MatKhau>
+            <thoc:Ho>Phạm Thị Thu</thoc:Ho>
+            <thoc:GomQuyen rdf:resource="http://www.tinhoc.edu.vn#ROLE_ADMIN"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </thoc:GiaoVien>
+        </thoc:DuocSoanBoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:BaiGiang>
+    </thoc:ThuocBaiGiang>
+    <thoc:GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1"/>
+    <thoc:GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:KiemTra>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau1_KTC1_Lop6_1">
+    <thoc:NoiDungDapAn>Nhấn đúp thanh cuộn</thoc:NoiDungDapAn>
+    <thoc:KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau1_KTC3_Lop6_1">
+    <thoc:NoiDungDapAn>a</thoc:NoiDungDapAn>
+    <thoc:KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >1</thoc:KetQua>
+    <thoc:ThuocCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau1_KTC3_Lop6_1">
+        <thoc:STTCauHoi>1</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>a</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:ThuocCauHoi>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau2_KTC1_Lop6_1">
+    <thoc:NoiDungDapAn>Xóa ký tự ngẫu nhiên</thoc:NoiDungDapAn>
+    <thoc:KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:ConNguoi rdf:about="http://www.tinhoc.edu.vn#lan">
+    <thoc:MatKhau>abc</thoc:MatKhau>
+    <thoc:TenTaiKhoan>lan</thoc:TenTaiKhoan>
+    <thoc:GomQuyen rdf:resource="http://www.tinhoc.edu.vn#ROLE_STUDENT"/>
+  </thoc:ConNguoi>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau8_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Tất cả các thông tin trên.</thoc:NoiDungDapAn>
+    <thoc:KetQua>1</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau8_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau3_KTC3_Lop6_1">
+    <thoc:NoiDungDapAn>xx</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC3_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau7_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Kiểm tra lại đồ dùng học tập đã có đủ trong cặp sách chưa.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau7_KTC2_Lop6_1">
+        <thoc:TuKhoa>thông tin</thoc:TuKhoa>
+        <thoc:STTCauHoi>7</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>Trước khi sang đường theo em, con người cần phải xử lý những thông tin gì?</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:ThuocCauHoi>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau6_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Đàn kiến đang “tấn công” lọ đường quên đậy nắp.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau6_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <owl:NamedIndividual rdf:about="http://www.tinhoc.edu.vn#KTC2_Lop6_1">
+    <thoc:GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1"/>
+    <thoc:GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau8_KTC2_Lop6_1"/>
+    <thoc:GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau7_KTC2_Lop6_1"/>
+    <thoc:GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC2_Lop6_1"/>
+    <thoc:ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
+    <thoc:GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau6_KTC2_Lop6_1"/>
+    <thoc:GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC2_Lop6_1"/>
+    <thoc:GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau5_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.tinhoc.edu.vn#KiemTra"/>
+    <thoc:GomCauHoi>
+      <thoc:CauHoi rdf:about="http://www.tinhoc.edu.vn#Cau3_KTC2_Lop6_1">
+        <thoc:TuKhoa>thông tin</thoc:TuKhoa>
+        <thoc:STTCauHoi>3</thoc:STTCauHoi>
+        <thoc:NoiDungCauHoi>Em là sao đỏ của lớp. Theo em, thông tin nào dưới đây không phải là thông tin cần xử lí ( thông tin vào ) để xếp loại các tổ cuối tuần?</thoc:NoiDungCauHoi>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </thoc:CauHoi>
+    </thoc:GomCauHoi>
+    <thoc:GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau9_KTC2_Lop6_1"/>
+    <thoc:GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau4_KTC2_Lop6_1"/>
+  </owl:NamedIndividual>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau2_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>dữ liệu được lưu trữ.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau3_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Số bạn bị cô giáo nhắc nhở.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau7_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Quan sát xem đèn tín hiệu giao thông đang bật màu gì.</thoc:NoiDungDapAn>
+    <thoc:KetQua>1</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau7_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau1_KTC3_Lop6_1">
+    <thoc:NoiDungDapAn>a</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC3_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau3_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Số bạn mặc áo xanh.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau2_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>thông tin ra.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau6_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Những con vi trùng gây bệnh lị lẫn trong thức ăn bị ôi thiu.</thoc:NoiDungDapAn>
+    <thoc:KetQua>1</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau6_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau10_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Truyền (trao đổi) thông tin.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau7_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Nghĩ về bài toán hôm qua trên lớp chưa làm được.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau7_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau3_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Số các bạn bị ghi tên vì đi muộn.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau10_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Tất cả các đáp án trên.</thoc:NoiDungDapAn>
+    <thoc:KetQua>1</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau10_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau2_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>thông tin vào.</thoc:NoiDungDapAn>
+    <thoc:KetQua>1</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau1_KTC1_Lop6_1">
+    <thoc:NoiDungDapAn>Không thể dùng chuột</thoc:NoiDungDapAn>
+    <thoc:KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau7_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Quan sát xem có phương tiện giao thông đang đến gần không.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau7_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau5_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Tiếng chim hót.</thoc:NoiDungDapAn>
+    <thoc:KetQua>1</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau5_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau1_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Nắm được quy luật của tự nhiên và do đó trở nên mạnh mẽ hơn.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau2_KTC1_Lop6_1">
+    <thoc:NoiDungDapAn>Xóa ký tự trước con trỏ</thoc:NoiDungDapAn>
+    <thoc:KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau2_KTC1_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn1_Cau3_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Số lượng điểm 10.</thoc:NoiDungDapAn>
+    <thoc:KetQua>1</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau8_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Bếp nấu đã chuẩn bị sẵn sàng chưa.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau8_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau9_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Nghiên cứu chế tạo các máy tính với nhiều tính năng ngày càng ưu việt hơn.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau9_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau4_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Ăn sáng trước khi đến trường.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau4_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau6_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Rác bẩn vứt ngoài hành lang lớp học.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau6_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:KiemTra rdf:about="http://www.tinhoc.edu.vn#KTC3_Lop6_1">
+    <thoc:ThuocBaiGiang rdf:resource="http://www.tinhoc.edu.vn#CTLop6_1"/>
+    <thoc:GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC3_Lop6_1"/>
+    <thoc:GomCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC3_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:KiemTra>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau1_KTC3_Lop6_1">
+    <thoc:NoiDungDapAn>a</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC3_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn3_Cau3_KTC3_Lop6_1">
+    <thoc:NoiDungDapAn>xx</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau3_KTC3_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn2_Cau1_KTC1_Lop6_1">
+    <thoc:NoiDungDapAn>Nhấn đúp chuột phải</thoc:NoiDungDapAn>
+    <thoc:KetQua rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau1_KTC1_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
+  <thoc:DapAn rdf:about="http://www.tinhoc.edu.vn#DapAn4_Cau9_KTC2_Lop6_1">
+    <thoc:NoiDungDapAn>Biểu diễn các thông tin đa dạng trong máy tính.</thoc:NoiDungDapAn>
+    <thoc:KetQua>0</thoc:KetQua>
+    <thoc:ThuocCauHoi rdf:resource="http://www.tinhoc.edu.vn#Cau9_KTC2_Lop6_1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </thoc:DapAn>
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
-

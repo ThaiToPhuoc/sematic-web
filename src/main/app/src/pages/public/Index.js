@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router';
 import { Link } from 'react-router-dom';
 import Notify from '../../components/notify/Notify';
 import CauHoiUpdate from '../cauhoi/CauHoiUpdate';
-import BaiGiangIndex from './BaiGiangIndex';
+import BaiGiangIndex from './BaiGiang/BaiGiangIndex';
 import CauHoiIndex from './CauHoi/CauHoiIndex';
 import ChuongDetail from './ChuongDetail';
 import BaiGiangDetail from './BaiGiangDetail';

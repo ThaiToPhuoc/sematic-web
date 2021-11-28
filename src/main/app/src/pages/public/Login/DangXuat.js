@@ -14,12 +14,12 @@ export default class DangXuat extends Component {
 
     render() {
         return (
-            <button 
-                className='btn btn-danger'
+            <span 
+                className='text-danger pointer me-5'
                 onClick={this.logout}
             >
-                <FontAwesomeIcon icon={faSignOutAlt} /> Đăng xuất
-            </button>
+                <b><FontAwesomeIcon icon={faSignOutAlt} /> Đăng xuất</b>
+            </span>
         )
     }
 }
