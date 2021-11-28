@@ -13,6 +13,7 @@ import DangNhap from './Login/DangNhap';
 import UserService from '../../services/UserService';
 import DangXuat from './Login/DangXuat';
 import Navbar from './Navbar';
+import KetQuaIndex from '../KetQua/KetQuaIndex';
 
 export default class Index extends Component {
 
@@ -33,6 +34,7 @@ export default class Index extends Component {
                     <PrivateRoute path="/chuong/:id" component={ChuongDetail} />
                     <PrivateRoute path="/tiet/:id" component={TietDetail} />
                     <PrivateRoute path="/cau-hoi/:id" component={CauHoiIndex} />
+                    <PrivateRoute path="/kiem-tra/" component={KetQuaIndex} />
                     <PrivateRoute path="/" component={BaiGiangIndex}/>
                 </Switch>
             </div>

@@ -78,7 +78,7 @@ class Navbar extends Component {
                                 </li>
 
                                 <li className="nav-item ms-1">
-                                    <Link className='nav-link'>Kiểm tra</Link>
+                                    <Link to='/kiem-tra' className='nav-link'>Kết quả kiểm tra</Link>
                                 </li>
                             </ul>
                         
