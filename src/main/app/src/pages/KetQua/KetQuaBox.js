@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router';
 import { TruncateSharp } from '../../components/helpers/FieldValidate';
 import './style.scss'
 
-export default class KetQuaBox extends Component {
+class KetQuaBox extends Component {
 
     reroute = (link) => {
         this.props.history.replace(link)
@@ -65,3 +66,5 @@ export default class KetQuaBox extends Component {
         )
     }
 }
+
+export default withRouter(KetQuaBox)
