@@ -2,6 +2,7 @@ package vn.tinhoc.domain;
 
 import java.util.List;
 
+import vn.lanhoang.ontology.annotation.Default;
 import vn.lanhoang.ontology.annotation.Name;
 import vn.lanhoang.ontology.annotation.OntologyObject;
 
@@ -11,7 +12,8 @@ public class KiemTra {
 	private String id;
 	
 	private BaiGiang ThuocBaiGiang;
-	
+
+	@Default
 	private List<CauHoi> GomCauHoi;
 
 	public String getId() {

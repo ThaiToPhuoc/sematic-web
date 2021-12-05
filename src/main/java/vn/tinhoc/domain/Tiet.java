@@ -33,7 +33,11 @@ public class Tiet {
     }
 
     public void setNoiDungTiet(String noiDungTiet) {
-        NoiDungTiet = noiDungTiet;
+        if (noiDungTiet != null) {
+            NoiDungTiet = noiDungTiet.replace("\\\"", "'");
+        } else {
+            NoiDungTiet = null;
+        }
     }
     
     public String getLink() {

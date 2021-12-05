@@ -1,11 +1,22 @@
 package vn.tinhoc.config;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 
 import vn.lanhoang.ontology.configuration.OntologyVariables;
+import vn.lanhoang.ontology.model.query.QueryParser;
+import vn.tinhoc.tokenizer.TokenObject;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Configuration
 @Component
@@ -19,6 +30,8 @@ public class MySystemConfig {
 	private Integer maxNestedCount;
 	@Value("${spring.onto.prefix}")
 	private String preffix;
+	@Value("${spring.application.media-path}")
+	String mediaPath;
 	
 	@Bean
 	public OntologyVariables ontologyVariables() {
@@ -39,5 +52,31 @@ public class MySystemConfig {
 			+ "PREFIX " + preffix + ": <" + ontologyVariables.getBaseUri() + ">\r\n"
 		);
 		return ontologyVariables;
+	}
+
+	@Bean
+	public StreamProperty streamProperty() throws IOException {
+		String mediaPath = this.mediaPath;
+		if (StringUtils.isBlank(mediaPath)) {
+			mediaPath = "./media";
+		}
+
+		File directory = new File(mediaPath);
+
+		if (directory.mkdirs()) {
+			System.out.println("Tạo thư mục " + directory.getAbsolutePath());
+		}
+
+		return new StreamProperty(directory.getAbsolutePath());
+	}
+
+	@Bean
+	public QueryParser queryParser(OntologyVariables ontologyVariables) {
+		return new QueryParser(ontologyVariables);
+	}
+
+	@Bean
+	TokenObject tokenObject() {
+		return new TokenObject();
 	}
 }

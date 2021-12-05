@@ -37,30 +37,29 @@ export default class BaiGiangIndex extends Component {
     getTietId = (tiet) => {
         let id = tiet?.id;
         id = id.substring(id.indexOf('#') + 1)
-        return <Link to={`/tiet/${id}`}>Nội dung tiết học</Link>;
+        return <Link to={`/tiet/${id}`}>{tiet.link}</Link>
     }
 
     render() {
         return (
             <div>
                 <div class = 'container'>
-                    <h2 class="text-center">Thông tin và tin học</h2>
-                    <ol>
-                        <li>Thông tin là gì?</li>
-                        <ul>
-                            <li>Thông tin là tất cả những gì đem lại sự hiểu biết về thế giới xung quanh (sự vật, sự kiện, …) và về thế giới con người.</li>
-
-                            <li>Thông tin có mặt ở khắp xung quanh chúng ta: sách báo, tạp chí, internet, …</li>
-                        </ul>
-                        <li>Hoạt động thông tin của con người</li>
-                        <ul>
-                            <li>Việc tiếp nhận, xử lý, lưu trữ và truyền (trao đổi) thông tin được gọi chung là hoạt động thông tin.</li>
-
-                            <li>Hoạt động thông tin diễn ra đối với mỗi người và là nhu cầu thiết yếu.</li>
-                            <li>Xử lý thông tin có vai trò quan trọng nhất, mục đích là đem lại sự hiểu biết cho con người để có những kết luận, quyết định cần thiết.</li>
-                            <li>Thông tin trước khi xử lý được gọi là thông tin vào, sau khi thông tin được xử lý được gọi là thông tin ra.</li>
-                        </ul>
-                    </ol>
+                    <h2 class="text-center">WEB NGỮ NGHĨA XÂY DỰNG HỆ THỐNG TRỢ GIÚP HỌC TẬP CHO HỌC SINH THCS LAM SƠN ĐÀ LẠT</h2>
+                    <p>
+                        So với các ngành công nghiệp khác, ngành công nghiệp Công nghệ thông tin 
+                        trong những năm gần đây đã phát triển nhanh chóng và đã thúc đẩy sự phát triển 
+                        nhiều lĩnh vực khác như: Y học, giáo dục, kinh tế - chính trị, văn hóa - xã hội, nghiên cứu, giải trí,… 
+                        Lợi ích mà nó mang lại cho con người là rất lớn. 
+                        Đặc biệt các thành tựu nổi bật nhất của công nghệ thông tin trong giáo dục và đào tạo hiện nay chính là 
+                        dạy học trên Website. Điều này đã nâng cao được khả năng tự học của học sinh và dường như nó đã trở thành 
+                        cầu nối giữa giáo viên, gia đình, nhà trường và học sinh.
+                    </p>
+                    <p>
+                        Ứng dụng web ngữ nghĩa xây dựng hệ thống trợ giúp học tập cho 
+                        học sinh THCS Lam Sơn Đà Lạt” nhằm góp phần nâng cao khả năng tự học, 
+                        khả năng sáng tạo, các em tìm ra phương pháp học tập hợp lý cho bản thân và 
+                        đồng thời rèn luyện, vận dụng kiến thức môn học trong trường phổ thông vào thực tiễn hợp lý và hiệu quả.
+                    </p>
                     
                 </div>
                 <div className='container'>
@@ -69,15 +68,22 @@ export default class BaiGiangIndex extends Component {
                         this.state.BaiGiang.map((bg) =>(
                                 <Accordion title={`Chương trình lớp ${bg.chuongTrinh} - Học kỳ ${bg.hocKy}`}>
                                     <div className='row gx-3'>
-                                    {bg.gomChuong?.map((chuong) => (
+                                    {bg.gomChuong
+                                    ?.sort((a, b) => a.sttchuong > b.sttchuong ? 1 : -1)
+                                    ?.map((chuong) => (
                                             <div className='col-3'>
                                                 <div className='p-2'>
-                                                    <h6>Chương {chuong.sttchuong}: {chuong.noiDungChuong}</h6>
+                                                    <h6>
+                                                        <Link className='text-dark' to={`/chuong/${TruncateSharp(chuong.id)}`}>
+                                                            Chương {chuong.sttchuong}: {chuong.noiDungChuong}
+                                                        </Link>
+                                                    </h6>
+
                                                     <ol>
                                                     {chuong.gomTiet?.sort((a, b) => a.stttiet > b.stttiet ? 1 : -1)
                                                     .map((tiet) => (
                                                         <li>
-                                                            <Link to={`/tiet/${TruncateSharp(tiet.id)}`}>{tiet.noiDungTiet}  </Link>
+                                                            <Link to={`/tiet/${TruncateSharp(tiet.id)}`}>{tiet.link}  </Link>
                                                         </li>
                                                     ))}
                                                     </ol>

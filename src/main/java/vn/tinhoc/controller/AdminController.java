@@ -1,23 +1,29 @@
 package vn.tinhoc.controller;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import vn.tinhoc.domain.BaiGiang;
 import vn.tinhoc.domain.Chuong;
 import vn.tinhoc.domain.request.KiemTraWrite;
 import vn.tinhoc.repository.BaiGiangRepository;
 import vn.tinhoc.repository.ChuongRepository;
 import vn.tinhoc.service.AdminService;
+import vn.tinhoc.service.StreamService;
 
 import javax.annotation.security.PermitAll;
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -25,6 +31,9 @@ public class AdminController {
 
     @Autowired
     AdminService adminService;
+
+    @Autowired
+    StreamService streamService;
 
     @Autowired
     BaiGiangRepository baiGiangRepository;
@@ -35,6 +44,11 @@ public class AdminController {
     @GetMapping("/bai-giang")
     public ResponseEntity<?> findAllBaiGiang() {
         return ResponseEntity.ok(adminService.findAllBaiGiang());
+    }
+
+    @GetMapping("/chuong/{id}")
+    public ResponseEntity<?> findGiang(@PathVariable String id) {
+        return ResponseEntity.ok(chuongRepository.findByUriTag(id).get());
     }
 
     @PostMapping("/bai-giang")
@@ -102,5 +116,27 @@ public class AdminController {
         }
 
         return new ResponseEntity<>(chuong, HttpStatus.OK);
+    }
+
+    @PostMapping("/upload")
+    public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file,
+                                        @RequestParam String id) throws IOException {
+        String message = "";
+        adminService.uploadVideo(id, file);
+
+        message = "Uploaded the file successfully: " + file.getOriginalFilename();
+        return ResponseEntity.status(HttpStatus.OK).body(message);
+    }
+
+    @DeleteMapping("/delete-video")
+    public ResponseEntity<?> deleteVideo(@RequestParam String id) throws IOException {
+        Chuong chuong = chuongRepository.findByUriTag(id).get();
+        if (StringUtils.isNotBlank(chuong.getVideo())) {
+            streamService.delete(chuong.getVideo());
+            chuong.setVideo(null);
+            chuongRepository.save(chuong);
+        }
+
+        return ResponseEntity.noContent().build();
     }
 }

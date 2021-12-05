@@ -31,7 +31,7 @@ public class CustomCorsFilter implements Filter {
                 + "PUT, REPORT, SEARCH, UNCHECKOUT, UNLOCK, UPDATE, VERSION-CONTROL");
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers",
-                "Origin, X-Requested-With, Content-Type, Accept, Key, Authorization");
+                "Origin, X-Requested-With, Content-Type, Accept, Key, Authorization, Range, Accept-ranges, Content-Length, Content-Range");
 
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);

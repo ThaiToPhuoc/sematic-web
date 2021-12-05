@@ -1,0 +1,13 @@
+and:&&
+or:||
+with:=>
+Role:#TenQuyen,id
+GiaoVien:Ho,TenTaiKhoan,id,Ten,MatKhau
+User:id,GomQuyen~Role,MatKhau,#TenTaiKhoan
+Tiet:STTTiet,ThuocChuong~Chuong,id,TuKhoa,Link,NoiDungTiet
+KQKiemTra:CuaHocSinh~User,CuaBaiKiemTra~KiemTra,id,GomDapAn~DapAn
+CauHoi:NoiDungCauHoi,id,TuKhoa,STTCauHoi
+DapAn:NoiDungDapAn,KetQua,id,ThuocCauHoi~CauHoi
+Chuong:Video,STTChuong,id,NoiDungChuong,GomTiet~Tiet,ThuocBaiGiang~BaiGiang
+BaiGiang:HocKy,NamHoc,ChuongTrinh,GomChuong~Chuong,id,DuocSoanBoi~GiaoVien
+KiemTra:id,#GomCauHoi~CauHoi,ThuocBaiGiang~BaiGiang

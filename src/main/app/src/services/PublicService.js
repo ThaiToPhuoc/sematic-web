@@ -37,6 +37,14 @@ class PublicService {
     findKQs() {
         return API.get(`/public/ket-qua/${JSON.parse(sessionStorage.getItem('user')).username}`);
     }
+
+    searchBasic(form) {
+        return API.post(`public/search/basic`, form)
+    }
+
+    searchAdvance(form) {
+        return API.post(`public/search/advance`, form)
+    }
 }
 
 export default new PublicService();

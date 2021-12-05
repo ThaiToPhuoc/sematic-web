@@ -1,5 +1,6 @@
 package vn.tinhoc.domain.dto;
 
+import vn.lanhoang.ontology.annotation.Default;
 import vn.lanhoang.ontology.annotation.Name;
 import vn.lanhoang.ontology.annotation.OntologyObject;
 
@@ -7,7 +8,8 @@ import vn.lanhoang.ontology.annotation.OntologyObject;
 public class Role {
 	@Name
 	private String id;
-	
+
+	@Default
 	private String TenQuyen;
 	
 	public Role() {

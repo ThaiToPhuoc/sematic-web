@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 public class DataUtils {
 	static Pattern WORD_FINDER = Pattern.compile("(([A-Z]?[a-z]+)|([A-Z]))");
+	final static String[] metaCharacters = {"\\","^","$","{","}","[","]","(",")",".","*","+","?","|","<",">","-","&","%"};
 	
 	public static String normalized(String s) {
 		return removeAccent(removeSpecialCharsWithSpace(s));
@@ -65,6 +66,15 @@ public class DataUtils {
 		}
 
 		return numbers[numbers.length - 1] + 1;
+	}
+
+	public static String escapeMetaCharacters(String inputString){
+		for (int i = 0 ; i < metaCharacters.length ; i++){
+			if(inputString.contains(metaCharacters[i])){
+				inputString = inputString.replace(metaCharacters[i],"\\\\" + metaCharacters[i]);
+			}
+		}
+		return inputString;
 	}
 
 	public static String removeSharp(String id) {

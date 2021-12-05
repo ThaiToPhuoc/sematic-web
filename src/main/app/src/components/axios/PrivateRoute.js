@@ -1,7 +1,7 @@
 import React  from "react";
 import { Redirect, Route } from "react-router-dom";
 
-function PrivateRoute({ component: Component, ...restOfProps }) {
+function PrivateRoute({ component: Component, unique, ...restOfProps }) {
     let user = sessionStorage.getItem("user");
     try {
         user = JSON.parse(user);
@@ -13,7 +13,9 @@ function PrivateRoute({ component: Component, ...restOfProps }) {
             {...restOfProps}
             render={(props) => 
                 isAuthenticated 
-                    ? <Component {...props} />
+                    ? (unique ? 
+                    <Component {...props} key={props.match.params[unique]} /> :
+                    <Component {...props} />)
                     : <Redirect to='/dang-nhap' />
             }
         />

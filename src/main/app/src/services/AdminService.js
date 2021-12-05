@@ -1,6 +1,10 @@
 import API from '../components/axios/API';
 
 class AdminService {
+    findGiang(id) {
+        return API.get(`/admin/chuong/${id}`);
+    }
+
     findAllBaiGiang() {
         return API.get(`/admin/bai-giang`);
     }
@@ -27,6 +31,22 @@ class AdminService {
 
     createKiemTra(form) {
         return API.post(`/admin/kiem-tra`, form);
+    }
+
+    uploadVideo(form) {
+        return API.post(`/admin/upload`, form, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            }
+        })
+    }
+
+    deleteVideo(id) {
+        return API.delete(`/admin/delete-video`, {
+            params: {
+                id: id
+            }
+        })
     }
 }
 

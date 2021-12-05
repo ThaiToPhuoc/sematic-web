@@ -2,8 +2,10 @@ package vn.tinhoc.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Supplier;
@@ -11,6 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +27,7 @@ import vn.tinhoc.domain.KQKiemTra;
 import vn.tinhoc.domain.KiemTra;
 import vn.tinhoc.domain.Tiet;
 import vn.tinhoc.domain.dto.BaiGiangDTO;
+import vn.tinhoc.domain.dto.BasicDTO;
 import vn.tinhoc.domain.dto.CauHoiDTO;
 import vn.tinhoc.domain.dto.KQKtraDTO;
 import vn.tinhoc.domain.dto.KetQuaDTO;
@@ -37,37 +41,27 @@ import vn.tinhoc.repository.KQKiemTraRepository;
 import vn.tinhoc.repository.KiemTraRepository;
 import vn.tinhoc.repository.TietRepository;
 import vn.tinhoc.repository.UserRepository;
+import vn.tinhoc.tokenizer.Dictionary;
+import vn.tinhoc.tokenizer.TokenObject;
 import vn.tinhoc.utils.DataUtils;
+import vn.tinhoc.utils.search.GenericSearch;
+
+import static vn.tinhoc.utils.DataUtils.removeSharp;
 
 @Service
 public class PublicService {
-	
-	@Autowired
-	CauHoiRepository cauHoiRepository;
-	
-	@Autowired
-	DapAnRepository dapAnRepository;
 
-	@Autowired
-	ChuongRepository chuongRepository;
-	
-	@Autowired
-	BaiGiangRepository baiGiangRepository;
-	
-	@Autowired
-	TietRepository tietRepository;
-	
-	@Autowired
-	KiemTraRepository kiemtraRepository;
-
-	@Autowired
-	UserRepository userRepository;
-
-	@Autowired
-	KQKiemTraRepository kqKiemTraRepository;
-	
-	@Autowired
-	OntologyVariables vars;
+	@Autowired Dictionary dictionary;
+	@Autowired OntologyVariables vars;
+	@Autowired TokenObject tokenObject;
+	@Autowired TietRepository tietRepository;
+	@Autowired UserRepository userRepository;
+	@Autowired DapAnRepository dapAnRepository;
+	@Autowired CauHoiRepository cauHoiRepository;
+	@Autowired ChuongRepository chuongRepository;
+	@Autowired KiemTraRepository kiemtraRepository;
+	@Autowired BaiGiangRepository baiGiangRepository;
+	@Autowired KQKiemTraRepository kqKiemTraRepository;
 	
 	public CauHoi update(CauHoi cauHoi) {
 		
@@ -304,5 +298,97 @@ public class PublicService {
 		ketQuaDTO.tuKhoas.addAll(tuKhoaSet);
 		ketQuaDTO.chuongs.addAll(KetQuaDTO.GroupBy.group(tiets));
 		ketQuaDTOS.add(ketQuaDTO);
+	}
+
+	public Object basicSearch(String text) {
+		List<Map<String, Object>> results = new ArrayList<>();
+		GenericSearch genericSearch = new GenericSearch(vars, tokenObject, dictionary);
+
+		Pair<String, List<BasicDTO>> tiStr = genericSearch.parse(text, Tiet.class);
+		Pair<String, List<BasicDTO>> chStr = genericSearch.parse(text, Chuong.class);
+		Pair<String, List<BasicDTO>> ktStr = genericSearch.parse(text, KiemTra.class);
+		Pair<String, List<BasicDTO>> bgStr = genericSearch.parse(text, BaiGiang.class);
+
+		System.out.println(tiStr.getKey());
+		System.out.println(chStr.getKey());
+		System.out.println(ktStr.getKey());
+		System.out.println(bgStr.getKey());
+
+		List<Tiet> tiets = tietRepository.query(tiStr.getKey());
+		List<Chuong> chuongs = chuongRepository.query(chStr.getKey());
+		List<KiemTra> kiemTras = kiemtraRepository.query(ktStr.getKey());
+		List<BaiGiang> baiGiangs = baiGiangRepository.query(bgStr.getKey());
+
+		// BaiGiang -> [ Chuong -> [ Tiet ] ] -> { }
+		// KiemTra -> { }
+
+		results.add(Map.ofEntries(
+			Map.entry("type", "baigiang"),
+			Map.entry("results",
+				baiGiangs.stream().map(baiGiang ->
+					Map.ofEntries(
+						Map.entry("url", removeSharp(baiGiang.getId())),
+						Map.entry("value", String.format(
+							"C-Trình lớp %s - H-Kỳ %d",
+								baiGiang.getChuongTrinh(),
+								baiGiang.getHocKy()
+						)
+					)
+				))
+			)
+		));
+
+		results.add(Map.ofEntries(
+			Map.entry("type", "chuong"),
+			Map.entry("results",
+				chuongs.stream().map(chuong ->
+					Map.ofEntries(
+						Map.entry("url", removeSharp(chuong.getId())),
+						Map.entry("value", String.format(
+								"Chương %d - %s",
+								chuong.getSTTChuong(),
+								chuong.getNoiDungChuong()
+							)
+						)
+					))
+			)
+		));
+
+		results.add(Map.ofEntries(
+			Map.entry("type", "tiet"),
+			Map.entry("results",
+				tiets.stream().map(tiet ->
+					Map.ofEntries(
+						Map.entry("url", removeSharp(tiet.getId())),
+						Map.entry("value", String.format(
+								"Chương %d Tiết %d - %s",
+								tiet.getThuocChuong().getSTTChuong(),
+								tiet.getSTTTiet(),
+								tiet.getLink()
+							)
+						)
+					))
+			)
+		));
+
+		results.add(Map.ofEntries(
+			Map.entry("type", "kiemtra"),
+			Map.entry("results",
+				kiemTras.stream().map(kiemTra -> {
+					BaiGiang bg = kiemTra.getThuocBaiGiang();
+					String id = removeSharp(kiemTra.getId());
+					return Map.ofEntries(
+							Map.entry("url", removeSharp(id)),
+							Map.entry("value", String.format(
+								"Kiểm tra %s: C-Trình lớp %s - H-Kỳ %d",
+								id, bg.getChuongTrinh(), bg.getHocKy()
+							)
+						));
+					}
+				)
+			)
+		));
+
+		return results;
 	}
 }

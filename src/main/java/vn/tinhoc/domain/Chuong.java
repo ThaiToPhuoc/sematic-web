@@ -18,6 +18,8 @@ public class Chuong {
     
     private BaiGiang ThuocBaiGiang;
 
+    private String Video;
+
     public String getId() {
         return id;
     }
@@ -57,5 +59,12 @@ public class Chuong {
 	public void setThuocBaiGiang(BaiGiang thuocBaiGiang) {
 		ThuocBaiGiang = thuocBaiGiang;
 	}
-    
+
+    public String getVideo() {
+        return Video;
+    }
+
+    public void setVideo(String video) {
+        Video = video;
+    }
 }

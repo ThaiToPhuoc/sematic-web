@@ -36,7 +36,7 @@ export default class Accordion extends Component {
                 <nav className={classNames}
                     onClick={this.handleClick}> 
                     <div className='px-2 noselect'> 
-                        <b>{title}</b>
+                        <h5>{title}</h5>
                     </div>
                 </nav>
                 {

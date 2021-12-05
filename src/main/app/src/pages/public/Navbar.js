@@ -5,6 +5,7 @@ import PublicService from '../../services/PublicService';
 import { Link, withRouter } from 'react-router-dom';
 import DangXuat from './Login/DangXuat';
 import { TruncateSharp } from '../../components/helpers/FieldValidate';
+import BasicSearch from '../../components/Search/BasicSearch';
 
 const linkStyle = {
     textDecoration: 'none', 
@@ -82,6 +83,9 @@ class Navbar extends Component {
                                 </li>
                             </ul>
                         
+                            <span className='me-3 w-50'>
+                                <BasicSearch />
+                            </span>
                             <span className='navbar-text'>
                                 <DangXuat />
                             </span>
