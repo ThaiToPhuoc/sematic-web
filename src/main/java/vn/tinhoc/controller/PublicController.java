@@ -1,6 +1,7 @@
 package vn.tinhoc.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import vn.tinhoc.domain.BaiGiang;
-import vn.tinhoc.domain.CauHoi;
 import vn.tinhoc.domain.Chuong;
 import vn.tinhoc.domain.Tiet;
 import vn.tinhoc.domain.dto.BaiGiangDTO;
@@ -23,6 +22,8 @@ import vn.tinhoc.domain.dto.CauHoiDTO;
 import vn.tinhoc.domain.dto.NopBaiDTO;
 import vn.tinhoc.repository.CauHoiRepository;
 import vn.tinhoc.service.PublicService;
+
+import static vn.tinhoc.utils.DataUtils.escapeMetaCharacters;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -89,5 +90,12 @@ public class PublicController {
 	@GetMapping("/ket-qua/{username}")
 	public ResponseEntity<?> xemKetQua(@PathVariable String username) {
 		return ResponseEntity.ok(publicService.findKQByUsername(username));
+	}
+
+	@PostMapping("/search/basic")
+	public ResponseEntity<?> searchBasic(@RequestBody Map<String, String> map) {
+		return ResponseEntity.ok(publicService.basicSearch(
+				escapeMetaCharacters(map.get("text")))
+		);
 	}
 }

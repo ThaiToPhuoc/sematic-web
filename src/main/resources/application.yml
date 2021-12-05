@@ -10,7 +10,13 @@ spring:
   application:
     jwt-secret: TdupoBlZjaeEOQOcIwKgdLdbFQHSnkYR
     jwt-expire: 18000000 #2hours
-    
+    media-path: ./media/
+    dictionary: ./vietnamese-dictionary.txt
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
+
   devtools:
     restart:
       enabled: true

@@ -8,11 +8,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare, faTimes } from '@fortawesome/free-solid-svg-icons';
 import AdminService from '../../../../services/AdminService';
 import Notify from '../../../../components/notify/Notify';
+import ReactQuill, { Quill } from 'react-quill'
+import ImageResize from 'quill-image-resize-module-react';
 
 
 const SelectAdapter = ({ input, ...rest }) => (
     <Select {...input} {...rest} isSearchable={true} />
 )
+
+Quill.register('modules/imageResize', ImageResize);
 
 export default class ChuongModal extends Component {
     constructor(props) {
@@ -152,7 +156,7 @@ export default class ChuongModal extends Component {
                                                     className='form-control w-50'
                                                     name={`${tiet}.link`}
                                                     component="input"
-                                                    placeholder='Link...'
+                                                    placeholder='Tiêu đề...'
                                                     disabled={this.state.isReadMode}
                                                     readOnly={this.state.isReadMode} 
                                                 />
@@ -171,16 +175,48 @@ export default class ChuongModal extends Component {
                                                 <></>
                                                 }
                                             </div>
-                                            
-
-                                            <Field
+                                            {/* <Field
                                                 className='form-control'
                                                 name={`${tiet}.noiDungTiet`}
                                                 component="textarea"
                                                 placeholder='Nội dung tiết...'
                                                 disabled={this.state.isReadMode}
                                                 readOnly={this.state.isReadMode} 
-                                            />
+                                            /> */}
+                                            <Field name={`${tiet}.noiDungTiet`} validate={Required}>
+                                                {({ input, meta }) => (
+                                                    <>
+                                                    <ReactQuill 
+                                                        className={this.state.isReadMode ? '' : 'bg-white'}
+                                                        disabled={this.state.isReadMode}
+                                                        readOnly={this.state.isReadMode}
+                                                        {...input}
+                                                        style={{
+                                                            zIndex: 99999,
+                                                            clear: 'both',
+                                                            zoom: 1
+                                                        }}
+                                                        modules={{  
+                                                            toolbar: {  
+                                                                container: [  
+                                                                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  
+                                                                    ['bold', 'italic', 'underline'],  
+                                                                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],  
+                                                                    [{ 'align': [] }],  
+                                                                    ['link', 'image'],  
+                                                                    ['clean'],  
+                                                                    [{ 'color': [] }]  
+                                                                ]
+                                                            },  
+                                                            imageResize: { 
+                                                                modules: [ 'Resize', 'DisplaySize', 'Toolbar' ]
+                                                            }
+                                                        }}  
+                                                    />
+                                                    {meta.error && meta.touched && <div className='text-danger'>{meta.error}</div>}
+                                                    </>
+                                                )}
+                                            </Field>
                                             <div className='my-2' style={{borderTop: '2px dotted rgba(0, 0, 0, 0.1)'}}></div>
                                         </div>
                                     ))}

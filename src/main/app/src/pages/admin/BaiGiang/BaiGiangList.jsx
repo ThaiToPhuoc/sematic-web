@@ -9,10 +9,11 @@ import BaiGiangCreate from './BaiGiangCreate'
 
 import './style.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faList, faPlusCircle, faPlusSquare } from '@fortawesome/free-solid-svg-icons'
+import { faFileVideo, faList, faPlusCircle, faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 import { TruncateSharp } from '../../../components/helpers/FieldValidate'
 import ChuongModal from './Chuong/ChuongModal'
 import KiemTraModal from './KiemTra/KiemTraModal'
+import VideoModal from './Media/VideoModal'
 
 const modalStyle = {
     content: {
@@ -27,26 +28,28 @@ export default class BaiGiangList extends Component {
         super(props)
 
         let _columns = [...columns.bai_giang]
-        _columns.push({
-            name: (
-                <h4>
-                    <FontAwesomeIcon 
-                        icon={faPlusSquare}
-                        className='rounded text-success pointer'
-                        onClick={this.openCreateModal}
-                    />
-                </h4>
-            ),
-            selector: row => (
-                <h5 className='m-0' onClick={() => this.select(row)}>
-                    <FontAwesomeIcon 
-                        icon={faList}
-                        className='rounded text-info pointer'
-                        fixedWidth
-                    />
-                </h5>
-            ),
-        })
+        _columns.push(
+            {
+                name: (
+                    <h4>
+                        <FontAwesomeIcon 
+                            icon={faPlusSquare}
+                            className='rounded text-success pointer'
+                            onClick={this.openCreateModal}
+                        />
+                    </h4>
+                ),
+                selector: row => (
+                    <h5 className='m-0' onClick={() => this.select(row)}>
+                        <FontAwesomeIcon 
+                            icon={faList}
+                            className='rounded text-info pointer'
+                            fixedWidth
+                        />
+                    </h5>
+                ),
+            }
+        )
 
         this.state = {
             columns: _columns,
@@ -55,6 +58,7 @@ export default class BaiGiangList extends Component {
             mCreateVisible: false,
             mChuongModal: false,
             mKiemTraModal: false,
+            mVideoModal: false,
             cacChuong: [],
             cacKiemTra: [],
             currChuong: { },
@@ -75,6 +79,12 @@ export default class BaiGiangList extends Component {
         })
     }
 
+    openChuongOption = (chuong) => {
+        this.setState(prev => ({
+            currChuong: prev.currChuong?.id === chuong.id ? { } : chuong
+        }))
+    }
+
     refresh = () => {
         this.setState({
             mChuongModal: false,
@@ -92,6 +102,13 @@ export default class BaiGiangList extends Component {
                     baiGiangs: response.data
                 })
             }
+        })
+    }
+
+    openVideo = (item) => {
+        this.select(item)
+        this.setState({
+            mVideoModal: true
         })
     }
 
@@ -170,10 +187,43 @@ export default class BaiGiangList extends Component {
                                     ?.map(chuong => {
                                         let id = TruncateSharp(chuong.id)
                                         return (
-                                            <div key={id} className='border rounded px-1 mx-1 flex pointer'
-                                                onClick={() => this.openChuongModal(chuong)}
+                                            <div key={id} className='border rounded px-1 mx-1 flex position-relative noselect'   
                                             >
                                                 {id}
+                                                <div style={{
+                                                        left: '50%',
+                                                        top: '0',
+                                                        width: '100%',
+                                                        height: '100%',
+                                                        position: 'absolute',
+                                                        transform: 'translate(-50%, 0)',
+                                                }} className='pointer' onClick={() => this.openChuongOption(chuong)}></div>
+
+                                                {(!this.state.mChuongModal 
+                                                && !this.state.mVideoModal
+                                                && this.state.currChuong 
+                                                && this.state.currChuong.id === chuong.id
+                                                && <div style={{
+                                                        left: '50%',
+                                                        bottom: '-5px',
+                                                        width: '100%',
+                                                        position: 'absolute',
+                                                        backgroundColor: 'white',
+                                                        border: '1px solid black',
+                                                        transform: 'translate(-50%, 100%)',
+                                                    }}
+                                                    className='d-flex flex-column'
+                                                >
+                                                    <div 
+                                                        className='border-bottom px-2 c-option'
+                                                        onClick={() => this.openChuongModal(chuong)}
+                                                    >Chi tiết</div>
+
+                                                    <div 
+                                                        className='px-2 c-option'
+                                                        onClick={() => this.setState({ mVideoModal: true })}
+                                                    >Video</div>
+                                                </div>)}
                                             </div>
                                         )
                                     })}
@@ -283,6 +333,16 @@ export default class BaiGiangList extends Component {
                     thuocBaiGiang={this.state.baiGiangs.find(bg => bg.selected)}
                     close={() => this.setState({ mKiemTraModal: false, currKiemTra: { } })}
                     refresh={this.refresh}
+                />
+            </ReactModal>
+
+            <ReactModal
+                style={modalStyle}
+                isOpen={this.state.mVideoModal}
+            >
+                <VideoModal 
+                    id={this.state.currChuong?.id}
+                    close={() => this.setState({ mVideoModal: false, currChuong: { } })}
                 />
             </ReactModal>
             </>

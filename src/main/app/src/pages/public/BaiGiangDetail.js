@@ -26,19 +26,13 @@ export default class ChuongDetail extends Component {
     getChuongId = (chuong) => {
         let id = chuong?.id;
         id = id.substring(id.indexOf('#') + 1)
-        return <Link to={`/chuong/${id}`}>Chương {chuong.sttchuong}: {chuong.noiDungChuong}</Link>;
-    }
-
-    getChuongId = (chuong) => {
-        let id = chuong?.id;
-        id = id.substring(id.indexOf('#') + 1)
-        return <Link to={`/chuong/${id}`}>Chương {chuong.sttchuong}: {chuong.noiDungChuong}</Link>;
+        return <Link to={`/chuong/${id}`}>Chương {chuong.sttchuong}: {chuong.noiDungChuong}</Link>
     }
 
     getKiemTra = (kt) => {
         let id = kt?.id;
         id = id.substring(id.indexOf('#') + 1)
-        return <Link to={`/cau-hoi/${id}`}>link</Link>;
+        return <Link to={`/cau-hoi/${id}`}>link</Link>
     }
 
     componentDidMount() {

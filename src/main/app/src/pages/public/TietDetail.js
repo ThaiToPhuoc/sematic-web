@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactQuill from 'react-quill';
 import PublicService from '../../services/PublicService';
 
 export default class TietDetail extends Component {
@@ -25,8 +26,13 @@ export default class TietDetail extends Component {
     render() {
         return (
             <div class = "container">
-                <h2>Tiết {this.state.tiet?.stttiet}: {this.state.tiet?.noiDungTiet}</h2>
-                <p>{this.state.tiet?.link}</p>
+                <h2>Tiết {this.state.tiet?.stttiet}: {this.state.tiet?.link}</h2>
+
+                <ReactQuill
+                    value={this.state.tiet?.noiDungTiet} 
+                    readOnly={true}
+                    theme={"bubble"}
+                />
             </div>
         )
     }

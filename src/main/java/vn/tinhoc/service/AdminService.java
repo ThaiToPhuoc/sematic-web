@@ -5,9 +5,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import vn.lanhoang.ontology.configuration.OntologyVariables;
+import vn.tinhoc.config.StreamProperty;
 import vn.tinhoc.domain.BaiGiang;
 import vn.tinhoc.domain.CauHoi;
 import vn.tinhoc.domain.Chuong;
@@ -23,6 +28,9 @@ import vn.tinhoc.repository.KiemTraRepository;
 import vn.tinhoc.repository.TietRepository;
 import vn.tinhoc.utils.DataUtils;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -56,6 +64,9 @@ public class AdminService {
     @Autowired
     OntologyVariables vars;
 
+    @Autowired
+    StreamService streamService;
+
 //    public KiemTraCreate createKiemTra(KiemTraCreate kiemTraCreate) {
 //        KiemTra kiemTra = kiemTraCreate.getKiemTra();
 //        String idKiemTra = "KT_" + kiemTra.getThuocBaiGiang().getId();
@@ -85,6 +96,10 @@ public class AdminService {
 
             if (tiet.getThuocChuong() == null) {
                 tiet.setThuocChuong(chuongTemp);
+            }
+
+            if (StringUtils.isNotBlank(tiet.getNoiDungTiet())) {
+                tiet.setNoiDungTiet(tiet.getNoiDungTiet().replace("\\\"", "'"));
             }
 
             tietRepository.save(tiet);
@@ -368,5 +383,25 @@ public class AdminService {
 
     public void delete(List<DapAn> dapAns) {
         dapAns.forEach(dapAnRepository::remove);
+    }
+
+    public void uploadVideo(String bgId, MultipartFile file) throws IOException {
+        Optional<Chuong> chuong = chuongRepository.findByUriTag(bgId);
+        String fileName = file.getOriginalFilename();
+        String[] split = StringUtils.split(fileName, ".");
+        if (split.length > 1) {
+            split[split.length - 1] = bgId + "." + split[split.length - 1];
+            fileName = StringUtils.join(split, ".");
+        } else {
+            fileName += "_" + bgId;
+        }
+        String oldVideo = chuong.get().getVideo();
+        chuong.get().setVideo(fileName);
+        if (streamService.save(fileName, file)) {
+            if (StringUtils.isNotBlank(oldVideo)) {
+                streamService.delete(oldVideo);
+            }
+            chuongRepository.save(chuong.get());
+        } else throw new RuntimeException("Không lưu được file");
     }
 }

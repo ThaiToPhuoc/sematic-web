@@ -68,5 +68,4 @@ public class BaiGiang implements Serializable {
 	public void setNamHoc(Integer namHoc) {
 		NamHoc = namHoc;
 	}
-
 }

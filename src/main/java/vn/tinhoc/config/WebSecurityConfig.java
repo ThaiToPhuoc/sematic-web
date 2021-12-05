@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	private final String[] PUBLIC_ENDPOINTS = {
 		"/api/user/login", "/api/user/register",
-		"/api/public/**"
+		"/api/public/**", "/api/stream/**"
 	};
 	
 	private final String[] ADMIN_ENDPOINTS = {

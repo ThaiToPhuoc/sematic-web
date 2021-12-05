@@ -10,6 +10,9 @@ import PrivateRoute from './components/axios/PrivateRoute';
 import DangNhap from './pages/public/Login/DangNhap';
 import DangKy from './pages/public/Login/DangKy';
 import DashBoard from './pages/admin/Components/DashBoard';
+import 'react-quill/dist/quill.snow.css'
+import ReactQuill, { Quill } from 'react-quill'
+import ImageResize from 'quill-image-resize-module-react';
 
 export default class App extends Component {
   componentDidMount() {

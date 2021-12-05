@@ -2,6 +2,7 @@ package vn.tinhoc.domain.dto;
 
 import java.util.List;
 
+import vn.lanhoang.ontology.annotation.Default;
 import vn.lanhoang.ontology.annotation.Name;
 import vn.lanhoang.ontology.annotation.OntologyObject;
 
@@ -9,7 +10,8 @@ import vn.lanhoang.ontology.annotation.OntologyObject;
 public class User {
 	@Name
 	private String id;
-	
+
+	@Default
 	private String TenTaiKhoan;
 	
 	private String MatKhau;
