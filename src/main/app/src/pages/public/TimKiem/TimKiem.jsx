@@ -18,6 +18,7 @@ export default class TimKiem extends Component {
                     labels={this.state.labels}
                     hide={['CauHoi']}
                     restricts={['BaiGiang', 'KiemTra', 'Chuong', 'Tiet']}
+                    sensitive={['TenTaiKhoan', 'MatKhau']}
                 />
             </div>
         )

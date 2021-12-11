@@ -41,6 +41,7 @@ export default class AdvanceSearch extends Component {
     constructor(props) {
         super(props)
         let hide = props.hide ? props.hide : []
+        let sensitive = props.sensitive ? props.sensitive : []
 
         this.state = {
             queries: [],
@@ -51,7 +52,8 @@ export default class AdvanceSearch extends Component {
             options: {
                 r: 1
             },
-            results: {}
+            results: {},
+            sensitive: sensitive
         }
     }
 
@@ -139,6 +141,7 @@ export default class AdvanceSearch extends Component {
                                     lcontainer={lcontainer}
                                     query={q}
                                     labels={labels}
+                                    sensitive={this.state.sensitive}
                                     onChange={(option, ltype) => this.changeName(option, ltype)}
                                 />
                                 <br />
@@ -256,7 +259,7 @@ class Options extends Component {
     }
 
     render() {
-        const { lcontainer, query, labels } = this.props
+        const { lcontainer, query, labels, sensitive } = this.props
 
         return (
             <>
@@ -268,7 +271,9 @@ class Options extends Component {
                 <option value='' hidden>------</option>
                 {
                     lcontainer && <>
-                        {lcontainer.labels.map((llabel, index) => (
+                        {lcontainer.labels
+                        .filter(llabel => !sensitive?.includes(llabel.name))
+                        .map((llabel, index) => (
                             <option 
                                 key={llabel.name} 
                                 value={llabel.name}
@@ -291,6 +296,7 @@ class Options extends Component {
                     query={query.value}
                     labels={labels}
                     onChange={(option, ltype) => this.props.onChange(option, ltype)}
+                    sensitive={sensitive}
                 /></>}
             </>
         )
