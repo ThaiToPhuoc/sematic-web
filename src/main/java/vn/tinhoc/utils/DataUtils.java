@@ -1,9 +1,27 @@
 package vn.tinhoc.utils;
 
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.Statement;
+import org.springframework.util.ReflectionUtils;
+import vn.lanhoang.ontology.annotation.Name;
+import vn.lanhoang.ontology.annotation.OntologyObject;
+import vn.lanhoang.ontology.configuration.OntologyVariables;
+import vn.tinhoc.utils.model.LContainer;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -79,5 +97,79 @@ public class DataUtils {
 
 	public static String removeSharp(String id) {
 		return id.contains("#") ? id.substring(id.indexOf("#") + 1) : id;
+	}
+
+	public static <T> List<LContainer> getComments(Property property, Class<T> klass, OntologyVariables ontologyVariables) {
+		Model db = ontologyVariables.getModel();
+		List<LContainer> container = new ArrayList<>();
+		List<LContainer.LLabel> comments = new ArrayList<>();
+
+		Property key = db.getProperty(ontologyVariables.getBaseUri() + klass.getAnnotation(OntologyObject.class).uri());
+		Statement stmt = key.getProperty(property);
+		container.add(new LContainer(
+				klass.getSimpleName(),
+				stmt != null ? stmt.getString() : klass.getSimpleName(),
+				comments));
+
+		try {
+			doMap(property, klass, ontologyVariables, db, container, comments);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close();
+		}
+
+		return container;
+	}
+
+	public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+		Set<Object> seen = ConcurrentHashMap.newKeySet();
+		return t -> seen.add(keyExtractor.apply(t));
+	}
+
+	public static <T> List<LContainer> getComments(Property property, Class<T> klass, OntologyVariables ontologyVariables, Model db, List<LContainer> container) {
+		if (container.stream().anyMatch(k -> k.getType().equals(klass.getSimpleName()))) {
+			return container;
+		}
+
+		List<LContainer.LLabel> comments = new ArrayList<>();
+		Property key = db.getProperty(ontologyVariables.getBaseUri() + klass.getAnnotation(OntologyObject.class).uri());
+		Statement stmt = key.getProperty(property);
+		container.add(new LContainer(
+				klass.getSimpleName(),
+				stmt != null ? stmt.getString() : klass.getSimpleName(),
+				comments));
+
+		doMap(property, klass, ontologyVariables, db, container, comments);
+
+		return container;
+	}
+
+	private static <T> void doMap(Property property, Class<T> klass, OntologyVariables ontologyVariables, Model db, List<LContainer> container, List<LContainer.LLabel> comments) {
+		ReflectionUtils.doWithFields(klass, (field) -> {
+			try {
+				String value = field.getName();
+				if (field.isAnnotationPresent(Name.class)) return;
+				Property key = db.getProperty(ontologyVariables.getBaseUri() + value);
+				Statement stmt = key.getProperty(property);
+				String type = "plain";
+				if (field.getType().isAnnotationPresent(OntologyObject.class)) {
+					type = field.getType().getSimpleName();
+					getComments(property, field.getType(), ontologyVariables, db, container);
+
+				} else if (field.getType().equals(List.class)) {
+					Class<T> persistentClass = (Class<T>) ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0];
+					if (persistentClass.isAnnotationPresent(OntologyObject.class)) {
+						type = persistentClass.getSimpleName();
+						getComments(property, persistentClass, ontologyVariables, db, container);
+					}
+				}
+
+				comments.add(new LContainer.LLabel(type, value, stmt != null ? stmt.getString() : value));
+			} catch (NullPointerException e) {
+				e.printStackTrace();
+			}
+		});
 	}
 }

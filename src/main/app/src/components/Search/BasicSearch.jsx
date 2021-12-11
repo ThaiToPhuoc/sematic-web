@@ -80,12 +80,13 @@ export default class BasicSearch extends Component {
         return (
             <div className='position-relative'>
                 <OutsideClickHandler onOutsideClick={() => this.setState({ show: false })}>
-                    <input 
-                        type='text' className='w-100 form-control'
+                    <textarea
+                        className='w-100 form-control'
                         onFocus={() => this.setState({ show: true })}
                         onChange={this.onChange}
                         placeholder='Tìm kiếm...'
-                    />
+                        rows={1}
+                    ></textarea>
 
                     {this.state.show && <div 
                         className='position-absolute border border-dark rounded bg-white shadow overflow-hidden'

@@ -14,6 +14,7 @@ import UserService from '../../services/UserService';
 import DangXuat from './Login/DangXuat';
 import Navbar from './Navbar';
 import KetQuaIndex from '../KetQua/KetQuaIndex';
+import TimKiem from './TimKiem/TimKiem';
 
 export default class Index extends Component {
 
@@ -36,6 +37,7 @@ export default class Index extends Component {
                     <PrivateRoute path="/tiet/:id" unique='id' component={TietDetail} />
                     <PrivateRoute path="/cau-hoi/:id" unique='id' component={CauHoiIndex} />
                     <PrivateRoute path="/kiem-tra/" unique='id' component={KetQuaIndex} />
+                    <PrivateRoute path="/tim-kiem/" unique='id' component={TimKiem} />
                 </Switch>
             </div>
         )

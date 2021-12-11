@@ -42,8 +42,12 @@ class PublicService {
         return API.post(`public/search/basic`, form)
     }
 
-    searchAdvance(form) {
-        return API.post(`public/search/advance`, form)
+    searchAdvance(form, type) {
+        return API.post(`public/search/advance/${type}`, form)
+    }
+
+    labels() {
+        return API.get(`public/search/labels`)
     }
 }
 
