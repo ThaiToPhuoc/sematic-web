@@ -2,6 +2,7 @@ package vn.tinhoc.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -309,11 +310,6 @@ public class PublicService {
 		Pair<String, List<BasicDTO>> ktStr = genericSearch.parse(text, KiemTra.class);
 		Pair<String, List<BasicDTO>> bgStr = genericSearch.parse(text, BaiGiang.class);
 
-		System.out.println(tiStr.getKey());
-		System.out.println(chStr.getKey());
-		System.out.println(ktStr.getKey());
-		System.out.println(bgStr.getKey());
-
 		List<Tiet> tiets = tietRepository.query(tiStr.getKey());
 		List<Chuong> chuongs = chuongRepository.query(chStr.getKey());
 		List<KiemTra> kiemTras = kiemtraRepository.query(ktStr.getKey());
@@ -390,5 +386,95 @@ public class PublicService {
 		));
 
 		return results;
+	}
+
+	public Object advanceSearch(String query, String type) {
+		switch (type) {
+			case "BaiGiang":
+				return Map.ofEntries(
+					Map.entry("type", "baigiang"),
+					Map.entry("results",
+						baiGiangRepository
+							.query(query)
+							.stream().map(baiGiang ->
+								Map.ofEntries(
+									Map.entry("url", removeSharp(baiGiang.getId())),
+									Map.entry("value", String.format(
+											"C-Trình lớp %s - H-Kỳ %d",
+											baiGiang.getChuongTrinh(),
+											baiGiang.getHocKy()
+										)
+									)
+								)
+							)
+					)
+				);
+			case "KiemTra":
+				return Map.ofEntries(
+						Map.entry("type", "kiemtra"),
+						Map.entry("results",
+							kiemtraRepository
+								.query(query)
+								.stream()
+								.map(kiemTra -> {
+									BaiGiang bg = kiemTra.getThuocBaiGiang();
+									String id = removeSharp(kiemTra.getId());
+									return Map.ofEntries(
+										Map.entry("url", removeSharp(id)),
+										Map.entry("value", String.format(
+												"Kiểm tra %s: C-Trình lớp %s - H-Kỳ %d",
+												id, bg.getChuongTrinh(), bg.getHocKy()
+											)
+										)
+									);
+								}
+							)
+						)
+				);
+			case "Chuong":
+				return Map.ofEntries(
+						Map.entry("type", "chuong"),
+						Map.entry("results",
+							chuongRepository
+								.query(query)
+								.stream()
+								.map(chuong ->
+								Map.ofEntries(
+									Map.entry("url", removeSharp(chuong.getId())),
+									Map.entry("value", String.format(
+											"Chương %d - %s",
+											chuong.getSTTChuong(),
+											chuong.getNoiDungChuong()
+										)
+									)
+								)
+							)
+						)
+				);
+			case "Tiet":
+				return Map.ofEntries(
+					Map.entry("type", "tiet"),
+					Map.entry("results",
+						tietRepository
+							.query(query)
+							.stream()
+							.map(tiet ->
+							Map.ofEntries(
+								Map.entry("url", removeSharp(tiet.getId())),
+								Map.entry("value", String.format(
+										"Chương %d Tiết %d - %s",
+										tiet.getThuocChuong().getSTTChuong(),
+										tiet.getSTTTiet(),
+										tiet.getLink()
+									)
+								)
+							)
+						)
+					)
+				);
+
+			default:
+				return Collections.emptyList();
+		}
 	}
 }

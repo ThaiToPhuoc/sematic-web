@@ -2,7 +2,11 @@ package vn.tinhoc.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Property;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,14 +19,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import vn.lanhoang.ontology.configuration.OntologyVariables;
+import vn.tinhoc.domain.BaiGiang;
 import vn.tinhoc.domain.Chuong;
+import vn.tinhoc.domain.KiemTra;
 import vn.tinhoc.domain.Tiet;
 import vn.tinhoc.domain.dto.BaiGiangDTO;
 import vn.tinhoc.domain.dto.CauHoiDTO;
 import vn.tinhoc.domain.dto.NopBaiDTO;
 import vn.tinhoc.repository.CauHoiRepository;
 import vn.tinhoc.service.PublicService;
+import vn.tinhoc.tokenizer.Dictionary;
+import vn.tinhoc.utils.DataUtils;
+import vn.tinhoc.utils.model.LContainer;
 
+import static vn.tinhoc.utils.DataUtils.distinctByKey;
 import static vn.tinhoc.utils.DataUtils.escapeMetaCharacters;
 
 @RestController
@@ -34,6 +45,12 @@ public class PublicController {
 	
 	@Autowired
 	CauHoiRepository cauHoiRepository;
+
+	@Autowired
+	OntologyVariables vars;
+
+	@Autowired
+	Dictionary dict;
 	
 	@GetMapping("/cau-hoi/{id}")
 	public ResponseEntity<?> listCauHoi(@PathVariable String id) {
@@ -97,5 +114,100 @@ public class PublicController {
 		return ResponseEntity.ok(publicService.basicSearch(
 				escapeMetaCharacters(map.get("text")))
 		);
+	}
+
+	@GetMapping("/search/labels")
+	public ResponseEntity<?> labels() {
+		Property property = ModelFactory.createDefaultModel().createProperty(vars.getBaseUri() + "dinhDanh");
+		List<LContainer> labels = DataUtils.getComments(property, BaiGiang.class, vars);
+		labels.addAll(DataUtils.getComments(property, KiemTra.class, vars));
+
+		return ResponseEntity.ok(labels.stream().filter(distinctByKey(LContainer::getType)).collect(Collectors.toList()));
+	}
+
+	@PostMapping("/search/advance/{type}")
+	public ResponseEntity<?> searchAdvance(@PathVariable String type,
+										   @RequestBody List<Map<String, Object>> lQueries) {
+		StringBuilder str = new StringBuilder("SELECT ?s { ");
+		str.append("\n\t");
+		str.append("?s rdf:type ");
+		str.append(vars.getPreffix());
+		str.append(type);
+		str.append(" .\n");
+		String qqq = lQueries
+				.stream()
+				.map(lQuery -> {
+					String s = "\n\t{\n\t\t";
+					s += advSea(lQuery, true);
+					s += "\n\t}\n";
+
+					return s;
+				}).collect(Collectors.joining("\t."));
+
+		str.append(qqq);
+		str.append("\n }");
+		System.out.println(str);
+
+		return ResponseEntity.ok(publicService.advanceSearch(str.toString(), type));
+	}
+
+	private String advSea(Map<String, Object> lQuery, boolean isHead) {
+		if (lQuery.get("value") instanceof String) {
+			String _ps = "?o" + lQuery.get("id");
+			String _s = _ps + "_v";
+			StringBuilder head = new StringBuilder();
+			if (!isHead) {
+				head.append(" ");
+				head.append(_ps);
+				head.append(" . ");
+				head.append("?o");
+				head.append(lQuery.get("id"));
+			} else {
+				head.append("?s");
+				head.append(" ");
+			}
+			head.append(" ");
+			head.append(vars.getPreffix());
+			head.append(lQuery.get("name"));
+			head.append(" ");
+			head.append(_s);
+			return new StringBuilder()
+					.append(head)
+					.append(" . ")
+					.append("FILTER( ")
+					.append(
+							StringUtils.isNotBlank((CharSequence) lQuery.get("value")) ?
+							dict.extract((String) lQuery.get("value"))
+									.stream()
+									.map(s -> String.format("regex(%s, \"%s\", \"i\")", _s, s))
+									.collect(Collectors.joining(" || ")) :
+							"regex(" + _s + ", \"\", \"i\")"
+					)
+					.append(" )")
+					.toString();
+		} else {
+			StringBuilder sb = new StringBuilder();
+			if (!isHead) {
+				sb.append("?o")
+					.append((String) lQuery.get("id"))
+					.append(" . ");
+				sb.append("?o")
+					.append((String) lQuery.get("id"))
+					.append(" ");
+			} else {
+				sb.append("?s ");
+			}
+
+			return sb.append(vars.getPreffix())
+					.append(lQuery.get("name"))
+					.append(" ")
+					.append(
+						advSea(
+							(Map<String, Object>) lQuery.get("value"),
+							false
+						)
+					)
+					.toString();
+		}
 	}
 }

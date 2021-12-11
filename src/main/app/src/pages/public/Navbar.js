@@ -47,16 +47,16 @@ class Navbar extends Component {
                  <nav className="navbar navbar-expand-lg navbar-light sticky-top mx-auto"
                     style={{backgroundColor: '#e3f2fd'}}
                  >
-                    <div class="container-fluid">
+                    <div className="container-fluid">
                         <Link className='navbar-brand' to='/'>Trang chủ</Link>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto">
-                                <li class="nav-item dropdown">
+                                <li className="nav-item dropdown">
                                     <a 
-                                        class="nav-link dropdown-toggle" 
+                                        className="nav-link dropdown-toggle" 
                                         href="#" id="navbarDropdown" 
                                         role="button" 
                                         data-bs-toggle="dropdown" 
@@ -64,7 +64,7 @@ class Navbar extends Component {
                                     >
                                         Chương trình
                                     </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     {this.state.BaiGiang.map((bg) => {
                                         let id = TruncateSharp(bg.id)
                                         return (
@@ -81,8 +81,11 @@ class Navbar extends Component {
                                 <li className="nav-item ms-1">
                                     <Link to='/kiem-tra' className='nav-link'>Kết quả kiểm tra</Link>
                                 </li>
+
+                                <li className="nav-item ms-1">
+                                    <Link to='/tim-kiem' className='nav-link'>Tìm kiếm nâng cao</Link>
+                                </li>
                             </ul>
-                        
                             <span className='me-3 w-50'>
                                 <BasicSearch />
                             </span>
