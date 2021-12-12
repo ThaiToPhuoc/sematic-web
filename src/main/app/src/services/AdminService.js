@@ -48,6 +48,18 @@ class AdminService {
             }
         })
     }
+
+    deleteBaiGiang(form) {
+        return API.put(`/admin/delete/bai-giang`, form)
+    }
+
+    deleteChuong(form) {
+        return API.put(`/admin/delete/chuong`, form)
+    }
+
+    deleteKiemTra(form) {
+        return API.put(`/admin/delete/kiem-tra`, form)
+    }
 }
 
 export default new AdminService();

@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import vn.tinhoc.domain.BaiGiang;
 import vn.tinhoc.domain.Chuong;
+import vn.tinhoc.domain.KiemTra;
 import vn.tinhoc.domain.request.KiemTraWrite;
 import vn.tinhoc.repository.BaiGiangRepository;
 import vn.tinhoc.repository.ChuongRepository;
 import vn.tinhoc.service.AdminService;
+import vn.tinhoc.service.BaiGiangService;
 import vn.tinhoc.service.StreamService;
 
 import javax.annotation.security.PermitAll;
@@ -40,6 +42,9 @@ public class AdminController {
 
     @Autowired
     ChuongRepository chuongRepository;
+
+    @Autowired
+    BaiGiangService baiGiangService;
 
     @GetMapping("/bai-giang")
     public ResponseEntity<?> findAllBaiGiang() {
@@ -138,5 +143,26 @@ public class AdminController {
         }
 
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/delete/bai-giang")
+    public ResponseEntity<?> delete(@RequestBody BaiGiang baiGiang) {
+        baiGiangService.delete(baiGiang);
+
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/delete/chuong")
+    public ResponseEntity<?> delete(@RequestBody Chuong chuong) {
+        baiGiangService.delete(chuong);
+
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/delete/kiem-tra")
+    public ResponseEntity<?> delete(@RequestBody KiemTra kiemTra) {
+        baiGiangService.delete(kiemTra);
+
+        return ResponseEntity.ok().build();
     }
 }

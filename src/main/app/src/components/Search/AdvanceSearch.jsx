@@ -120,7 +120,7 @@ export default class AdvanceSearch extends Component {
                                     ...prev,
                                     queries: [],
                                     options: { r: i }
-                                }))
+                                })) 
                             }}
                         >{labels.find(l => l.type === r)?.label}</span>
                     ))}
