@@ -124,6 +124,9 @@ public class AdminService {
         Chuong chuongTemp = new Chuong();
         chuongTemp.setId(chuongId);
         chuong.setId(chuongId);
+        if (bg.getGomChuong() == null) {
+            bg.setGomChuong(new ArrayList<>());
+        }
         bg.getGomChuong().add(chuong);
         chuong.setThuocBaiGiang(bg);
 
