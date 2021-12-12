@@ -5,7 +5,7 @@ import Select from 'react-select';
 import arrayMutators from "final-form-arrays";
 import { Required } from '../../../../components/helpers/FieldValidate';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faExclamationTriangle, faPlusSquare, faTimes } from '@fortawesome/free-solid-svg-icons';
 import AdminService from '../../../../services/AdminService';
 import Notify from '../../../../components/notify/Notify';
 import ReactQuill, { Quill } from 'react-quill'
@@ -19,6 +19,22 @@ const SelectAdapter = ({ input, ...rest }) => (
 Quill.register('modules/imageResize', ImageResize);
 
 export default class ChuongModal extends Component {
+    modules = {  
+        toolbar: {  
+            container: [  
+                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  
+                ['bold', 'italic', 'underline'],  
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],  
+                [{ 'align': [] }],  
+                ['link', 'image'],  
+                ['clean'],  
+                [{ 'color': [] }]  
+            ]
+        },  
+        imageResize: { 
+            modules: [ 'Resize', 'DisplaySize', 'Toolbar' ]
+        }
+    }
     constructor(props) {
         super(props)
 
@@ -32,13 +48,13 @@ export default class ChuongModal extends Component {
                             && Object.getPrototypeOf(props.form) === Object.prototype)
 
         this.state = {
-            isReadMode: props.readMode  && !formIsEmpty ? true : false,
-            createMode: formIsEmpty
+            isReadMode: props.readMode && !formIsEmpty ? true : false,
+            createMode: formIsEmpty,
+            isDeleting: false
         }
     }
 
     onSubmit = (values, form) => {
-        // console.log(values)
         if (this.state.createMode) {
             AdminService.createChuong(values)
             .then(response => {
@@ -46,6 +62,8 @@ export default class ChuongModal extends Component {
                     Notify.success('Tạo thành công 1 Chương!')
                     this.props.refresh()
                     this.onClose(form)
+                } else {
+                    Notify.error('Đã có lỗi xảy ra')
                 }
             })
         } else {
@@ -55,6 +73,8 @@ export default class ChuongModal extends Component {
                     Notify.success('Cập nhật thành công 1 Chương!')
                     this.props.refresh()
                     this.onClose(form)
+                } else {
+                    Notify.error('Đã có lỗi xảy ra')
                 }
             })
         }
@@ -76,6 +96,7 @@ export default class ChuongModal extends Component {
     }
 
     render() {
+        const DelBTN = <FontAwesomeIcon icon={faExclamationTriangle} />
         return (
             <Form 
                 onSubmit={this.onSubmit}
@@ -162,9 +183,9 @@ export default class ChuongModal extends Component {
                                                 />
 
                                                 {!this.state.isReadMode ?
-                                                <div class="input-group-append">
+                                                <div className="input-group-append">
                                                     <span
-                                                        class="input-group-text"
+                                                        className="input-group-text"
                                                         onClick={() => fields.remove(index)}
                                                         style={{ cursor: 'pointer' }}
                                                     >
@@ -185,36 +206,21 @@ export default class ChuongModal extends Component {
                                             /> */}
                                             <Field name={`${tiet}.noiDungTiet`} validate={Required}>
                                                 {({ input, meta }) => (
-                                                    <>
                                                     <ReactQuill 
+                                                        modules={this.modules}  
                                                         className={this.state.isReadMode ? '' : 'bg-white'}
+                                                        defaultValue={input.value ? input.value : ''}
                                                         disabled={this.state.isReadMode}
                                                         readOnly={this.state.isReadMode}
-                                                        {...input}
+                                                        onChange={input.onChange}
+                                                        onFocus={input.onFocus}
+                                                        onBlur={input.onBlur}
                                                         style={{
                                                             zIndex: 99999,
                                                             clear: 'both',
                                                             zoom: 1
                                                         }}
-                                                        modules={{  
-                                                            toolbar: {  
-                                                                container: [  
-                                                                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  
-                                                                    ['bold', 'italic', 'underline'],  
-                                                                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],  
-                                                                    [{ 'align': [] }],  
-                                                                    ['link', 'image'],  
-                                                                    ['clean'],  
-                                                                    [{ 'color': [] }]  
-                                                                ]
-                                                            },  
-                                                            imageResize: { 
-                                                                modules: [ 'Resize', 'DisplaySize', 'Toolbar' ]
-                                                            }
-                                                        }}  
                                                     />
-                                                    {meta.error && meta.touched && <div className='text-danger'>{meta.error}</div>}
-                                                    </>
                                                 )}
                                             </Field>
                                             <div className='my-2' style={{borderTop: '2px dotted rgba(0, 0, 0, 0.1)'}}></div>
@@ -225,7 +231,9 @@ export default class ChuongModal extends Component {
                                         <FontAwesomeIcon 
                                             className='fs-4 text-success pointer' 
                                             icon={faPlusSquare} 
-                                            onClick={() => form.mutators.push('gomTiet', { stttiet: values.gomTiet ? values.gomTiet.length + 1 : 1 })}
+                                            onClick={() => form.mutators.push('gomTiet', { 
+                                                stttiet: values.gomTiet ? values.gomTiet.length + 1 : 1
+                                            })}
                                         />
                                     </div>
                                     : <></>
@@ -236,7 +244,38 @@ export default class ChuongModal extends Component {
                         
                         <hr />
                         <div className='row'>
-                            <div className='col-md-12 px-0 text-end text-right'>
+                            <div className='col-6 px-0 text-start text-left'>
+                                {!this.state.isReadMode && 
+                                !this.state.isDeleting && 
+                                !this.state.createMode && <span
+                                    className='btn btn-outline-danger'
+                                    onClick={() => this.setState({ isDeleting: true })}
+                                >
+                                    {DelBTN} Xóa
+                                </span>}
+
+                                {!this.state.isReadMode && 
+                                this.state.isDeleting && 
+                                !this.state.createMode && <>
+                                    <span
+                                        className='btn btn-danger'
+                                        onClick={() => {
+                                            AdminService.deleteChuong(this.props.form)
+                                            .then(response => {
+                                                if (response?.status === 200) {
+                                                    Notify.warn('Đã xóa thành công 1 chương!')
+                                                    this.props.refresh()
+                                                    this.onClose(form)
+                                                }
+                                            })
+                                        }}
+                                    >
+                                        {DelBTN} XÁC NHẬN XÓA {DelBTN}
+                                    </span>
+                                    <span className='text-danger'> dữ liệu sẽ bị xóa vĩnh viễn </span>
+                                </>}
+                            </div>
+                            <div className='col-6 px-0 text-end text-right'>
                                 {this.state.isReadMode ?
                                 <span 
                                     className='btn btn-warning me-1' 

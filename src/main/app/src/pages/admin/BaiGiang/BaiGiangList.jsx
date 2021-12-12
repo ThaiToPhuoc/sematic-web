@@ -9,11 +9,12 @@ import BaiGiangCreate from './BaiGiangCreate'
 
 import './style.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFileVideo, faList, faPlusCircle, faPlusSquare } from '@fortawesome/free-solid-svg-icons'
+import { faFileVideo, faList, faPlusCircle, faPlusSquare, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { TruncateSharp } from '../../../components/helpers/FieldValidate'
 import ChuongModal from './Chuong/ChuongModal'
 import KiemTraModal from './KiemTra/KiemTraModal'
 import VideoModal from './Media/VideoModal'
+import BaiGiangDeleteModal from './BaiGiangDeleteModal'
 
 const modalStyle = {
     content: {
@@ -47,6 +48,22 @@ export default class BaiGiangList extends Component {
                             fixedWidth
                         />
                     </h5>
+                ),
+            },
+            {
+                name: '',
+                selector: row => (
+                    <span className='rounded btn btn-outline-danger px-1' onClick={() => {
+                        this.select(row)
+                        this.setState({
+                            mBGDelModal: true
+                        })
+                    }}>
+                        <FontAwesomeIcon 
+                            icon={faTimes}
+                            fixedWidth
+                        /> <small className='me-1'>Xóa</small>
+                    </span>
                 ),
             }
         )
@@ -90,6 +107,7 @@ export default class BaiGiangList extends Component {
             mChuongModal: false,
             mCreateVisible: false,
             mKiemTraModal: false,
+            mBGDelModal: false,
             cacChuong: [],
             currChuong: {},
             currKiemTra: { },
@@ -343,6 +361,17 @@ export default class BaiGiangList extends Component {
                 <VideoModal 
                     id={this.state.currChuong?.id}
                     close={() => this.setState({ mVideoModal: false, currChuong: { } })}
+                />
+            </ReactModal>
+
+            <ReactModal
+                style={modalStyle}
+                isOpen={this.state.mBGDelModal}
+            >
+                <BaiGiangDeleteModal 
+                    form={this.state.baiGiangs.find(bg => bg.selected)}
+                    close={() => this.setState({ mBGDelModal: false })}
+                    refresh={this.refresh}
                 />
             </ReactModal>
             </>

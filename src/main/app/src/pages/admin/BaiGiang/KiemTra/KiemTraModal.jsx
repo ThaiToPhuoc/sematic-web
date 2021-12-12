@@ -4,7 +4,7 @@ import { FieldArray } from 'react-final-form-arrays';
 import arrayMutators from "final-form-arrays";
 import { Required, Alphabetical } from '../../../../components/helpers/FieldValidate';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faExclamationTriangle, faPlusSquare, faTimes } from '@fortawesome/free-solid-svg-icons';
 import AdminService from '../../../../services/AdminService';
 import Notify from '../../../../components/notify/Notify';
 
@@ -55,6 +55,7 @@ export default class KiemTraModal extends Component {
     }
 
     render() {
+        const DelBTN = <FontAwesomeIcon icon={faExclamationTriangle} />
         return (
             <Form 
                 onSubmit={this.onSubmit}
@@ -160,7 +161,7 @@ export default class KiemTraModal extends Component {
                                                                     <div className='ms-auto'>
                                                                         {!this.state.isReadMode ?
                                                                         <span
-                                                                            onClick={() => fields.remove(index)}
+                                                                            onClick={() => fields.remove(indexChild)}
                                                                             style={{ cursor: 'pointer' }}
                                                                         >
                                                                             <FontAwesomeIcon className='fs-4 text-warning' icon={faTimes} />
@@ -218,7 +219,38 @@ export default class KiemTraModal extends Component {
                         
                         <hr />
                         <div className='row'>
-                            <div className='col-md-12 px-0 text-end text-right'>
+                        <div className='col-6 px-0 text-start text-left'>
+                                {!this.state.isReadMode && 
+                                !this.state.isDeleting && 
+                                !this.state.createMode && <span
+                                    className='btn btn-outline-danger'
+                                    onClick={() => this.setState({ isDeleting: true })}
+                                >
+                                    {DelBTN} Xóa
+                                </span>}
+
+                                {!this.state.isReadMode && 
+                                this.state.isDeleting && 
+                                !this.state.createMode && <>
+                                    <span
+                                        className='btn btn-danger'
+                                        onClick={() => {
+                                            AdminService.deleteKiemTra(this.props.form?.kiemTra)
+                                            .then(response => {
+                                                if (response?.status === 200) {
+                                                    Notify.warn('Đã xóa thành công 1 bài Kiểm tra!')
+                                                    this.props.refresh()
+                                                    this.onClose(form)
+                                                }
+                                            })
+                                        }}
+                                    >
+                                        {DelBTN} XÁC NHẬN XÓA {DelBTN}
+                                    </span>
+                                    <span className='text-danger'> dữ liệu sẽ bị xóa vĩnh viễn </span>
+                                </>}
+                            </div>
+                            <div className='col-6 px-0 text-end text-right'>
                                 {this.state.isReadMode ?
                                 <span 
                                     className='btn btn-warning me-1' 
