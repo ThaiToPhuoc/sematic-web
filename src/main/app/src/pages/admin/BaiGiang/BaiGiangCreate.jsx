@@ -10,7 +10,7 @@ export default class BaiGiangCreate extends Component {
         AdminService.createBaiGiang(values)
         .then(response => {
             if (response?.status === 200) {
-                Notify.success('Tạo thành công 1 Bài giảng!')
+                Notify.success('Tạo thành công 1 Chương trình!')
                 this.props.refresh()
                 this.onClose(form)
             }
