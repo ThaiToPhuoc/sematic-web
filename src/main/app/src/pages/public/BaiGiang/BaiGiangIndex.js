@@ -63,7 +63,7 @@ export default class BaiGiangIndex extends Component {
                     
                 </div>
                 <div className='container'>
-                    <h2 class="text-center">Danh sách các bài giảng</h2>
+                    <h2 class="text-center">Danh sách các chương trình</h2>
                     {
                         this.state.BaiGiang.map((bg) =>(
                                 <Accordion title={`Chương trình lớp ${bg.chuongTrinh} - Học kỳ ${bg.hocKy}`}>

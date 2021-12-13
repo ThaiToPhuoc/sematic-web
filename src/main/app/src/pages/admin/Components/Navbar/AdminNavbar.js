@@ -15,7 +15,7 @@ const items = [
     {
         tag: 'bai-giang',
         icon: faChalkboardTeacher,
-        title: 'Bài giảng',
+        title: 'Chương trình',
         path: '/bai-giang'
     },
 ]

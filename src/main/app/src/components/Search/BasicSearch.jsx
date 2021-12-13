@@ -8,7 +8,7 @@ import PublicService from '../../services/PublicService'
 const Map = {
     baigiang: {
         path: '/bai-giang',
-        label: 'Bài Giảng'
+        label: 'Chương trình'
     },
     chuong: {
         path: '/chuong',

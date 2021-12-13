@@ -47,7 +47,7 @@ export default class BaiGiangDeleteModal extends Component {
                                     AdminService.deleteBaiGiang(this.props.form)
                                     .then(response => {
                                         if (response?.status === 200) {
-                                            Notify.warn('Đã xóa thành công 1 bài giảng!')
+                                            Notify.warn('Đã xóa thành công 1 chương trình!')
                                             this.props.refresh()
                                         }
                                     })
