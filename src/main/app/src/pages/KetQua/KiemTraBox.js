@@ -32,7 +32,7 @@ export default class KiemTraBox extends Component {
         KQ.cauHoiDTOS.forEach(dto => {
             let DAnDung = dto.dapAns.find(da => da.ketQua)
 
-            let TLDung = KQ.kqKiemTra.gomDapAn.find(da => da.id === DAnDung.id)
+            let TLDung = KQ?.kqKiemTra?.gomDapAn?.find(da => da.id === DAnDung?.id)
             if (TLDung) score++
         })
 
