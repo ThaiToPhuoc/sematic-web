@@ -82,9 +82,9 @@ class CauHoiIndex extends Component {
             let dapAnDung = ch.dapAns.find(d => d.ketQua)
 
             let kqMsgs = {
-                sai: <>Bạn đã trả lời sai! <p>Đáp án đúng: <b>{dapAnDung.noiDungDapAn}</b></p></>,
+                sai: <>Bạn đã trả lời sai! <p>Đáp án đúng: <b>{dapAnDung?.noiDungDapAn}</b></p></>,
                 dung: 'Chính xác!',
-                chuaLam: <>Bạn chưa làm câu này! <p>Đáp án: <b>{dapAnDung.noiDungDapAn}</b></p></>
+                chuaLam: <>Bạn chưa làm câu này! <p>Đáp án: <b>{dapAnDung?.noiDungDapAn}</b></p></>
             }
             ch.dapAns.forEach((d) => {
 

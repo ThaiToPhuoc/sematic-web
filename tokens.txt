@@ -1,10 +1,10 @@
 and:&&
 or:||
 with:=>
-GiaoVien:Ho,TenTaiKhoan,id,Ten,MatKhau
 Role:#TenQuyen,id
-Tiet:STTTiet,ThuocChuong~Chuong,id,TuKhoa,Link,NoiDungTiet
+GiaoVien:Ho,TenTaiKhoan,id,Ten,MatKhau
 User:id,GomQuyen~Role,MatKhau,#TenTaiKhoan
+Tiet:STTTiet,ThuocChuong~Chuong,id,TuKhoa,Link,NoiDungTiet
 KQKiemTra:CuaHocSinh~User,CuaBaiKiemTra~KiemTra,id,GomDapAn~DapAn
 CauHoi:NoiDungCauHoi,id,TuKhoa,STTCauHoi
 DapAn:NoiDungDapAn,KetQua,id,ThuocCauHoi~CauHoi
